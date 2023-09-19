@@ -26,13 +26,13 @@ category/#_description:
 * description is a word that better describes the issue. The description will only have camelCase style and will not be longer than 15 characters.
 
 ### Ex:
-Issue #4
+Issue #1
 
-Title: Implementation of GetCrimesByDate
+Title: Implementation of the login view
 
-description: GetCrimesByDate feature might be implemented. This is going to be used to create the heatMap in the front.
+description: The login view might be developed taking into account the design. Figmalink...
 
 the branch will be:
 
-feature/4_crimesByDate
+feature/1_loginView
 
