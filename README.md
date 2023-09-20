@@ -20,7 +20,7 @@ The other branches will go under the the next categories
 
 Any Issue apart from the `#1` (Creation of the project) might be under one of these categories. The branch name might be based on the following convention:
 
-category/#_description:
+category/description-#:
 * The category is one of the `feature`, `release`, `hotifx`, `bugfix` or `support`.
 * `#` is the Issue number
 * description is a word that better describes the issue. The description will only have camelCase style and will not be longer than 15 characters.
@@ -34,5 +34,5 @@ description: The login view might be developed taking into account the design. F
 
 the branch will be:
 
-feature/1_loginView
+feature/loginView-#1
 
