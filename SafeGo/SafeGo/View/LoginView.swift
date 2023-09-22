@@ -9,10 +9,18 @@ import SwiftUI
 
 struct LoginView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Spacer()
+            FormView()
+                .frame(width: UIScreen.main.bounds.width,
+                       height: UIScreen.main.bounds.height / 2)
+        }
+
     }
 }
 
-#Preview {
-    LoginView()
+struct LoginView_Previews: PreviewProvider {
+    static var previews: some View {
+        LoginView()
+    }
 }

@@ -9,16 +9,14 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            LoginView()
         }
-        .padding()
     }
 }
 
-#Preview {
-    MainView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
+    }
 }
