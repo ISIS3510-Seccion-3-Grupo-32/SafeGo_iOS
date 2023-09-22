@@ -14,7 +14,7 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Spacer().blur(radius: /*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
+                Spacer()
                 ZStack {
                     RoundedRectangle(cornerRadius: 25)
                         .foregroundColor(Color(hex: 0x96CEB4))
@@ -86,8 +86,8 @@ struct LoginView: View {
                 Image("Map")
                     .resizable()
                     .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                    .frame(width: UIScreen.main.bounds.width * 1.1,
-                           height: UIScreen.main.bounds.height * 1.1)
+                    .frame(width: UIScreen.main.bounds.width * 1.2,
+                           height: UIScreen.main.bounds.height * 1.2)
                     .blur(radius: 1.8)
             )
             
