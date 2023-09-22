@@ -11,7 +11,7 @@
 		E0DDD2332ABD116F0053F726 /* LoginViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DDD2322ABD116F0053F726 /* LoginViewViewModel.swift */; };
 		E0DDD2352ABD11780053F726 /* RegisterViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DDD2342ABD11780053F726 /* RegisterViewViewModel.swift */; };
 		E0DDD2392ABD2AC40053F726 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DDD2382ABD2AC40053F726 /* LoginView.swift */; };
-		E0DDD23D2ABD338E0053F726 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DDD23C2ABD338E0053F726 /* FormView.swift */; };
+		E0DDD23F2ABD458B0053F726 /* SGButtonLR.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DDD23E2ABD458B0053F726 /* SGButtonLR.swift */; };
 		E0F085C32ABD010C00EA1F8E /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F085C22ABD010C00EA1F8E /* RegisterView.swift */; };
 		E0F085C52ABD022000EA1F8E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F085C42ABD022000EA1F8E /* User.swift */; };
 		E0FD2D4A2ABA6BF60007A195 /* SafeGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FD2D492ABA6BF60007A195 /* SafeGoApp.swift */; };
@@ -25,7 +25,7 @@
 		E0DDD2322ABD116F0053F726 /* LoginViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewViewModel.swift; sourceTree = "<group>"; };
 		E0DDD2342ABD11780053F726 /* RegisterViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewViewModel.swift; sourceTree = "<group>"; };
 		E0DDD2382ABD2AC40053F726 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		E0DDD23C2ABD338E0053F726 /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
+		E0DDD23E2ABD458B0053F726 /* SGButtonLR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGButtonLR.swift; sourceTree = "<group>"; };
 		E0F085C22ABD010C00EA1F8E /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		E0F085C42ABD022000EA1F8E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E0FD2D462ABA6BF60007A195 /* SafeGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,7 +60,7 @@
 				E0F085C22ABD010C00EA1F8E /* RegisterView.swift */,
 				E0FD2D4B2ABA6BF60007A195 /* MainView.swift */,
 				E0DDD2382ABD2AC40053F726 /* LoginView.swift */,
-				E0DDD23C2ABD338E0053F726 /* FormView.swift */,
+				E0DDD23E2ABD458B0053F726 /* SGButtonLR.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,11 +192,11 @@
 			files = (
 				E0DDD2332ABD116F0053F726 /* LoginViewViewModel.swift in Sources */,
 				E0DDD2352ABD11780053F726 /* RegisterViewViewModel.swift in Sources */,
+				E0DDD23F2ABD458B0053F726 /* SGButtonLR.swift in Sources */,
 				E0F085C32ABD010C00EA1F8E /* RegisterView.swift in Sources */,
 				E0DDD2312ABD11690053F726 /* MainViewViewModel.swift in Sources */,
 				E0FD2D4C2ABA6BF60007A195 /* MainView.swift in Sources */,
 				E0F085C52ABD022000EA1F8E /* User.swift in Sources */,
-				E0DDD23D2ABD338E0053F726 /* FormView.swift in Sources */,
 				E0DDD2392ABD2AC40053F726 /* LoginView.swift in Sources */,
 				E0FD2D4A2ABA6BF60007A195 /* SafeGoApp.swift in Sources */,
 			);
