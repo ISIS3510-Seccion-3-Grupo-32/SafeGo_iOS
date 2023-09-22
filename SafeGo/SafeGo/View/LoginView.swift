@@ -9,8 +9,8 @@ import SwiftUI
 import UIKit
 
 struct LoginView: View {
-    @State var username = ""
-    @State var password = ""
+    @StateObject var viewModel = LoginViewViewModel()
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -21,6 +21,7 @@ struct LoginView: View {
                         .offset(y:40)
                     
                     VStack {
+                        Spacer()
                         Spacer()
                         Spacer()
                         
@@ -42,14 +43,19 @@ struct LoginView: View {
                         Spacer()
                         Spacer()
                         
+                        if !viewModel.errorMessage.isEmpty {
+                            Text(viewModel.errorMessage)
+                                .foregroundColor(Color.red)
+                        }
+                        
                         // Login Form
-                        TextField("Username", text: $username)
+                        TextField("Username", text: $viewModel.username)
                             .padding()
                             .frame(height: UIScreen.main.bounds.height / 15)
                             .background(Color.white)
                             .cornerRadius(10)
                             .autocapitalization(.words)
-                        SecureField("Password", text: $password)
+                        SecureField("Password", text: $viewModel.password)
                             .padding()
                             .frame(height: UIScreen.main.bounds.height / 15)
                             .background(Color.white)
@@ -58,7 +64,7 @@ struct LoginView: View {
                             .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                         
                         SGButtonLR(title: "login") {
-                            // Atemp login
+                            viewModel.login()
                         }
                         
                         Spacer()
