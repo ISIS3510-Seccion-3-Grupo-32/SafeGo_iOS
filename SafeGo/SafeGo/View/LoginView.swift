@@ -75,18 +75,19 @@ struct LoginView: View {
                                 .foregroundColor(.white)
                             NavigationLink("Register Now", destination: RegisterView())
                         }
+                        .padding()
                     }
                     .padding()
                 }
                 .frame(width: UIScreen.main.bounds.width,
-                       height: UIScreen.main.bounds.height / 2)
+                       height: UIScreen.main.bounds.height / 1.9)
             }
             .background(
                 Image("Map")
                     .resizable()
                     .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                    .frame(width: UIScreen.main.bounds.width,
-                           height: UIScreen.main.bounds.height)
+                    .frame(width: UIScreen.main.bounds.width * 1.1,
+                           height: UIScreen.main.bounds.height * 1.1)
                     .blur(radius: 1.8)
             )
             
