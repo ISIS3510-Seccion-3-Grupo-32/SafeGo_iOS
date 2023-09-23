@@ -64,10 +64,17 @@ struct LoginView: View {
                             .autocorrectionDisabled()
                             .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                         
-                        SGButtonLR(title: "Login") {
+                        
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundColor(.white)
+                                .frame(width: UIScreen.main.bounds.width / 1.5,
+                                       height: UIScreen.main.bounds.height / 18)
+                                .padding()
                             
+                            NavigationLink("Login", destination: HomeView())
                         }
-                        NavigationLink("LoginToHome", destination: HomeView())
+                        
                         
                         Spacer()
                         
