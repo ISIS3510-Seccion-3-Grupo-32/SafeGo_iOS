@@ -9,27 +9,21 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var viewModel = HomeViewViewModel()
-
     
     var body: some View {
         
         VStack{
             Spacer()
-            
             ZStack{
                 RoundedRectangle(cornerRadius: 25)
                     .foregroundColor(Color(hex: 0x96CEB4))
                     .offset(y:40)
-                
                 VStack{
                     Spacer()
                     Spacer()
                     Spacer()
                     Spacer()
                     Spacer()
-
-
-                    
                     //Where to
                     HStack{
                         TextField("Where to?", text: $viewModel.whereto)
@@ -40,15 +34,14 @@ struct HomeView: View {
                             .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
                             .foregroundColor(.gray)
 
-                        Button{
-
-                        }label: {
+                        NavigationLink {
+                            TravelsView()
+                        } label: {
                             Image("calendar")
                                 .frame(width: UIScreen.main.bounds.width / 5, height: UIScreen.main.bounds.height / 11)
                         }
                     }
                     .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                    
                     //Home
                     ZStack{
                         RoundedRectangle(cornerRadius: 25)
@@ -80,7 +73,6 @@ struct HomeView: View {
                         }
                         .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
                     }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                    
                     //Educatioon
                     ZStack{
                         RoundedRectangle(cornerRadius: 25)
@@ -96,7 +88,6 @@ struct HomeView: View {
                         }
                         .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
                     }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                    
                     //Partner
                     ZStack{
                         RoundedRectangle(cornerRadius: 25)
@@ -112,11 +103,8 @@ struct HomeView: View {
                         }
                         .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
                     }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-
                 }
                 .padding()
-
-
             }
             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/1.6)
             .background(
