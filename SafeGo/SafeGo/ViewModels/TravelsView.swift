@@ -19,7 +19,6 @@ struct TravelsView: View {
                 RoundedRectangle(cornerRadius: 25)
                     .foregroundColor(Color(hex: 0x96CEB4))
                     .offset(y:60)
-                
                 VStack{
                     Spacer()
                     Text("Travel History:")
@@ -29,7 +28,6 @@ struct TravelsView: View {
                         .padding(.bottom, 10)
                         .frame(width: UIScreen.main.bounds.width - 40,
                                alignment: .leading)
-
                     //Trip1
                     TextField("Trip1", text: $viewModel.travel1)
                         .font(Font.custom("DM Sans", size: 17))
@@ -38,8 +36,7 @@ struct TravelsView: View {
                         .background(Color.white)
                         .cornerRadius(10)
                         .autocapitalization(.words)
-                    
-                    //Trip1
+                    //Trip2
                     TextField("Trip2", text: $viewModel.travel2)
                         .font(Font.custom("DM Sans", size: 17))
                         .padding()
@@ -47,8 +44,7 @@ struct TravelsView: View {
                         .background(Color.white)
                         .cornerRadius(10)
                         .autocapitalization(.words)
-                    
-                    //Trip1
+                    //Trip3
                     TextField("Trip3", text: $viewModel.travel3)
                         .font(Font.custom("DM Sans", size: 17))
                         .padding()
@@ -56,8 +52,7 @@ struct TravelsView: View {
                         .background(Color.white)
                         .cornerRadius(10)
                         .autocapitalization(.words)
-                    
-                    //Trip1
+                    //Trip4
                     TextField("Trip4", text: $viewModel.travel4)
                         .font(Font.custom("DM Sans", size: 17))
                         .padding()
@@ -65,10 +60,8 @@ struct TravelsView: View {
                         .background(Color.white)
                         .cornerRadius(10)
                         .autocapitalization(.words)
-
                 }
                 .padding()
-
             }
             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/1.9)
             .background(
@@ -80,9 +73,7 @@ struct TravelsView: View {
                     .blur(radius: 1.8))
         }
     }
-
-    }
-
+}
 
 #Preview {
     TravelsView()
