@@ -24,7 +24,8 @@ struct LoginView: View {
                         Spacer()
                         Spacer()
                         Spacer()
-                        
+                        Spacer()
+
                         Text("Welcome to SafeGo")
                             .font(Font.custom("DM Sans", size: 30))
                             .foregroundColor(.white)
@@ -63,9 +64,10 @@ struct LoginView: View {
                             .autocorrectionDisabled()
                             .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                         
-                        SGButtonLR(title: "login") {
-                            viewModel.login()
+                        SGButtonLR(title: "Login") {
+                            
                         }
+                        NavigationLink("LoginToHome", destination: HomeView())
                         
                         Spacer()
                         
