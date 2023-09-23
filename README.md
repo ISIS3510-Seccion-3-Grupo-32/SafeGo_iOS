@@ -35,4 +35,3 @@ description: The login view might be developed taking into account the design. F
 the branch will be:
 
 feature/loginView-#1
-
