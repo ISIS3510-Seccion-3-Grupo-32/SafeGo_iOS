@@ -40,12 +40,13 @@ struct HomeView: View {
                             .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
                             .foregroundColor(.gray)
 
-                        Button{
-
-                        }label: {
+                        NavigationLink {
+                            TravelsView()
+                        } label: {
                             Image("calendar")
                                 .frame(width: UIScreen.main.bounds.width / 5, height: UIScreen.main.bounds.height / 11)
                         }
+                      
                     }
                     .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                     
