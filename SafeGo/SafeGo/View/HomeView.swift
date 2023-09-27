@@ -97,7 +97,7 @@ struct HomeView: View {
                             Image("partner")
                                 .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
                                 .padding(.horizontal, UIScreen.main.bounds.width / 15)
-                            NavigationLink("Partner", destination: MainView())
+                            NavigationLink("Partner", destination: navigationTest())
                                 .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
                                 .foregroundColor(.gray)
                         }
