@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
+<<<<<<< Updated upstream
    LastUpgradeVersion = "1430"
+=======
+   LastUpgradeVersion = "1500"
+>>>>>>> Stashed changes
    version = "2.2">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -16,11 +20,19 @@
             </AutocreatedTestPlanReference>
          </BuildActionEntry>
          <BuildActionEntry
+<<<<<<< Updated upstream
             buildForTesting = "NO"
             buildForRunning = "YES"
             buildForProfiling = "YES"
             buildForArchiving = "YES"
             buildForAnalyzing = "NO">
+=======
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+>>>>>>> Stashed changes
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E0FD2D452ABA6BF60007A195"
@@ -48,7 +60,12 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+<<<<<<< Updated upstream
       <MacroExpansion>
+=======
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+>>>>>>> Stashed changes
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E0FD2D452ABA6BF60007A195"
@@ -56,7 +73,11 @@
             BlueprintName = "SafeGo"
             ReferencedContainer = "container:SafeGo.xcodeproj">
          </BuildableReference>
+<<<<<<< Updated upstream
       </MacroExpansion>
+=======
+      </BuildableProductRunnable>
+>>>>>>> Stashed changes
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -64,7 +85,12 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+<<<<<<< Updated upstream
       <MacroExpansion>
+=======
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+>>>>>>> Stashed changes
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E0FD2D452ABA6BF60007A195"
@@ -72,7 +98,11 @@
             BlueprintName = "SafeGo"
             ReferencedContainer = "container:SafeGo.xcodeproj">
          </BuildableReference>
+<<<<<<< Updated upstream
       </MacroExpansion>
+=======
+      </BuildableProductRunnable>
+>>>>>>> Stashed changes
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
