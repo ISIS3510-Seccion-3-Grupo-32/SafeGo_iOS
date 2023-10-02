@@ -8,23 +8,21 @@
 import SwiftUI
 
 struct MainView: View {
-    @EnvironmentObject private var authStateManager: AuthStateManager
-
+    
+    @StateObject var viewModel = MainViewViewModel()
+    
     var body: some View {
-        NavigationView {
-            if authStateManager.isLoggedIn {
-                HomeView()
-            } else {
-                LoginView()
-            }
+        if viewModel.isSignedIn && !viewModel.currentUserId.isEmpty {
+            HomeView()
+        } else {
+            LoginView()
         }
     }
 }
 
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
-            .environmentObject(AuthStateManager())
+            .environmentObject(UserState())
     }
 }

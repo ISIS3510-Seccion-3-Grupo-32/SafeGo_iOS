@@ -9,7 +9,6 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var viewModel = HomeViewViewModel()
-    @StateObject var logoutViewModel = LoginViewViewModel(authService: AuthService(networkService: NetworkService(), authStateManager: AuthStateManager()))
     
     var body: some View {
         
@@ -105,14 +104,8 @@ struct HomeView: View {
                         .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
                     }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                     
-                    SGButtonLR(title:"logout") {
-                        logoutViewModel.logout { success in
-                            if success {
-                                print("logout successful")
-                            } else {
-                                print("failed logout")
-                            }
-                        }
+                    SGButtonLR(title: "logout"){
+                        viewModel.logOut()
                     }
                     
                 }

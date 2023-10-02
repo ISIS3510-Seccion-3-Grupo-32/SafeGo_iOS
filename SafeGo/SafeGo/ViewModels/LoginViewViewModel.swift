@@ -5,30 +5,25 @@
 //  Created by Juan Martin Santos Ayala on 21/09/23.
 //
 
+import FirebaseAuth
 import Foundation
 
 class LoginViewViewModel: ObservableObject {
     @Published var username = ""
     @Published var password = ""
     @Published var errorMessage = ""
-    private let authService: AuthService
     
-    init(authService: AuthService) {
-        self.authService = authService
+    init() {
     }
     
-    func login(completion: @escaping (Bool) -> Void) {
-        authService.login(email: username, password: password) { response in
-            let success = response?.statusCode == 200
-            completion(success)
+    func login() {
+        guard validation() else {
+            return
         }
+        
+        // Try to log in
+        Auth.auth().signIn(withEmail: username, password: password)
     }
-    
-    func logout(completion: @escaping (Bool) -> Void) {
-            authService.logout { success in
-                completion(success)
-            }
-        }
 
     private func validation() -> Bool {
         errorMessage = ""
