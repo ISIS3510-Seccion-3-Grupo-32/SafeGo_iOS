@@ -8,15 +8,23 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject private var authStateManager: AuthStateManager
+
     var body: some View {
         NavigationView {
-            LoginView()
+            if authStateManager.isLoggedIn {
+                HomeView()
+            } else {
+                LoginView()
+            }
         }
     }
 }
 
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+            .environmentObject(AuthStateManager())
     }
 }

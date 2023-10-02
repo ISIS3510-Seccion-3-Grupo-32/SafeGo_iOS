@@ -15,10 +15,11 @@
 		532632702AC3D80400F96002 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5326326F2AC3D80400F96002 /* Popup.swift */; };
 		E04FF6542ACA34E4002B0014 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FF6532ACA34E4002B0014 /* NetworkService.swift */; };
 		E04FF6562ACA34EB002B0014 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FF6552ACA34EB002B0014 /* AuthService.swift */; };
+		E04FF6582ACA5B5F002B0014 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FF6572ACA5B5F002B0014 /* UserService.swift */; };
+		E04FF65A2ACA5DFB002B0014 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FF6592ACA5DFB002B0014 /* LoginView.swift */; };
 		E0DDD2312ABD11690053F726 /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DDD2302ABD11690053F726 /* MainViewViewModel.swift */; };
 		E0DDD2332ABD116F0053F726 /* LoginViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DDD2322ABD116F0053F726 /* LoginViewViewModel.swift */; };
 		E0DDD2352ABD11780053F726 /* RegisterViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DDD2342ABD11780053F726 /* RegisterViewViewModel.swift */; };
-		E0DDD2392ABD2AC40053F726 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DDD2382ABD2AC40053F726 /* LoginView.swift */; };
 		E0DDD23F2ABD458B0053F726 /* SGButtonLR.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DDD23E2ABD458B0053F726 /* SGButtonLR.swift */; };
 		E0F085C32ABD010C00EA1F8E /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F085C22ABD010C00EA1F8E /* RegisterView.swift */; };
 		E0F085C52ABD022000EA1F8E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F085C42ABD022000EA1F8E /* User.swift */; };
@@ -37,10 +38,12 @@
 		5326326F2AC3D80400F96002 /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
 		E04FF6532ACA34E4002B0014 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E04FF6552ACA34EB002B0014 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		E04FF6572ACA5B5F002B0014 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		E04FF6592ACA5DFB002B0014 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginView.swift; path = ../../../../../../.Trash/LoginView.swift; sourceTree = "<group>"; };
+		E04FF65B2ACA5F4F002B0014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E0DDD2302ABD11690053F726 /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
 		E0DDD2322ABD116F0053F726 /* LoginViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewViewModel.swift; sourceTree = "<group>"; };
 		E0DDD2342ABD11780053F726 /* RegisterViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewViewModel.swift; sourceTree = "<group>"; };
-		E0DDD2382ABD2AC40053F726 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E0DDD23E2ABD458B0053F726 /* SGButtonLR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGButtonLR.swift; sourceTree = "<group>"; };
 		E0F085C22ABD010C00EA1F8E /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		E0F085C42ABD022000EA1F8E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -67,6 +70,7 @@
 			children = (
 				E04FF6532ACA34E4002B0014 /* NetworkService.swift */,
 				E04FF6552ACA34EB002B0014 /* AuthService.swift */,
+				E04FF6572ACA5B5F002B0014 /* UserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -82,10 +86,10 @@
 		E0F085BD2ABCB3F400EA1F8E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E04FF6592ACA5DFB002B0014 /* LoginView.swift */,
 				30D43F7A2ABEB7170069E0F0 /* TravelsView.swift */,
 				E0F085C22ABD010C00EA1F8E /* RegisterView.swift */,
 				E0FD2D4B2ABA6BF60007A195 /* MainView.swift */,
-				E0DDD2382ABD2AC40053F726 /* LoginView.swift */,
 				30DF54722ABE912E00C03732 /* HomeView.swift */,
 				E0DDD23E2ABD458B0053F726 /* SGButtonLR.swift */,
 				5326326F2AC3D80400F96002 /* Popup.swift */,
@@ -134,6 +138,7 @@
 		E0FD2D482ABA6BF60007A195 /* SafeGo */ = {
 			isa = PBXGroup;
 			children = (
+				E04FF65B2ACA5F4F002B0014 /* Info.plist */,
 				E04FF6522ACA34D0002B0014 /* Services */,
 				E0F085C62ABD025000EA1F8E /* ViewModels */,
 				E0F085BF2ABD003A00EA1F8E /* other */,
@@ -224,6 +229,7 @@
 			files = (
 				5326326E2ABED9E800F96002 /* MapViewViewModel.swift in Sources */,
 				E0DDD2332ABD116F0053F726 /* LoginViewViewModel.swift in Sources */,
+				E04FF6582ACA5B5F002B0014 /* UserService.swift in Sources */,
 				E0DDD2352ABD11780053F726 /* RegisterViewViewModel.swift in Sources */,
 				E0DDD23F2ABD458B0053F726 /* SGButtonLR.swift in Sources */,
 				30DF54732ABE912E00C03732 /* HomeView.swift in Sources */,
@@ -233,11 +239,11 @@
 				30DF54752ABE926000C03732 /* HomeViewViewModel.swift in Sources */,
 				532632702AC3D80400F96002 /* Popup.swift in Sources */,
 				E04FF6542ACA34E4002B0014 /* NetworkService.swift in Sources */,
+				E04FF65A2ACA5DFB002B0014 /* LoginView.swift in Sources */,
 				E0F085C52ABD022000EA1F8E /* User.swift in Sources */,
 				30D43F792ABEB6140069E0F0 /* TravelsViewViewModel.swift in Sources */,
 				30D43F7B2ABEB7170069E0F0 /* TravelsView.swift in Sources */,
 				E04FF6562ACA34EB002B0014 /* AuthService.swift in Sources */,
-				E0DDD2392ABD2AC40053F726 /* LoginView.swift in Sources */,
 				E0FD2D4A2ABA6BF60007A195 /* SafeGoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,9 +378,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SafeGo/Preview Content\"";
-				DEVELOPMENT_TEAM = JP96BAX53M;
+				DEVELOPMENT_TEAM = S98HLWZVU4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SafeGo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SafeGo;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -402,9 +409,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SafeGo/Preview Content\"";
-				DEVELOPMENT_TEAM = JP96BAX53M;
+				DEVELOPMENT_TEAM = S98HLWZVU4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SafeGo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SafeGo;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
