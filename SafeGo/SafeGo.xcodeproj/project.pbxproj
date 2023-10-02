@@ -13,6 +13,8 @@
 		30DF54752ABE926000C03732 /* HomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF54742ABE926000C03732 /* HomeViewViewModel.swift */; };
 		5326326E2ABED9E800F96002 /* MapViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5326326D2ABED9E800F96002 /* MapViewViewModel.swift */; };
 		532632702AC3D80400F96002 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5326326F2AC3D80400F96002 /* Popup.swift */; };
+		E04FF6542ACA34E4002B0014 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FF6532ACA34E4002B0014 /* NetworkService.swift */; };
+		E04FF6562ACA34EB002B0014 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FF6552ACA34EB002B0014 /* AuthService.swift */; };
 		E0DDD2312ABD11690053F726 /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DDD2302ABD11690053F726 /* MainViewViewModel.swift */; };
 		E0DDD2332ABD116F0053F726 /* LoginViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DDD2322ABD116F0053F726 /* LoginViewViewModel.swift */; };
 		E0DDD2352ABD11780053F726 /* RegisterViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DDD2342ABD11780053F726 /* RegisterViewViewModel.swift */; };
@@ -33,6 +35,8 @@
 		30DF54742ABE926000C03732 /* HomeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewViewModel.swift; sourceTree = "<group>"; };
 		5326326D2ABED9E800F96002 /* MapViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewViewModel.swift; sourceTree = "<group>"; };
 		5326326F2AC3D80400F96002 /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
+		E04FF6532ACA34E4002B0014 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E04FF6552ACA34EB002B0014 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		E0DDD2302ABD11690053F726 /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
 		E0DDD2322ABD116F0053F726 /* LoginViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewViewModel.swift; sourceTree = "<group>"; };
 		E0DDD2342ABD11780053F726 /* RegisterViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewViewModel.swift; sourceTree = "<group>"; };
@@ -58,6 +62,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E04FF6522ACA34D0002B0014 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E04FF6532ACA34E4002B0014 /* NetworkService.swift */,
+				E04FF6552ACA34EB002B0014 /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		E0F085BC2ABCB3E700EA1F8E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +134,7 @@
 		E0FD2D482ABA6BF60007A195 /* SafeGo */ = {
 			isa = PBXGroup;
 			children = (
+				E04FF6522ACA34D0002B0014 /* Services */,
 				E0F085C62ABD025000EA1F8E /* ViewModels */,
 				E0F085BF2ABD003A00EA1F8E /* other */,
 				E0F085BD2ABCB3F400EA1F8E /* View */,
@@ -218,9 +232,11 @@
 				E0FD2D4C2ABA6BF60007A195 /* MainView.swift in Sources */,
 				30DF54752ABE926000C03732 /* HomeViewViewModel.swift in Sources */,
 				532632702AC3D80400F96002 /* Popup.swift in Sources */,
+				E04FF6542ACA34E4002B0014 /* NetworkService.swift in Sources */,
 				E0F085C52ABD022000EA1F8E /* User.swift in Sources */,
 				30D43F792ABEB6140069E0F0 /* TravelsViewViewModel.swift in Sources */,
 				30D43F7B2ABEB7170069E0F0 /* TravelsView.swift in Sources */,
+				E04FF6562ACA34EB002B0014 /* AuthService.swift in Sources */,
 				E0DDD2392ABD2AC40053F726 /* LoginView.swift in Sources */,
 				E0FD2D4A2ABA6BF60007A195 /* SafeGoApp.swift in Sources */,
 			);

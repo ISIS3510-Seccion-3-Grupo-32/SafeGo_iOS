@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 struct LoginView: View {
-    @StateObject var viewModel = LoginViewViewModel()
+    @StateObject var viewModel = LoginViewViewModel(authService: AuthService(networkService: NetworkService()))
     
     var body: some View {
         NavigationView {
@@ -72,7 +72,9 @@ struct LoginView: View {
                                        height: UIScreen.main.bounds.height / 18)
                                 .padding()
                             
-                            NavigationLink("Login", destination: HomeView())
+                            SGButtonLR(title: "login") {
+                                viewModel.login()
+                            }
                         }
                         
                         

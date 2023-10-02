@@ -11,21 +11,33 @@ class LoginViewViewModel: ObservableObject {
     @Published var username = ""
     @Published var password = ""
     @Published var errorMessage = ""
+    private let authService: AuthService
     
-    init() {}
+    init(authService: AuthService) {
+        self.authService = authService
+    }
     
-    func login () {
+    func login() {
         guard validation() else {
             return
         }
         
-        // try to log in
+        // Call login method from AuthService
+        authService.login(email: username, password: password) { authResponse in
+            // Handle the authentication response
+            // For example:
+            if let token = authResponse?.token {
+                print("Authentication successful. Token: \(token)")
+            } else {
+                print("Authentication failed.")
+            }
+        }
     }
     
     private func validation() -> Bool {
         errorMessage = ""
         guard !username.trimmingCharacters(in: .whitespaces).isEmpty,
-              !password.trimmingCharacters(in: .whitespaces).isEmpty else{
+              !password.trimmingCharacters(in: .whitespaces).isEmpty else {
             errorMessage = "Please fill the form completely"
             return false
         }
@@ -33,3 +45,4 @@ class LoginViewViewModel: ObservableObject {
         return true
     }
 }
+
