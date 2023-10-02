@@ -17,23 +17,19 @@ class LoginViewViewModel: ObservableObject {
         self.authService = authService
     }
     
-    func login() {
-        guard validation() else {
-            return
-        }
-        
-        // Call login method from AuthService
-        authService.login(email: username, password: password) { authResponse in
-            // Handle the authentication response
-            // For example:
-            if let token = authResponse?.token {
-                print("Authentication successful. Token: \(token)")
-            } else {
-                print("Authentication failed.")
-            }
+    func login(completion: @escaping (Bool) -> Void) {
+        authService.login(email: username, password: password) { response in
+            let success = response?.statusCode == 200
+            completion(success)
         }
     }
     
+    func logout(completion: @escaping (Bool) -> Void) {
+            authService.logout { success in
+                completion(success)
+            }
+        }
+
     private func validation() -> Bool {
         errorMessage = ""
         guard !username.trimmingCharacters(in: .whitespaces).isEmpty,
@@ -45,4 +41,3 @@ class LoginViewViewModel: ObservableObject {
         return true
     }
 }
-

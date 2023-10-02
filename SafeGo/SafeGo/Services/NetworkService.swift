@@ -8,9 +8,17 @@
 import Foundation
 
 class NetworkService {
-    func request(endpoint: String, method: String, parameters: [String: Any]?, completion: @escaping (Result<Data, Error>) -> Void) {
+    private let session: URLSession
+
+    init() {
+        let configuration = URLSessionConfiguration.default
+        configuration.httpCookieStorage = HTTPCookieStorage.shared
+        self.session = URLSession(configuration: configuration)
+    }
+
+    func request(endpoint: String, method: String, parameters: [String: Any]?, completion: @escaping (HTTPURLResponse?) -> Void) {
         guard let url = URL(string: endpoint) else {
-            completion(.failure(NSError(domain: "", code: 400, userInfo: nil)))
+            completion(nil)
             return
         }
 
@@ -22,26 +30,35 @@ class NetworkService {
             do {
                 request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
             } catch {
-                completion(.failure(error))
+                completion(nil)
                 return
             }
         }
 
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = session.dataTask(with: request) { data, response, error in
             if let error = error {
-                completion(.failure(error))
+                print("Error: \(error)")
+                completion(nil)
                 return
             }
 
-            guard let data = data else {
-                completion(.failure(NSError(domain: "", code: 500, userInfo: nil)))
+            guard let httpResponse = response as? HTTPURLResponse else {
+                completion(nil)
                 return
             }
 
-            completion(.success(data))
+            // Handle cookies
+            if let cookies = HTTPCookieStorage.shared.cookies(for: url) {
+                for cookie in cookies {
+                    print("Received cookie: \(cookie.name)")
+                }
+            }
+
+            completion(httpResponse)
         }
 
         task.resume()
     }
 }
+
 
