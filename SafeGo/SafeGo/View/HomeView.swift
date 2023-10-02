@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var viewModel = HomeViewViewModel()
+    @StateObject var logoutViewModel = LoginViewViewModel(authService: AuthService(networkService: NetworkService(), authStateManager: AuthStateManager()))
     
     var body: some View {
         

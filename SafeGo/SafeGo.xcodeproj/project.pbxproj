@@ -130,6 +130,7 @@
 		E0F085BD2ABCB3F400EA1F8E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E04FF6592ACA5DFB002B0014 /* LoginView.swift */,
 				30D43F7A2ABEB7170069E0F0 /* TravelsView.swift */,
 				E0F085C22ABD010C00EA1F8E /* RegisterView.swift */,
 				E0FD2D4B2ABA6BF60007A195 /* MainView.swift */,
@@ -308,6 +309,7 @@
 			files = (
 				5326326E2ABED9E800F96002 /* MapViewViewModel.swift in Sources */,
 				E0DDD2332ABD116F0053F726 /* LoginViewViewModel.swift in Sources */,
+				E04FF6582ACA5B5F002B0014 /* UserService.swift in Sources */,
 				E0DDD2352ABD11780053F726 /* RegisterViewViewModel.swift in Sources */,
 				E0DDD23F2ABD458B0053F726 /* SGButtonLR.swift in Sources */,
 				30DF54732ABE912E00C03732 /* HomeView.swift in Sources */,
