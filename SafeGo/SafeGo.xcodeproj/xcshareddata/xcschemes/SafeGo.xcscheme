@@ -50,6 +50,7 @@
       allowLocationSimulation = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E0FD2D452ABA6BF60007A195"
@@ -58,6 +59,7 @@
             ReferencedContainer = "container:SafeGo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
