@@ -14,11 +14,11 @@ struct TravelsView: View {
 
         VStack{
             Spacer()
-            
+
             ZStack{
                 RoundedRectangle(cornerRadius: 25)
                     .foregroundColor(Color(hex: 0x96CEB4))
-                    .offset(y:60)
+                    .offset(y:40)
                 VStack{
                     Spacer()
                     Text("Travel History:")
@@ -60,6 +60,10 @@ struct TravelsView: View {
                         .background(Color.white)
                         .cornerRadius(10)
                         .autocapitalization(.words)
+                    
+                    SGButtonLR(title: "Log Out") {
+                        viewModel.logOut()
+                    }
                 }
                 .padding()
             }

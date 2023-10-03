@@ -19,6 +19,7 @@ struct HomeView: View {
                     .foregroundColor(Color(hex: 0x96CEB4))
                     .offset(y:40)
                 VStack{
+                    
                     Spacer()
                     Spacer()
                     Spacer()
@@ -103,6 +104,9 @@ struct HomeView: View {
                         }
                         .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
                     }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                    SGButtonLR(title: "Log Out") {
+                        viewModel.logOut()
+                    }
                 }
                 .padding()
             }
