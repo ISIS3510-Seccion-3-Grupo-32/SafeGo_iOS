@@ -65,15 +65,22 @@ struct LoginView: View {
                             .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                         
                         
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundColor(.white)
-                                .frame(width: UIScreen.main.bounds.width / 1.5,
-                                       height: UIScreen.main.bounds.height / 18)
-                                .padding()
+                        ZStack 
+                        {
                             
-                            NavigationLink("Login", destination: HomeView())
+                            NavigationLink(destination: HomeView()){
+                                ZStack{
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundColor(.white)
+                                        .frame(width: UIScreen.main.bounds.width / 1.5,
+                                               height: UIScreen.main.bounds.height / 18)
+                                        .padding()
+                                        Text("Login")
+                                    }}
                         }
+                            
+                          
+                        
                         
                         
                         Spacer()
