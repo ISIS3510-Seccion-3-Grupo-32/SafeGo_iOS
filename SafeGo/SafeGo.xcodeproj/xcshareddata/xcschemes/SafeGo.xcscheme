@@ -21,6 +21,7 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES"
             buildForAnalyzing = "YES">
+
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E0FD2D452ABA6BF60007A195"
@@ -50,14 +51,13 @@
       allowLocationSimulation = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E0FD2D452ABA6BF60007A195"
-            BuildableName = "SafeGo.app"
-            BlueprintName = "SafeGo"
-            ReferencedContainer = "container:SafeGo.xcodeproj">
-         </BuildableReference>
+         BuildableIdentifier = "primary"
+         BlueprintIdentifier = "E0FD2D452ABA6BF60007A195"
+         BuildableName = "SafeGo.app"
+         BlueprintName = "SafeGo"
+         ReferencedContainer = "container:SafeGo.xcodeproj">
       </BuildableProductRunnable>
+
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -67,6 +67,7 @@
       debugDocumentVersioning = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
+
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E0FD2D452ABA6BF60007A195"
@@ -75,6 +76,7 @@
             ReferencedContainer = "container:SafeGo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
