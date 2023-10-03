@@ -11,7 +11,6 @@
 		30D43F7B2ABEB7170069E0F0 /* TravelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D43F7A2ABEB7170069E0F0 /* TravelsView.swift */; };
 		30DF54732ABE912E00C03732 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF54722ABE912E00C03732 /* HomeView.swift */; };
 		30DF54752ABE926000C03732 /* HomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF54742ABE926000C03732 /* HomeViewViewModel.swift */; };
-		534B851F2ACB845A0027ADE6 /* CrimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534B851E2ACB845A0027ADE6 /* CrimeView.swift */; };
 		5326326E2ABED9E800F96002 /* MapViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5326326D2ABED9E800F96002 /* MapViewViewModel.swift */; };
 		532632702AC3D80400F96002 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5326326F2AC3D80400F96002 /* Popup.swift */; };
 		E0DDD2312ABD11690053F726 /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DDD2302ABD11690053F726 /* MainViewViewModel.swift */; };
@@ -32,7 +31,6 @@
 		30D43F7A2ABEB7170069E0F0 /* TravelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TravelsView.swift; path = SafeGo/ViewModels/TravelsView.swift; sourceTree = SOURCE_ROOT; };
 		30DF54722ABE912E00C03732 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		30DF54742ABE926000C03732 /* HomeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewViewModel.swift; sourceTree = "<group>"; };
-		534B851E2ACB845A0027ADE6 /* CrimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrimeView.swift; sourceTree = "<group>"; };
 		5326326D2ABED9E800F96002 /* MapViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewViewModel.swift; sourceTree = "<group>"; };
 		5326326F2AC3D80400F96002 /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
 		E0DDD2302ABD11690053F726 /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
@@ -77,7 +75,6 @@
 				E0DDD2382ABD2AC40053F726 /* LoginView.swift */,
 				30DF54722ABE912E00C03732 /* HomeView.swift */,
 				E0DDD23E2ABD458B0053F726 /* SGButtonLR.swift */,
-				534B851E2ACB845A0027ADE6 /* CrimeView.swift */,
 				5326326F2AC3D80400F96002 /* Popup.swift */,
 			);
 			path = View;
@@ -219,7 +216,6 @@
 				E0F085C32ABD010C00EA1F8E /* RegisterView.swift in Sources */,
 				E0DDD2312ABD11690053F726 /* MainViewViewModel.swift in Sources */,
 				E0FD2D4C2ABA6BF60007A195 /* MainView.swift in Sources */,
-				534B851F2ACB845A0027ADE6 /* CrimeView.swift in Sources */,
 				30DF54752ABE926000C03732 /* HomeViewViewModel.swift in Sources */,
 				532632702AC3D80400F96002 /* Popup.swift in Sources */,
 				E0F085C52ABD022000EA1F8E /* User.swift in Sources */,
@@ -360,7 +356,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SafeGo/Preview Content\"";
-				DEVELOPMENT_TEAM = MD7XHTZ242;
+				DEVELOPMENT_TEAM = JP96BAX53M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = SafeGo;
@@ -390,7 +386,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SafeGo/Preview Content\"";
-				DEVELOPMENT_TEAM = MD7XHTZ242;
+				DEVELOPMENT_TEAM = JP96BAX53M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = SafeGo;
