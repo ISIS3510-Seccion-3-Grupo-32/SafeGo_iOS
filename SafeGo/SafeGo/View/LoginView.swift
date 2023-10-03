@@ -66,7 +66,6 @@ struct LoginView: View {
                         SGButtonLR(title: "Login"){
                             viewModel.login()
                         }
-                            
                         Spacer()
                         
                         // Register Now
