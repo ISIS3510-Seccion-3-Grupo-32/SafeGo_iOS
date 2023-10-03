@@ -67,7 +67,6 @@
       debugDocumentVersioning = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
-
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E0FD2D452ABA6BF60007A195"
@@ -76,7 +75,6 @@
             ReferencedContainer = "container:SafeGo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
