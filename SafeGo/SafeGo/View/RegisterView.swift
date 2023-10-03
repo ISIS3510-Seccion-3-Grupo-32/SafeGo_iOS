@@ -44,11 +44,9 @@ struct RegisterView: View {
                         .frame(height: UIScreen.main.bounds.height / 15)
                         .background(Color.white)
                         .cornerRadius(10)
-                    TextField("Date of Birth", text: $viewModel.dateOfBirt)
-                        .padding()
-                        .frame(height: UIScreen.main.bounds.height / 15)
-                        .background(Color.white)
-                        .cornerRadius(10)
+                    DatePicker("Birth Date", selection: $viewModel.dateOfBirt, displayedComponents: [.date])
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
                     
                     SGButtonLR(title: "Submit"){
                         viewModel.register()
