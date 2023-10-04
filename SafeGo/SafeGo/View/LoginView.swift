@@ -63,7 +63,7 @@ struct LoginView: View {
                             .cornerRadius(10)
                             .autocorrectionDisabled()
                             .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
-                        SGButtonLR(title: "Login"){
+                        ButtonFactory.createButton(title: "login") {
                             viewModel.login()
                         }
                         Spacer()
