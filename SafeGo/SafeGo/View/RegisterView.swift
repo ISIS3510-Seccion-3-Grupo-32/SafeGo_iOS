@@ -48,7 +48,7 @@ struct RegisterView: View {
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                     
-                    SGButtonLR(title: "Submit"){
+                    ButtonFactory.createButton(title: "Register") {
                         viewModel.register()
                     }
                 }

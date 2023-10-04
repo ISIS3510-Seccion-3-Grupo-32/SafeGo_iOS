@@ -104,7 +104,7 @@ struct HomeView: View {
                         }
                         .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
                     }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                    SGButtonLR(title: "Log Out") {
+                    ButtonFactory.createButton(title: "Logout") {
                         viewModel.logOut()
                     }
                 }
