@@ -39,6 +39,11 @@ struct MapView: View {
                 // Go to home view
                     NavigationLink("Home", destination: HomeView())
                     
+                    Spacer()
+                    
+                    // Go to reportcrimeview view
+                    NavigationLink("Report a crime", destination: ReportCrimeView())
+                    
                 }
                 .padding()
                 
@@ -52,7 +57,7 @@ struct MapView: View {
 //"CLLocationCoordinate2D is a struct in the Core Location framework (imported as CoreLocation in Swift) used to represent a geographical coordinate."
 extension CLLocationCoordinate2D {
     static var userLocation: CLLocationCoordinate2D {
-        return .init(latitude: 4.6097, longitude: -74.0817) // This defines the user's location, which in this case in Bogota,  as a CLLocationCoordinate2D.
+        return .init(latitude: 4.602706, longitude: -74.065953) // This defines the user's location, which in this case in Bogota,  as a CLLocationCoordinate2D.
     }
 }
 
