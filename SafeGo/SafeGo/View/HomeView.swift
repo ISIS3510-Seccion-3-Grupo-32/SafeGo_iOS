@@ -4,6 +4,12 @@
 //
 //  Created by Pipe on 22/09/23.
 //
+//
+//  HomeView.swift
+//  SafeGo
+//
+//  Created by Pipe on 22/09/23.
+//
 
 import SwiftUI
 
@@ -19,6 +25,7 @@ struct HomeView: View {
                     .foregroundColor(Color(hex: 0x96CEB4))
                     .offset(y:40)
                 VStack{
+                    
                     Spacer()
                     Spacer()
                     Spacer()
@@ -103,6 +110,10 @@ struct HomeView: View {
                         }
                         .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
                     }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                    Text("PQRS: https://forms.gle/UPGXXCDFYLrQNY9i9")
+                    ButtonFactory.createButton(title: "Logout") {
+                        viewModel.logOut()
+                    }
                 }
                 .padding()
             }
@@ -120,3 +131,6 @@ struct HomeView: View {
 #Preview {
     HomeView()
 }
+
+
+
