@@ -16,5 +16,8 @@ class ReportCrimeViewViewModel: ObservableObject {
     init() {
     }
     
+    func sendReport() {
+            writeaDescription = ""
+    }
     
 }
