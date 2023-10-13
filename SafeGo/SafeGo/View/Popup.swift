@@ -16,7 +16,7 @@ struct Popup: View {
             
             // Pop-up window with centered text
             VStack {
-                Rectangle() // You can use any shape here
+                Rectangle()
                     .fill(Color.white)
                     .cornerRadius(20)
                     .padding()

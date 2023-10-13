@@ -4,6 +4,12 @@
 //
 //  Created by Pipe on 22/09/23.
 //
+//
+//  HomeView.swift
+//  SafeGo
+//
+//  Created by Pipe on 22/09/23.
+//
 
 import SwiftUI
 
@@ -125,3 +131,6 @@ struct HomeView: View {
 #Preview {
     HomeView()
 }
+
+
+

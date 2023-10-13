@@ -9,7 +9,10 @@ import SwiftUI
 
 import Foundation
 
+import FirebaseAuth
+
+
 struct MapViewViewModel 
 {
-    // Define properties and methods for your view model
+    // 
 }

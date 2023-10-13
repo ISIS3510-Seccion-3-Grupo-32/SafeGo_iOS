@@ -63,7 +63,8 @@ struct LoginView: View {
                             .cornerRadius(10)
                             .autocorrectionDisabled()
                             .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
-                        ButtonFactory.createButton(title: "login") {
+                        ButtonFactory.createButton(title: "Login")
+                        {
                             viewModel.login()
                         }
                         Spacer()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E5774062AD8F0ED0077DF85 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5774052AD8F0ED0077DF85 /* MapView.swift */; };
 		30D43F792ABEB6140069E0F0 /* TravelsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D43F782ABEB6140069E0F0 /* TravelsViewViewModel.swift */; };
 		30D43F7B2ABEB7170069E0F0 /* TravelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D43F7A2ABEB7170069E0F0 /* TravelsView.swift */; };
 		30DF54732ABE912E00C03732 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF54722ABE912E00C03732 /* HomeView.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E5774052AD8F0ED0077DF85 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		30D43F782ABEB6140069E0F0 /* TravelsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelsViewViewModel.swift; sourceTree = "<group>"; };
 		30D43F7A2ABEB7170069E0F0 /* TravelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TravelsView.swift; path = SafeGo/ViewModels/TravelsView.swift; sourceTree = SOURCE_ROOT; };
 		30DF54722ABE912E00C03732 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -130,7 +132,6 @@
 		E0F085BD2ABCB3F400EA1F8E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E04FF6592ACA5DFB002B0014 /* LoginView.swift */,
 				30D43F7A2ABEB7170069E0F0 /* TravelsView.swift */,
 				E0F085C22ABD010C00EA1F8E /* RegisterView.swift */,
 				E0FD2D4B2ABA6BF60007A195 /* MainView.swift */,
@@ -138,6 +139,7 @@
 				E0DDD23E2ABD458B0053F726 /* SGButtonLR.swift */,
 				5326326F2AC3D80400F96002 /* Popup.swift */,
 				E0829F412ACB0A5600D0FA43 /* LoginView.swift */,
+				0E5774052AD8F0ED0077DF85 /* MapView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -309,12 +311,12 @@
 			files = (
 				5326326E2ABED9E800F96002 /* MapViewViewModel.swift in Sources */,
 				E0DDD2332ABD116F0053F726 /* LoginViewViewModel.swift in Sources */,
-				E04FF6582ACA5B5F002B0014 /* UserService.swift in Sources */,
 				E0DDD2352ABD11780053F726 /* RegisterViewViewModel.swift in Sources */,
 				E0DDD23F2ABD458B0053F726 /* SGButtonLR.swift in Sources */,
 				30DF54732ABE912E00C03732 /* HomeView.swift in Sources */,
 				E0F085C32ABD010C00EA1F8E /* RegisterView.swift in Sources */,
 				E0DDD2312ABD11690053F726 /* MainViewViewModel.swift in Sources */,
+				0E5774062AD8F0ED0077DF85 /* MapView.swift in Sources */,
 				E0FD2D4C2ABA6BF60007A195 /* MainView.swift in Sources */,
 				30DF54752ABE926000C03732 /* HomeViewViewModel.swift in Sources */,
 				E0829F072ACAFC2900D0FA43 /* UserState.swift in Sources */,
@@ -467,7 +469,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -498,7 +500,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
