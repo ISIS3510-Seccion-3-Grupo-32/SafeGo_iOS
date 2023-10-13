@@ -19,25 +19,32 @@ struct MapView: View {
     
     var body: some View
     {
-        
-        VStack
+        NavigationView
         {
-            Map
+            VStack
             {
-                Marker ("My location", systemImage: "paperplane", coordinate: .userLocation)
-                    .tint(.blue)
-            
-            }//Shows the users location
-            
-            // Register Now
-            HStack(alignment: .center) {
-                Text("Necesitas salirte")
-                    .foregroundColor(.black)
-                NavigationLink("Log Out", destination: LoginView())
+                Map
+                {
+                    Marker ("My location", systemImage: "paperplane", coordinate: .userLocation)
+                        .tint(.blue)
+                
+                }//Shows the users location
+                
+                // Log Out
+                HStack(alignment: .center) {
+                    NavigationLink("Log Out", destination: LoginView())
+                    
+                    Spacer()
+                    
+                // Go to home view
+                    NavigationLink("Home", destination: HomeView())
+                    
+                }
+                .padding()
+                
             }
-            .padding()
-            
         }
+        
     }
 
 }
