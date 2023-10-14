@@ -14,6 +14,8 @@ class HomeViewViewModel: ObservableObject {
     
     init () {}
     
+    
+    
     func logOut() {
         do {
             try Auth.auth().signOut()

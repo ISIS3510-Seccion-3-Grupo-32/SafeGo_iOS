@@ -17,6 +17,7 @@ import CoreLocation
 
 struct MapView: View {
     @State private var region: MKCoordinateRegion = .userRegion
+    @StateObject var viewModel = MapViewViewModel()
     
     var body: some View
     {
@@ -53,15 +54,20 @@ struct MapView: View {
                             NavigationLink(
                                 destination: LoginView(),
                                 label: {
-                                    RoundedRectangle(cornerRadius: 10) // Adjust the corner radius and other properties as needed
+                                    RoundedRectangle(cornerRadius: 10)
                                         .foregroundColor(Color(hex: 0xCFF2E5))
-                                        .frame(width: 200, height: 40) // Adjust the width and height as needed
+                                        .frame(width: 200, height: 40)
                                         .overlay(
                                             Text("Log Out")
                                                 .foregroundColor(.primary)
                                         )
+                                    
+                                        .onTapGesture {
+                                            viewModel.logOut()
+                                        }
                                 }
                             )
+
                         }
                         
                         Spacer()
