@@ -12,16 +12,22 @@ struct MainView: View {
     @StateObject var viewModel = MainViewViewModel()
     @State private var showSafeGoView = true
 
-    var body: some View {
-        if showSafeGoView {
+    var body: some View 
+    {
+        if showSafeGoView
+        {
             SafeGoView()
-                .onAppear {
-                    // Automatically navigate to other views after 7 seconds
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
+                .onAppear 
+            {
+                    // Shows the SafeGoView for 7 seconds and then shows either login view or map view depending if a person is already logged in.
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 7)
+                    {
                         self.showSafeGoView = false
                     }
-                }
-        } else if viewModel.isSignedIn && !viewModel.currentUserId.isEmpty {
+            }
+        } 
+        else if viewModel.isSignedIn && !viewModel.currentUserId.isEmpty
+        {
             MapView()
         } else {
             LoginView()
@@ -29,8 +35,10 @@ struct MainView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
+struct ContentView_Previews: PreviewProvider 
+{
+    static var previews: some View
+    {
         MainView()
     }
 }

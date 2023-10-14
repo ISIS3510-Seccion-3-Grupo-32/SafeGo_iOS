@@ -16,7 +16,8 @@ import SwiftUI
 struct HomeView: View {
     @StateObject var viewModel = HomeViewViewModel()
     
-    var body: some View {
+    var body: some View 
+    {
         
         VStack{
             Spacer()
@@ -49,6 +50,7 @@ struct HomeView: View {
                         }
                     }
                     .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                    
                     //Home
                     ZStack{
                         RoundedRectangle(cornerRadius: 25)
@@ -110,7 +112,12 @@ struct HomeView: View {
                         }
                         .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
                     }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                    Text("PQRS: https://forms.gle/UPGXXCDFYLrQNY9i9")
+                    
+                    VStack
+                    {
+                        Link("PQRS", destination: URL(string: "https://forms.gle/UPGXXCDFYLrQNY9i9")!)
+                            .foregroundColor(.blue)
+                    }
                     ButtonFactory.createButton(title: "Logout") {
                         viewModel.logOut()
                     }

@@ -20,7 +20,8 @@ struct CurrentMapView: View
         Map(coordinateRegion: $region, showsUserLocation: true)
             .onAppear {
                 // Center the map on the user's current location
-                if let userLocation = LocationManager.shared.userLocation {
+                if let userLocation = LocationManager.shared.userLocation 
+                {
                     region.center = userLocation
                 }
             }

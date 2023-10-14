@@ -11,6 +11,8 @@ struct ReportCrimeView: View {
     
     @StateObject var viewModel = ReportCrimeViewViewModel()
     
+    @State private var isTextFieldExpanded = false
+    
     var body: some View 
     {
         NavigationView{
@@ -19,11 +21,11 @@ struct ReportCrimeView: View {
             ZStack
             {
                 
-                MapView() //Background
+                CurrentMapView() //Background
                 
                 RoundedRectangle(cornerRadius: 25)
                     .foregroundColor(Color(hex: 0x96CEB4))
-                    .offset(y:520)
+                    .offset(y:420)
                 
                 
                 VStack
@@ -45,10 +47,15 @@ struct ReportCrimeView: View {
                     
                     TextField("Description of Crime", text: $viewModel.writeaDescription)
                         .padding()
-                        .frame(width: UIScreen.main.bounds.width/1.2, height: UIScreen.main.bounds.height / 8 )
+                        .frame(width: UIScreen.main.bounds.width / 1.2, height: isTextFieldExpanded ? UIScreen.main.bounds.height / 4 : UIScreen.main.bounds.height / 8)
                         .background(Color.white)
                         .cornerRadius(10)
                         .autocapitalization(.words)
+                    
+                        // On tap gestuse is what is to happened when something is tapped, in this case the text field.
+                        .onTapGesture {
+                            isTextFieldExpanded.toggle() //A control that toggles between on and off states
+                        }
                     
                     ButtonFactory.createButton(title: "Send Report") 
                     {
