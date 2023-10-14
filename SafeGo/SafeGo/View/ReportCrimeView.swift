@@ -50,7 +50,8 @@ struct ReportCrimeView: View {
                         .cornerRadius(10)
                         .autocapitalization(.words)
                     
-                    ButtonFactory.createButton(title: "Send Report") {
+                    ButtonFactory.createButton(title: "Send Report") 
+                    {
                         viewModel.sendReport()
                     }
                     

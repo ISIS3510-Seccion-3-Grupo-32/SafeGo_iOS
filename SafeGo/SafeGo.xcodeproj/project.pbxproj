@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E5755492AD9D8DC009433B6 /* CurrentMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5755482AD9D8DC009433B6 /* CurrentMapView.swift */; };
+		0E57554D2ADA1F57009433B6 /* AddressToCordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57554C2ADA1F57009433B6 /* AddressToCordinates.swift */; };
+		0E57554F2ADA2437009433B6 /* SafeGoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57554E2ADA2437009433B6 /* SafeGoView.swift */; };
 		0E5774062AD8F0ED0077DF85 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5774052AD8F0ED0077DF85 /* MapView.swift */; };
 		0E5774082AD9016D0077DF85 /* ReportCrimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5774072AD9016D0077DF85 /* ReportCrimeView.swift */; };
 		0E57740A2AD9050E0077DF85 /* ReportCrimeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5774092AD9050E0077DF85 /* ReportCrimeViewViewModel.swift */; };
@@ -60,6 +63,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E5755482AD9D8DC009433B6 /* CurrentMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentMapView.swift; sourceTree = "<group>"; };
+		0E57554C2ADA1F57009433B6 /* AddressToCordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressToCordinates.swift; sourceTree = "<group>"; };
+		0E57554E2ADA2437009433B6 /* SafeGoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeGoView.swift; sourceTree = "<group>"; };
 		0E5774052AD8F0ED0077DF85 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		0E5774072AD9016D0077DF85 /* ReportCrimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCrimeView.swift; sourceTree = "<group>"; };
 		0E5774092AD9050E0077DF85 /* ReportCrimeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCrimeViewViewModel.swift; sourceTree = "<group>"; };
@@ -125,6 +131,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E57554B2ADA1F3F009433B6 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0E57554C2ADA1F57009433B6 /* AddressToCordinates.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		E0F085BC2ABCB3E700EA1F8E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +159,8 @@
 				E0829F412ACB0A5600D0FA43 /* LoginView.swift */,
 				0E5774052AD8F0ED0077DF85 /* MapView.swift */,
 				0E5774072AD9016D0077DF85 /* ReportCrimeView.swift */,
+				0E5755482AD9D8DC009433B6 /* CurrentMapView.swift */,
+				0E57554E2ADA2437009433B6 /* SafeGoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -194,6 +210,7 @@
 		E0FD2D482ABA6BF60007A195 /* SafeGo */ = {
 			isa = PBXGroup;
 			children = (
+				0E57554B2ADA1F3F009433B6 /* Classes */,
 				E04FF65B2ACA5F4F002B0014 /* Info.plist */,
 				E0F085C62ABD025000EA1F8E /* ViewModels */,
 				E0F085BF2ABD003A00EA1F8E /* other */,
@@ -318,11 +335,14 @@
 				5326326E2ABED9E800F96002 /* MapViewViewModel.swift in Sources */,
 				E0DDD2332ABD116F0053F726 /* LoginViewViewModel.swift in Sources */,
 				E0DDD2352ABD11780053F726 /* RegisterViewViewModel.swift in Sources */,
+				0E57554D2ADA1F57009433B6 /* AddressToCordinates.swift in Sources */,
 				E0DDD23F2ABD458B0053F726 /* SGButtonLR.swift in Sources */,
 				30DF54732ABE912E00C03732 /* HomeView.swift in Sources */,
 				E0F085C32ABD010C00EA1F8E /* RegisterView.swift in Sources */,
 				E0DDD2312ABD11690053F726 /* MainViewViewModel.swift in Sources */,
 				0E5774062AD8F0ED0077DF85 /* MapView.swift in Sources */,
+				0E5755492AD9D8DC009433B6 /* CurrentMapView.swift in Sources */,
+				0E57554F2ADA2437009433B6 /* SafeGoView.swift in Sources */,
 				E0FD2D4C2ABA6BF60007A195 /* MainView.swift in Sources */,
 				30DF54752ABE926000C03732 /* HomeViewViewModel.swift in Sources */,
 				E0829F072ACAFC2900D0FA43 /* UserState.swift in Sources */,
@@ -473,6 +493,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SafeGo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SafeGo;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "$(PRODUCT_NAME)";
+				INFOPLIST_KEY_NSLocationUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -504,6 +528,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SafeGo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SafeGo;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "$(PRODUCT_NAME)";
+				INFOPLIST_KEY_NSLocationUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
