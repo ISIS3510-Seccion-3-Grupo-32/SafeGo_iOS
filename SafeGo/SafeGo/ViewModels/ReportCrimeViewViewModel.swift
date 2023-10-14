@@ -7,17 +7,28 @@
 
 import SwiftUI
 import FirebaseFirestore
-import FirebaseAuth
-import Foundation
+
+
+// Idea originally taken from https://www.youtube.com/watch?v=7VjkVAreYeg but then noticed that the connection was to firestore and not firedatabase
 
 class ReportCrimeViewViewModel: ObservableObject {
     @Published var writeaDescription = ""
     
-    init() {
-    }
+    private let db = Firestore.firestore()
     
-    func sendReport() {
-            writeaDescription = ""
+    // Use your Firestore collection path
+    private let collectionReference = "CrimeReports"
+
+    func uploadToCloud() {
+        let data = ["description": writeaDescription]
+        
+        db.collection(collectionReference).addDocument(data: data) { error in
+            if let error = error {
+                print("Your report could not be loaded at this time: \(error)")
+            } else {
+                print("Your report was sent correctly")
+            }
+        }
     }
-    
 }
+

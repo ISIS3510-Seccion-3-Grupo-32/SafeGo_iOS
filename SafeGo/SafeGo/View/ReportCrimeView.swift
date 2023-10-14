@@ -59,7 +59,7 @@ struct ReportCrimeView: View {
                     
                     ButtonFactory.createButton(title: "Send Report") 
                     {
-                        viewModel.sendReport()
+                        viewModel.uploadToCloud()
                     }
                     
                     Spacer()
