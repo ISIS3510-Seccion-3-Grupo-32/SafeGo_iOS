@@ -64,7 +64,13 @@ struct ReportCrimeView: View {
                     
                     Spacer()
                     
+                    .alert(isPresented: $viewModel.showAlert)
+                    {
+                        Alert(title: Text("Report"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))
+                    }
+                    
                 }
+                
             }
             .edgesIgnoringSafeArea(.all)
         }

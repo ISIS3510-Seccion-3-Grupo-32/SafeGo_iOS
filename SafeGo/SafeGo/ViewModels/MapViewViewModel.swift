@@ -11,8 +11,9 @@ import Foundation
 
 import FirebaseAuth
 
+import FirebaseFirestore
 
-struct MapViewViewModel 
+class MapViewViewModel: ObservableObject
 {
     // 
 }

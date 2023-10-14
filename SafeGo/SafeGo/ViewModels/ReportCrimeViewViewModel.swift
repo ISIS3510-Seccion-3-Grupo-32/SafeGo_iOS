@@ -5,30 +5,37 @@
 //  Created by Gabriela on 10/12/23.
 //
 
+// Idea originally taken from https://www.youtube.com/watch?v=7VjkVAreYeg but then noticed that the connection was to firestore and not firedatabase
+
 import SwiftUI
 import FirebaseFirestore
 
-
-// Idea originally taken from https://www.youtube.com/watch?v=7VjkVAreYeg but then noticed that the connection was to firestore and not firedatabase
-
 class ReportCrimeViewViewModel: ObservableObject {
     @Published var writeaDescription = ""
-    
+    @Published var showAlert = false
+    @Published var alertMessage = ""
+
     private let db = Firestore.firestore()
-    
-    // Use your Firestore collection path
     private let collectionReference = "CrimeReports"
 
     func uploadToCloud() {
-        let data = ["description": writeaDescription]
-        
-        db.collection(collectionReference).addDocument(data: data) { error in
-            if let error = error {
-                print("Your report could not be loaded at this time: \(error)")
-            } else {
-                print("Your report was sent correctly")
+            let data = ["description": writeaDescription]
+            
+            db.collection(collectionReference).addDocument(data: data) { error in
+                
+                // taken from https://developer.apple.com/documentation/swiftui/alert
+                if let error = error 
+                {
+                    self.alertMessage = "Report could not be sent"
+                } else
+                
+                {
+                    self.alertMessage = "Report sent"
+                    self.writeaDescription = ""
+                }
+                self.showAlert = true
             }
         }
-    }
 }
+
 
