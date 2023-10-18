@@ -55,7 +55,13 @@ struct LoginView: View {
                             .frame(height: UIScreen.main.bounds.height / 15)
                             .background(Color.white)
                             .cornerRadius(10)
-                            .autocapitalization(.words)
+                            .autocapitalization(.none)
+                            .onChange(of: viewModel.username) {
+                                if viewModel.username.count > 40 {
+                                    viewModel.username = String(viewModel.username.prefix(40))
+                                }
+                            }
+                        
                         SecureField("Password", text: $viewModel.password)
                             .padding()
                             .frame(height: UIScreen.main.bounds.height / 15)
@@ -63,6 +69,12 @@ struct LoginView: View {
                             .cornerRadius(10)
                             .autocorrectionDisabled()
                             .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
+                            .onChange(of: viewModel.password) {
+                                if viewModel.password.count > 32 {
+                                    viewModel.password = String(viewModel.password.prefix(32))
+                                }
+                            }
+                        
                         ButtonFactory.createButton(title: "Login")
                         {
                             viewModel.login()
