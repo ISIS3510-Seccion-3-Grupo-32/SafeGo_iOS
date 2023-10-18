@@ -43,8 +43,8 @@ class HomeViewViewModel: ObservableObject {
             
             let data: [String: Any] = [
                 "Address": self.whereto,
-                "Longitude": location.coordinate.longitude,
-                "Latitude": location.coordinate.latitude
+                "Latitude": location.coordinate.latitude,
+                "Longitude": location.coordinate.longitude
             ]
             
             let db = Firestore.firestore()

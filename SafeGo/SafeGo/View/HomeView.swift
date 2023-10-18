@@ -16,8 +16,11 @@ import SwiftUI
 struct HomeView: View {
     @StateObject var viewModel = HomeViewViewModel()
     
+    @State private var isTextFieldExpanded = false
+    
     var body: some View 
     {
+        
         ZStack
         {
             CurrentMapView() //Background
@@ -33,6 +36,7 @@ struct HomeView: View {
                     RoundedRectangle(cornerRadius: 25)
                         .foregroundColor(Color(hex: 0x96CEB4))
                         .offset(y:120)
+                    
                     VStack{
                         
                         Spacer()
@@ -42,14 +46,15 @@ struct HomeView: View {
                         Spacer()
                         
                         //Where to
-                        HStack{
+                        HStack
+                        {
+                            
                             TextField("Where to?", text: $viewModel.whereto)
                                 .padding()
                                 .frame(height: UIScreen.main.bounds.height / 12, alignment: .leading)
                                 .background(Color.white)
                                 .cornerRadius(10)
                                 .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
-                                .foregroundColor(.gray)
 
                             NavigationLink {
                                 TravelsView()

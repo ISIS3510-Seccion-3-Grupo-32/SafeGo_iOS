@@ -25,7 +25,6 @@ struct CurrentMapView: View
                     region.center = userLocation
                 }
             }
-            .navigationTitle("My Location")
     }
 }
 
