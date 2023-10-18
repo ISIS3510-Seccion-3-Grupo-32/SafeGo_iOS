@@ -8,7 +8,8 @@
 import Foundation
 import CoreLocation
 
-class GeocodingService {
+class GeocodingService 
+{
     func geocodeAddress(address: String, completion: @escaping (CLLocationCoordinate2D?, Error?) -> Void) {
         let geocoder = CLGeocoder()
         

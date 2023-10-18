@@ -40,6 +40,7 @@ struct HomeView: View {
                         Spacer()
                         Spacer()
                         Spacer()
+                        
                         //Where to
                         HStack{
                             TextField("Where to?", text: $viewModel.whereto)
