@@ -44,11 +44,6 @@ struct LoginView: View {
                         Spacer()
                         Spacer()
                         
-                        if !viewModel.errorMessage.isEmpty {
-                            Text(viewModel.errorMessage)
-                                .foregroundColor(Color.red)
-                        }
-                        
                         // Login Form
                         TextField("Username", text: $viewModel.username)
                             .padding()
@@ -78,6 +73,8 @@ struct LoginView: View {
                         ButtonFactory.createButton(title: "Login")
                         {
                             viewModel.login()
+                        }.alert(isPresented: $viewModel.showAlert) {
+                            Alert(title: Text("Error"), message: Text(viewModel.validationError), dismissButton: .default(Text("Ok")))
                         }
                         Spacer()
                         

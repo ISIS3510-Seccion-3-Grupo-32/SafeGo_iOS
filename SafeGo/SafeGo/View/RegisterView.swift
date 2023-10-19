@@ -67,6 +67,8 @@ struct RegisterView: View {
                     
                     ButtonFactory.createButton(title: "Register") {
                         viewModel.register()
+                    }.alert(isPresented: $viewModel.showAlert) {
+                        Alert(title: Text("Error"), message: Text(viewModel.validationError), dismissButton: .default(Text("Ok")))
                     }
                 }
                 .padding()

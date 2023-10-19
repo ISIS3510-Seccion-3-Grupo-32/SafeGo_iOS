@@ -14,6 +14,8 @@ class RegisterViewViewModel: ObservableObject {
     @Published var password = ""
     @Published var email = ""
     @Published var dateOfBirt = Date()
+    @Published var validationError: String = ""
+    @Published var showAlert = false
     
     init() {}
 
@@ -47,17 +49,54 @@ class RegisterViewViewModel: ObservableObject {
         guard !name.trimmingCharacters(in: .whitespaces).isEmpty,
               !email.trimmingCharacters(in: .whitespaces).isEmpty,
               !password.trimmingCharacters(in: .whitespaces).isEmpty else {
-            return false
-        }
-        
-        guard email.contains("@") && email.contains(".") else {
+            DispatchQueue.main.async {
+                self.showAlert = true
+                self.validationError = "Please fill in all fields"
+            }
             return false
         }
         
         guard password.count >= 8 else {
+            DispatchQueue.main.async {
+                self.validationError = "Password must have atleast 8 characters"
+                self.showAlert = true
+            }
+            return false
+        }
+        
+        guard email.contains("@") && email.contains(".") else {
+            DispatchQueue.main.async {
+                self.showAlert = true
+                self.validationError = "Invalid Email"
+            }
+            return false
+        }
+        
+        guard calculateAge(from: dateOfBirt) >= 14 else {
+            DispatchQueue.main.async {
+                self.showAlert = true
+                self.validationError = "You must be at least 14 years old to registrate"
+            }
+            return false
+        }
+        
+        guard calculateAge(from: dateOfBirt) <= 100 else {
+            DispatchQueue.main.async {
+                self.showAlert = true
+                self.validationError = "Are you really over 100 years old?"
+            }
             return false
         }
         
         return true
+    }
+    
+    func calculateAge(from date: Date) -> Int {
+        let calendar = Calendar.current
+        let currentDate = Date()
+        let birthDate = date
+        let ageComponents = calendar.dateComponents([.year], from: birthDate, to: currentDate)
+        let age = ageComponents.year ?? 0
+        return age
     }
 }
