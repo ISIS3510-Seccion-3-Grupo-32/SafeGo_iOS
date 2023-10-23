@@ -10,6 +10,7 @@
 		0E5755492AD9D8DC009433B6 /* CurrentMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5755482AD9D8DC009433B6 /* CurrentMapView.swift */; };
 		0E57554D2ADA1F57009433B6 /* AddressToCordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57554C2ADA1F57009433B6 /* AddressToCordinates.swift */; };
 		0E57554F2ADA2437009433B6 /* SafeGoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57554E2ADA2437009433B6 /* SafeGoView.swift */; };
+		0E5755522AE088FC009433B6 /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0E5755512AE088FC009433B6 /* PythonKit */; };
 		0E5774062AD8F0ED0077DF85 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5774052AD8F0ED0077DF85 /* MapView.swift */; };
 		0E5774082AD9016D0077DF85 /* ReportCrimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5774072AD9016D0077DF85 /* ReportCrimeView.swift */; };
 		0E57740A2AD9050E0077DF85 /* ReportCrimeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5774092AD9050E0077DF85 /* ReportCrimeViewViewModel.swift */; };
@@ -117,6 +118,7 @@
 				E0829F3E2ACB04F200D0FA43 /* FirebaseStorageCombine-Community in Frameworks */,
 				E0829F382ACB04F200D0FA43 /* FirebaseRemoteConfig in Frameworks */,
 				E0829F142ACB04F200D0FA43 /* FirebaseAppDistribution-Beta in Frameworks */,
+				0E5755522AE088FC009433B6 /* PythonKit in Frameworks */,
 				E0829F182ACB04F200D0FA43 /* FirebaseAuthCombine-Community in Frameworks */,
 				E0829F362ACB04F200D0FA43 /* FirebasePerformance in Frameworks */,
 				E0829F2E2ACB04F200D0FA43 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
@@ -273,6 +275,7 @@
 				E0829F392ACB04F200D0FA43 /* FirebaseRemoteConfigSwift */,
 				E0829F3B2ACB04F200D0FA43 /* FirebaseStorage */,
 				E0829F3D2ACB04F200D0FA43 /* FirebaseStorageCombine-Community */,
+				0E5755512AE088FC009433B6 /* PythonKit */,
 			);
 			productName = SafeGo;
 			productReference = E0FD2D462ABA6BF60007A195 /* SafeGo.app */;
@@ -304,6 +307,7 @@
 			mainGroup = E0FD2D3D2ABA6BF60007A195;
 			packageReferences = (
 				E0829F082ACB04F200D0FA43 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				0E5755502AE088FC009433B6 /* XCRemoteSwiftPackageReference "PythonKit" */,
 			);
 			productRefGroup = E0FD2D472ABA6BF60007A195 /* Products */;
 			projectDirPath = "";
@@ -574,6 +578,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0E5755502AE088FC009433B6 /* XCRemoteSwiftPackageReference "PythonKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pvieito/PythonKit.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		E0829F082ACB04F200D0FA43 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -585,6 +597,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0E5755512AE088FC009433B6 /* PythonKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E5755502AE088FC009433B6 /* XCRemoteSwiftPackageReference "PythonKit" */;
+			productName = PythonKit;
+		};
 		E0829F092ACB04F200D0FA43 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E0829F082ACB04F200D0FA43 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

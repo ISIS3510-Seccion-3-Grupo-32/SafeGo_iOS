@@ -20,7 +20,6 @@ struct HomeView: View {
     
     var body: some View 
     {
-        
         ZStack
         {
             CurrentMapView() //Background
@@ -32,12 +31,14 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                ZStack{
+                ZStack
+                {
                     RoundedRectangle(cornerRadius: 25)
                         .foregroundColor(Color(hex: 0x96CEB4))
                         .offset(y:120)
                     
-                    VStack{
+                    VStack
+                    {
                         
                         Spacer()
                         Spacer()
@@ -45,7 +46,7 @@ struct HomeView: View {
                         Spacer()
                         Spacer()
                         
-                        //Where to
+                        
                         HStack
                         {
                             
@@ -55,85 +56,92 @@ struct HomeView: View {
                                 .background(Color.white)
                                 .cornerRadius(10)
                                 .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
-
+                                .foregroundColor(.gray)
+                            
                             NavigationLink {
                                 TravelsView()
                             } label: {
                                 Image("calendar")
                                     .frame(width: UIScreen.main.bounds.width / 5, height: UIScreen.main.bounds.height / 11)
                             }
+                            
                         }
-                        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                         
-                        //Home
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 25)
-                                .foregroundColor(Color(hex: 0xCFF2E5))
-                                .frame(height: UIScreen.main.bounds.height / 12)
-                            HStack{
-                                Image("house")
-                                    .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
-                                    .padding(.horizontal, UIScreen.main.bounds.width / 15)
-                                NavigationLink("Home", destination: MainView())
-                                    .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
-                                    .foregroundColor(.gray)
-                            }
-                            .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
-                        }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                                   
-                        //Work
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 25)
-                                .foregroundColor(Color(hex: 0xCFF2E5))
-                                .frame(height: UIScreen.main.bounds.height / 12)
-                            HStack{
-                                Image("work")
-                                    .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
-                                    .padding(.horizontal, UIScreen.main.bounds.width / 15)
-                                NavigationLink("Work", destination: MainView())
-                                    .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
-                                    .foregroundColor(.gray)
-                            }
-                            .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
-                        }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                        //Educatioon
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 25)
-                                .foregroundColor(Color(hex: 0xCFF2E5))
-                                .frame(height: UIScreen.main.bounds.height / 12)
-                            HStack{
-                                Image("education")
-                                    .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
-                                    .padding(.horizontal, UIScreen.main.bounds.width / 15)
-                                NavigationLink("Education", destination: MainView())
-                                    .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
-                                    .foregroundColor(.gray)
-                            }
-                            .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
-                        }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                        //Partner
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 25)
-                                .foregroundColor(Color(hex: 0xCFF2E5))
-                                .frame(height: UIScreen.main.bounds.height / 12)
-                            HStack{
-                                Image("partner")
-                                    .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
-                                    .padding(.horizontal, UIScreen.main.bounds.width / 15)
-                                NavigationLink("Partner", destination: MainView())
-                                    .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
-                                    .foregroundColor(.gray)
-                            }
-                            .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
-                        }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                         
                         VStack
                         {
-                            Link("PQRS", destination: URL(string: "https://forms.gle/UPGXXCDFYLrQNY9i9")!)
-                                .foregroundColor(.blue)
-                        }
-                        ButtonFactory.createButton(title: "Logout") {
-                            viewModel.logOut()
+                            //Home
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 25)
+                                    .foregroundColor(Color(hex: 0xCFF2E5))
+                                    .frame(height: UIScreen.main.bounds.height / 12)
+                                HStack{
+                                    Image("house")
+                                        .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
+                                        .padding(.horizontal, UIScreen.main.bounds.width / 15)
+                                    NavigationLink("Home", destination: MainView())
+                                        .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
+                                        .foregroundColor(.gray)
+                                }
+                                .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
+                            }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                            
+                            //Work
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 25)
+                                    .foregroundColor(Color(hex: 0xCFF2E5))
+                                    .frame(height: UIScreen.main.bounds.height / 12)
+                                HStack{
+                                    Image("work")
+                                        .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
+                                        .padding(.horizontal, UIScreen.main.bounds.width / 15)
+                                    NavigationLink("Work", destination: MainView())
+                                        .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
+                                        .foregroundColor(.gray)
+                                }
+                                .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
+                            }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                            //Educatioon
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 25)
+                                    .foregroundColor(Color(hex: 0xCFF2E5))
+                                    .frame(height: UIScreen.main.bounds.height / 12)
+                                HStack{
+                                    Image("education")
+                                        .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
+                                        .padding(.horizontal, UIScreen.main.bounds.width / 15)
+                                    NavigationLink("Education", destination: MainView())
+                                        .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
+                                        .foregroundColor(.gray)
+                                }
+                                .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
+                            }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                            //Partner
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 25)
+                                    .foregroundColor(Color(hex: 0xCFF2E5))
+                                    .frame(height: UIScreen.main.bounds.height / 12)
+                                HStack{
+                                    Image("partner")
+                                        .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
+                                        .padding(.horizontal, UIScreen.main.bounds.width / 15)
+                                    NavigationLink("Partner", destination: MainView())
+                                        .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
+                                        .foregroundColor(.gray)
+                                }
+                                .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
+                            }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                            
+                            VStack
+                            {
+                                Link("PQRS", destination: URL(string: "https://forms.gle/UPGXXCDFYLrQNY9i9")!)
+                                    .foregroundColor(.blue)
+                            }
+                            ButtonFactory.createButton(title: "Logout")
+                            {
+                                viewModel.logOut()
+                            }
                         }
                     }
                     .padding()
@@ -141,9 +149,10 @@ struct HomeView: View {
 
             }
         }
-        }
+    }
         
 }
+
 #Preview {
     HomeView()
 }
