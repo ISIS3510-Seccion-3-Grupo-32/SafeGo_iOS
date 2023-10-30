@@ -39,16 +39,22 @@ struct HomeView: View {
                     
                     VStack
                     {
-                        
                         Spacer()
                         Spacer()
                         Spacer()
                         Spacer()
                         Spacer()
-                        
-                        
-                        HStack
-                        {
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
                             
                             TextField("Where to?", text: $viewModel.whereto)
                                 .padding()
@@ -57,20 +63,30 @@ struct HomeView: View {
                                 .cornerRadius(10)
                                 .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
                                 .foregroundColor(.gray)
-                            
-                            NavigationLink {
-                                TravelsView()
-                            } label: {
-                                Image("calendar")
-                                    .frame(width: UIScreen.main.bounds.width / 5, height: UIScreen.main.bounds.height / 11)
-                            }
-                            
-                        }
+
                         
                         .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                         
                         VStack
                         {
+                            HStack
+                            {
+                                NavigationLink {
+                                    TravelsView()
+                                } label: {
+                                    Image("calendar")
+                                        .frame(width: UIScreen.main.bounds.width / 5, height: UIScreen.main.bounds.height / 11)
+                                }
+                                
+                                NavigationLink {
+                                    ReportBugView()
+                                } label: {
+                                    Image("calendar")
+                                        .frame(width: UIScreen.main.bounds.width / 5, height: UIScreen.main.bounds.height / 11)
+                                }
+                                
+                                
+                            }
                             //Home
                             ZStack{
                                 RoundedRectangle(cornerRadius: 25)
@@ -102,7 +118,7 @@ struct HomeView: View {
                                 }
                                 .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
                             }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                            //Educatioon
+                            //Education
                             ZStack{
                                 RoundedRectangle(cornerRadius: 25)
                                     .foregroundColor(Color(hex: 0xCFF2E5))
@@ -133,11 +149,6 @@ struct HomeView: View {
                                 .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
                             }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                             
-                            VStack
-                            {
-                                Link("PQRS", destination: URL(string: "https://forms.gle/UPGXXCDFYLrQNY9i9")!)
-                                    .foregroundColor(.blue)
-                            }
                             ButtonFactory.createButton(title: "Logout")
                             {
                                 viewModel.logOut()

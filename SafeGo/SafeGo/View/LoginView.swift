@@ -33,7 +33,7 @@ struct LoginView: View {
                             .padding(.bottom, 10)
                             .frame(width: UIScreen.main.bounds.width - 40,
                                    alignment: .leading)
-                        Text("Login before starting your trip")
+                        Text("Login before you start your trip")
                             .font(Font.custom("DM Sans", size: 17))
                             .foregroundColor(.white)
                             .bold()

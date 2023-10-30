@@ -58,14 +58,6 @@ struct RegisterView: View {
             .frame(width: UIScreen.main.bounds.width,
                    height: UIScreen.main.bounds.height / 1.9)
         }
-        .background(
-            Image("Map")
-                .resizable()
-                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                .frame(width: UIScreen.main.bounds.width * 1.2,
-                       height: UIScreen.main.bounds.height * 1.2)
-                .blur(radius: 1.8)
-        )
     }
 }
 
