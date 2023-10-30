@@ -11,8 +11,15 @@ import Foundation
 
 import FirebaseAuth
 
+import FirebaseFirestore
 
-struct MapViewViewModel 
+class MapViewViewModel: ObservableObject
 {
-    // 
+    func logOut() {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print (error)
+        }
+    }
 }
