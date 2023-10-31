@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  SafeGo
 //
-//  Created by Gabriela Paez on 13/10/23.
+//  Created by Juan Martin Santos Ayala on 19/09/23.
 //
 
 import SwiftUI
@@ -10,24 +10,9 @@ import SwiftUI
 struct MainView: View {
     
     @StateObject var viewModel = MainViewViewModel()
-    @State private var showSafeGoView = true
-
-    var body: some View 
-    {
-        if showSafeGoView
-        {
-            SafeGoView()
-                .onAppear 
-            {
-                    // Shows the SafeGoView for 7 seconds and then shows either login view or map view depending if a person is already logged in.
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 7)
-                    {
-                        self.showSafeGoView = false
-                    }
-            }
-        } 
-        else if viewModel.isSignedIn && !viewModel.currentUserId.isEmpty
-        {
+    
+    var body: some View {
+        if viewModel.isSignedIn && !viewModel.currentUserId.isEmpty {
             MapView()
         } else {
             LoginView()
@@ -35,11 +20,9 @@ struct MainView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider 
-{
-    static var previews: some View
-    {
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
         MainView()
     }
 }
-
