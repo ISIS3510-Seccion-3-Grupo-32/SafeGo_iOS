@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PythonKit
 
 struct ReportCrimeView: View {
     
@@ -59,7 +60,12 @@ struct ReportCrimeView: View {
                     
                     ButtonFactory.createButton(title: "Send Report") 
                     {
-                        viewModel.uploadToCloud()
+                        //let python = Python.main
+                        //let result = python.call(function: classify_crime, args: [viewModel.writeaDescription])
+                        //if let crimeType = String(result)
+                        //{
+                            //viewModel.uploadToCloud(crimeType: crimeType)
+                       // }
                     }
                     
                     Spacer()
