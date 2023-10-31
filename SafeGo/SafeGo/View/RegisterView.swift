@@ -34,22 +34,41 @@ struct RegisterView: View {
                         .frame(height: UIScreen.main.bounds.height / 15)
                         .background(Color.white)
                         .cornerRadius(10)
+                        .onChange(of: viewModel.name) {
+                            if viewModel.name.count > 32 {
+                                viewModel.name = String(viewModel.name.prefix(32))
+                            }
+                        }
+                    
                     SecureField("Password", text: $viewModel.password)
                         .padding()
                         .frame(height: UIScreen.main.bounds.height / 15)
                         .background(Color.white)
                         .cornerRadius(10)
+                        .onChange(of: viewModel.password) {
+                            if viewModel.password.count > 32 {
+                                viewModel.password = String(viewModel.password.prefix(32))
+                            }
+                        }
                     TextField("Email", text: $viewModel.email)
                         .padding()
                         .frame(height: UIScreen.main.bounds.height / 15)
                         .background(Color.white)
                         .cornerRadius(10)
+                        .onChange(of: viewModel.email) {
+                            if viewModel.email.count > 40 {
+                                viewModel.email = String(viewModel.email.prefix(40))
+                            }
+                        }
+                    
                     DatePicker("Birth Date", selection: $viewModel.dateOfBirt, displayedComponents: [.date])
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                     
                     ButtonFactory.createButton(title: "Register") {
                         viewModel.register()
+                    }.alert(isPresented: $viewModel.showAlert) {
+                        Alert(title: Text("Error"), message: Text(viewModel.validationError), dismissButton: .default(Text("Ok")))
                     }
                 }
                 .padding()
