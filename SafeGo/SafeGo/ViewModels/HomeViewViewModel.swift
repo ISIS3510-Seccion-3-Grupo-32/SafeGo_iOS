@@ -22,6 +22,9 @@ class HomeViewViewModel: ObservableObject {
     private let db = Firestore.firestore()
     private let collectionReference = "directions"
     
+    private let db1 = Firestore.firestore()
+    private let collectionReference1 = "ButtonClicks"
+    
     init () {}
     
     
@@ -33,7 +36,8 @@ class HomeViewViewModel: ObservableObject {
         }
     }
     
-    func uploadToCloud() {
+    func uploadToCloud() 
+    {
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(whereto) { (placemarks, error) in
             guard let placemarks = placemarks, let location = placemarks.first?.location else {
@@ -56,5 +60,10 @@ class HomeViewViewModel: ObservableObject {
                 }
             }
         }
+    }
+    
+    func uploadToCloudClicks()
+    {
+        
     }
 }
