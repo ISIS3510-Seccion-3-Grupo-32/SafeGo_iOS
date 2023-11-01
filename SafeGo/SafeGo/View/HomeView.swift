@@ -39,6 +39,7 @@ struct HomeView: View {
                     
                     VStack
                     {
+                        
                         Spacer()
                         Spacer()
                         Spacer()
@@ -49,12 +50,7 @@ struct HomeView: View {
                         Spacer()
                         Spacer()
                         Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
+                        
                             
                             TextField("Where to?", text: $viewModel.whereto)
                                 .padding()
@@ -149,6 +145,7 @@ struct HomeView: View {
                                 .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
                             }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                             
+
                             ButtonFactory.createButton(title: "Logout")
                             {
                                 viewModel.logOut()
