@@ -18,77 +18,75 @@ struct HomeView: View {
     
     @State private var isTextFieldExpanded = false
     
-    var body: some View 
-    {
-        ZStack
-        {
-            CurrentMapView() //Background
+    var body: some View {
+        ZStack {
+            CurrentMapView() // Background
             
-            Spacer()
-            Spacer()
-            
-            VStack{
-                
+            VStack {
                 Spacer()
                 
-                ZStack
-                {
-                    RoundedRectangle(cornerRadius: 25)
+                ZStack {
+                    RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
                         .foregroundColor(Color(hex: 0x96CEB4))
-                        .offset(y:120)
+                        .offset(y: 120)
                     
-                    VStack
-                    {
+                    VStack {
+                        Spacer().frame(height: UIScreen.main.bounds.height / 12)
                         
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
+                        // Add a navigation link to UserComplaintsView
+                        NavigationLink(destination: UserComplaintsView()) {
+                            Image(systemName: "line.horizontal.3") // Three lines symbol
+                                .frame(width: UIScreen.main.bounds.width / 5, height: UIScreen.main.bounds.height / 11)
+                        }
                         
-                            
-                            TextField("Where to?", text: $viewModel.whereto)
-                                .padding()
-                                .frame(height: UIScreen.main.bounds.height / 12, alignment: .leading)
-                                .background(Color.white)
-                                .cornerRadius(10)
-                                .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
-                                .foregroundColor(.gray)
-
+                        TextField("Where to?", text: $viewModel.whereto)
+                            .padding()
+                            .frame(height: UIScreen.main.bounds.height / 12, alignment: .leading)
+                            .background(Color.white)
+                            .cornerRadius(10)
+                            .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
+                            .foregroundColor(.gray)
+                            .shadow(radius: 10)
                         
-                        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                        
-                        VStack
-                        {
-                            HStack
-                            {
-                                NavigationLink {
-                                    TravelsView()
-                                } label: {
-                                    Image("calendar")
-                                        .frame(width: UIScreen.main.bounds.width / 5, height: UIScreen.main.bounds.height / 11)
+                        ZStack {
+                            HStack {
+                                NavigationLink(destination: UserComplaintsView()) {
+                                    RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
+                                        .foregroundColor(Color(hex: 0xCFF2E5))
+                                        .frame(height: UIScreen.main.bounds.height / 12)
+                                        .overlay(
+                                            Image(systemName: "exclamationmark.triangle.fill")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: UIScreen.main.bounds.height / 12, height: UIScreen.main.bounds.height / 12)
+                                                .foregroundColor(.black)
+                                        )
                                 }
+                                .shadow(radius: 10)
                                 
-                                NavigationLink {
-                                    ReportBugView()
-                                } label: {
-                                    Image("calendar")
-                                        .frame(width: UIScreen.main.bounds.width / 5, height: UIScreen.main.bounds.height / 11)
+                                NavigationLink(destination: TravelsView()) {
+                                    RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
+                                        .foregroundColor(Color(hex: 0xCFF2E5))
+                                        .frame(height: UIScreen.main.bounds.height / 12)
+                                        .overlay(
+                                            Image("calendar")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: UIScreen.main.bounds.height / 2, height: UIScreen.main.bounds.height / 2)
+                                                .foregroundColor(.black)
+                                        )
                                 }
-                                
-                                
+                                .shadow(radius: 10)
                             }
-                            //Home
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 25)
+                        }
+
+                        VStack {
+                            // Home
+                            ZStack {
+                                RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
                                     .foregroundColor(Color(hex: 0xCFF2E5))
                                     .frame(height: UIScreen.main.bounds.height / 12)
-                                HStack{
+                                HStack {
                                     Image("house")
                                         .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
                                         .padding(.horizontal, UIScreen.main.bounds.width / 15)
@@ -96,15 +94,15 @@ struct HomeView: View {
                                         .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
                                         .foregroundColor(.gray)
                                 }
-                                .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
-                            }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                                .frame(width: UIScreen.main.bounds.width / 1.2, alignment: . leading)
+                            }.shadow(radius: 10)
                             
-                            //Work
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 25)
+                            // Work
+                            ZStack {
+                                RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
                                     .foregroundColor(Color(hex: 0xCFF2E5))
                                     .frame(height: UIScreen.main.bounds.height / 12)
-                                HStack{
+                                HStack {
                                     Image("work")
                                         .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
                                         .padding(.horizontal, UIScreen.main.bounds.width / 15)
@@ -113,13 +111,14 @@ struct HomeView: View {
                                         .foregroundColor(.gray)
                                 }
                                 .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
-                            }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                            //Education
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 25)
+                            }.shadow(radius: 10)
+                            
+                            // Education
+                            ZStack {
+                                RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
                                     .foregroundColor(Color(hex: 0xCFF2E5))
                                     .frame(height: UIScreen.main.bounds.height / 12)
-                                HStack{
+                                HStack {
                                     Image("education")
                                         .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
                                         .padding(.horizontal, UIScreen.main.bounds.width / 15)
@@ -128,13 +127,14 @@ struct HomeView: View {
                                         .foregroundColor(.gray)
                                 }
                                 .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
-                            }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                            //Partner
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 25)
+                            }.shadow(radius: 10)
+                            
+                            // Partner
+                            ZStack {
+                                RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
                                     .foregroundColor(Color(hex: 0xCFF2E5))
                                     .frame(height: UIScreen.main.bounds.height / 12)
-                                HStack{
+                                HStack {
                                     Image("partner")
                                         .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
                                         .padding(.horizontal, UIScreen.main.bounds.width / 15)
@@ -143,23 +143,21 @@ struct HomeView: View {
                                         .foregroundColor(.gray)
                                 }
                                 .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
-                            }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                            }.shadow(radius: 10)
                             
-
-                            ButtonFactory.createButton(title: "Logout")
-                            {
+                            
+                            ButtonFactory.createButton(title: "Logout") {
                                 viewModel.logOut()
                             }
                         }
                     }
                     .padding()
                 }
-
             }
         }
     }
-        
 }
+
 
 #Preview {
     HomeView()
