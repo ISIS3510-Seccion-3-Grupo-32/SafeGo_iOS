@@ -18,7 +18,11 @@ struct HomeView: View {
     
     @State private var isTextFieldExpanded = false
     
-    var body: some View {
+    var body: some View 
+    {
+        NavigationView
+        {
+            
         ZStack {
             CurrentMapView() // Background
             
@@ -50,7 +54,7 @@ struct HomeView: View {
                         
                         ZStack {
                             HStack {
-                                NavigationLink(destination: UserComplaintsView()) {
+                                NavigationLink(destination: ReportBugView()) {
                                     RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
                                         .foregroundColor(Color(hex: 0xCFF2E5))
                                         .frame(height: UIScreen.main.bounds.height / 12)
@@ -79,7 +83,7 @@ struct HomeView: View {
                                 .shadow(radius: 10)
                             }
                         }
-
+                        
                         VStack {
                             // Home
                             ZStack {
@@ -154,12 +158,14 @@ struct HomeView: View {
                     .padding()
                 }
             }
+            }
         }
     }
 }
 
 
-#Preview {
+#Preview 
+{
     HomeView()
 }
 
