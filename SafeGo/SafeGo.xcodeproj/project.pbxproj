@@ -18,6 +18,7 @@
 		0EB087602AF0654400496E31 /* ReportBugViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0875F2AF0654400496E31 /* ReportBugViewViewModel.swift */; };
 		0EB087622AF067AD00496E31 /* UserComplaintsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB087612AF067AD00496E31 /* UserComplaintsView.swift */; };
 		0EB087682AF2FD0700496E31 /* PQRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB087672AF2FD0700496E31 /* PQRView.swift */; };
+		30B791DA2AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B791D92AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift */; };
 		30D43F792ABEB6140069E0F0 /* TravelsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D43F782ABEB6140069E0F0 /* TravelsViewViewModel.swift */; };
 		30D43F7B2ABEB7170069E0F0 /* TravelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D43F7A2ABEB7170069E0F0 /* TravelsView.swift */; };
 		30DF54732ABE912E00C03732 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF54722ABE912E00C03732 /* HomeView.swift */; };
@@ -78,6 +79,7 @@
 		0EB0875F2AF0654400496E31 /* ReportBugViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportBugViewViewModel.swift; sourceTree = "<group>"; };
 		0EB087612AF067AD00496E31 /* UserComplaintsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserComplaintsView.swift; sourceTree = "<group>"; };
 		0EB087672AF2FD0700496E31 /* PQRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQRView.swift; sourceTree = "<group>"; };
+		30B791D92AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSuggestionsViewViewModel.swift; sourceTree = "<group>"; };
 		30D43F782ABEB6140069E0F0 /* TravelsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelsViewViewModel.swift; sourceTree = "<group>"; };
 		30D43F7A2ABEB7170069E0F0 /* TravelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TravelsView.swift; path = SafeGo/ViewModels/TravelsView.swift; sourceTree = SOURCE_ROOT; };
 		30DF54722ABE912E00C03732 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				5326326D2ABED9E800F96002 /* MapViewViewModel.swift */,
 				0E5774092AD9050E0077DF85 /* ReportCrimeViewViewModel.swift */,
 				0EB0875F2AF0654400496E31 /* ReportBugViewViewModel.swift */,
+				30B791D92AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				30DF54732ABE912E00C03732 /* HomeView.swift in Sources */,
 				0EB087602AF0654400496E31 /* ReportBugViewViewModel.swift in Sources */,
 				E0F085C32ABD010C00EA1F8E /* RegisterView.swift in Sources */,
+				30B791DA2AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift in Sources */,
 				E0DDD2312ABD11690053F726 /* MainViewViewModel.swift in Sources */,
 				0E5774062AD8F0ED0077DF85 /* MapView.swift in Sources */,
 				0E5755492AD9D8DC009433B6 /* CurrentMapView.swift in Sources */,

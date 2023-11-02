@@ -16,16 +16,9 @@ struct LoginView: View {
             VStack {
                 Spacer()
                 ZStack {
-                    RoundedRectangle(cornerRadius: 25)
-                        .foregroundColor(Color(hex: 0x96CEB4))
-                        .offset(y:40)
                     
                     VStack {
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-
+                        
                         Text("Welcome to SafeGo")
                             .font(Font.custom("DM Sans", size: 30))
                             .foregroundColor(.white)
@@ -83,6 +76,7 @@ struct LoginView: View {
                             Text("Don't have an account?")
                                 .foregroundColor(.white)
                             NavigationLink("Register Now", destination: RegisterView())
+                            
                         }
                         .padding()
                     }
@@ -91,15 +85,7 @@ struct LoginView: View {
                 .frame(width: UIScreen.main.bounds.width,
                        height: UIScreen.main.bounds.height / 1.9)
             }
-            .background(
-                Image("Map")
-                    .resizable()
-                    .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                    .frame(width: UIScreen.main.bounds.width * 1.2,
-                           height: UIScreen.main.bounds.height * 1.2)
-                    .blur(radius: 1.8)
-            )
-            
+            .background(Color(hex: 0x96CEB4))
         }
     }
 }
