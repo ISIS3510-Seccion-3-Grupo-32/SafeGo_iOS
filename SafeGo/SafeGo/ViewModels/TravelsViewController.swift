@@ -10,7 +10,7 @@ import FirebaseFirestore
 import SwiftUI
 import FirebaseAuth
 
-class TravelsViewViewModel: ObservableObject 
+class TravelsViewController: ObservableObject 
 {
     @Published var travel1 = ""
     @Published var travel2 = ""

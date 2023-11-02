@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     
-    @StateObject var viewModel = MainViewViewModel()
+    @StateObject var viewModel = MainViewController()
     @State private var showSafeGoView = true
 
     var body: some View 

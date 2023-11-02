@@ -14,7 +14,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var viewModel = HomeViewViewModel()
+    @StateObject var viewModel = HomeViewController()
     
     @State private var isTextFieldExpanded = false
     

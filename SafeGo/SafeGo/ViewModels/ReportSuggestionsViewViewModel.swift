@@ -8,7 +8,7 @@
 import SwiftUI
 import FirebaseFirestore
 
-class ReportSuggestionViewViewModel: ObservableObject
+class ReportSuggestionViewController: ObservableObject
 {
     @Published var writeaDescription = ""
     @Published var showAlert = false

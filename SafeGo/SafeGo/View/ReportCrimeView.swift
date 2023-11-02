@@ -10,7 +10,7 @@ import PythonKit
 
 struct ReportCrimeView: View {
     
-    @StateObject var viewModel = ReportCrimeViewViewModel()
+    @StateObject var viewModel = ReportCrimeViewController()
     
     @State private var isTextFieldExpanded = false
     

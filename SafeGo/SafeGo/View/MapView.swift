@@ -17,7 +17,7 @@ import CoreLocation
 
 struct MapView: View {
     @State private var region: MKCoordinateRegion = .userRegion
-    @StateObject var viewModel = MapViewViewModel()
+    @StateObject var viewModel = MapViewController()
     
     var body: some View
     {

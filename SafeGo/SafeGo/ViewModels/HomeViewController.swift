@@ -10,7 +10,7 @@ import Foundation
 import FirebaseFirestore
 import CoreLocation
 
-class HomeViewViewModel: ObservableObject {
+class HomeViewController: ObservableObject {
     @Published var whereto = ""
     @Published var dateSelect = Date()
     @Published var longitud = ""
