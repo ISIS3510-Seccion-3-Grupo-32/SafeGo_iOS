@@ -14,7 +14,7 @@ class ReportBugViewViewModel: ObservableObject {
     @Published var alertMessage = ""
 
     private let db = Firestore.firestore()
-    private let collectionReference = "CrimeReports"
+    private let collectionReference = "bugReports"
 
     func uploadToCloud() {
             let data = ["description": writeaDescription]

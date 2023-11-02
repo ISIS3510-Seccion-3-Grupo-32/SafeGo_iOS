@@ -46,7 +46,7 @@ struct ReportBugView: View
                         .foregroundColor(.white)
                         .padding()
                     
-                    TextField("Description of the Bug", text: $viewModel.writeaDescription)
+                    TextField("Whats wrong with the app", text: $viewModel.writeaDescription)
                         .padding()
                         .frame(width: UIScreen.main.bounds.width / 1.2, height: isTextFieldExpanded ? UIScreen.main.bounds.height / 4 : UIScreen.main.bounds.height / 8)
                         .background(Color.white)

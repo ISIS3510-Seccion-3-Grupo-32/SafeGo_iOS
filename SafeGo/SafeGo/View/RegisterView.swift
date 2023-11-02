@@ -11,12 +11,8 @@ struct RegisterView: View {
     @StateObject var viewModel = RegisterViewViewModel()
     var body: some View {
         VStack {
-            Spacer()
             ZStack {
-                RoundedRectangle(cornerRadius: 20)
-                    .foregroundColor(Color(hex: 0x96CEB4))
-                    .offset(y:40)
-                
+                            
                 VStack {
                     
                     Spacer()
@@ -65,21 +61,27 @@ struct RegisterView: View {
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                     
+                    Spacer()
+
+                    
                     ButtonFactory.createButton(title: "Register") {
                         viewModel.register()
                     }.alert(isPresented: $viewModel.showAlert) {
                         Alert(title: Text("Error"), message: Text(viewModel.validationError), dismissButton: .default(Text("Ok")))
                     }
+                    
+                    Spacer()
+
                 }
                 .padding()
                 
             }
-            .frame(width: UIScreen.main.bounds.width,
-                   height: UIScreen.main.bounds.height / 1.9)
+
         }
+        .background(Color(hex: 0x96CEB4))
+
     }
 }
-
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {

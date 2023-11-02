@@ -2,7 +2,7 @@
 //  TravelsView.swift
 //  SafeGo
 //
-//  Created by Pipe on 23/09/23.
+//  Created by Juan Felipe on 1/11/23.
 //
 
 import SwiftUI
@@ -28,9 +28,11 @@ struct TravelsView: View {
                         .padding(.bottom, 10)
                         .frame(width: UIScreen.main.bounds.width - 40,
                                alignment: .leading)
+                    
                     //Trip1
                     TextField("Trip1", text: $viewModel.travel1)
                         .font(Font.custom("DM Sans", size: 17))
+                        .disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                         .padding()
                         .frame(height: UIScreen.main.bounds.height / 15)
                         .background(Color.white)
@@ -39,6 +41,7 @@ struct TravelsView: View {
                     //Trip2
                     TextField("Trip2", text: $viewModel.travel2)
                         .font(Font.custom("DM Sans", size: 17))
+                        .disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                         .padding()
                         .frame(height: UIScreen.main.bounds.height / 15)
                         .background(Color.white)
@@ -47,6 +50,7 @@ struct TravelsView: View {
                     //Trip3
                     TextField("Trip3", text: $viewModel.travel3)
                         .font(Font.custom("DM Sans", size: 17))
+                        .disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                         .padding()
                         .frame(height: UIScreen.main.bounds.height / 15)
                         .background(Color.white)
@@ -55,6 +59,7 @@ struct TravelsView: View {
                     //Trip4
                     TextField("Trip4", text: $viewModel.travel4)
                         .font(Font.custom("DM Sans", size: 17))
+                        .disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                         .padding()
                         .frame(height: UIScreen.main.bounds.height / 15)
                         .background(Color.white)
