@@ -1,22 +1,20 @@
 //
-//  ReportCrimeViewViewModel.swift
+//  ReportBugViewViewModel.swift
 //  SafeGo
 //
-//  Created by Gabriela on 10/12/23.
+//  Created by Gabriela on 10/30/23.
 //
-
-// Idea originally taken from https://www.youtube.com/watch?v=7VjkVAreYeg but then noticed that the connection was to firestore and not firedatabase
 
 import SwiftUI
 import FirebaseFirestore
 
-class ReportCrimeViewViewModel: ObservableObject {
+class ReportBugViewController: ObservableObject {
     @Published var writeaDescription = ""
     @Published var showAlert = false
     @Published var alertMessage = ""
 
     private let db = Firestore.firestore()
-    private let collectionReference = "crimeReports"
+    private let collectionReference = "bugReports"
 
     func uploadToCloud() {
             let data = ["description": writeaDescription]
@@ -24,7 +22,7 @@ class ReportCrimeViewViewModel: ObservableObject {
             db.collection(collectionReference).addDocument(data: data) { error in
                 
                 // taken from https://developer.apple.com/documentation/swiftui/alert
-                if let error = error 
+                if let error = error
                 {
                     self.alertMessage = "Report could not be sent"
                 } else

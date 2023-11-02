@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TravelsView: View {
-    @StateObject var viewModel = TravelsViewViewModel()
+    @StateObject var viewModel = TravelsViewController()
 
     var body: some View {
 

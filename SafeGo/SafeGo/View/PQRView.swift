@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PQRView: View 
 {
-    @StateObject var viewModel = ReportBugViewViewModel()
+    @StateObject var viewModel = ReportBugViewController()
     
     @State private var isTextFieldExpanded = false
     

@@ -9,7 +9,7 @@ import FirebaseFirestore
 import FirebaseAuth
 import Foundation
 
-class RegisterViewViewModel: ObservableObject {
+class RegisterViewController: ObservableObject {
     @Published var name = ""
     @Published var password = ""
     @Published var email = ""

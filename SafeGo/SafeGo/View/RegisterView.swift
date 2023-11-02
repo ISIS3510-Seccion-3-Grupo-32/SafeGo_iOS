@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RegisterView: View {
-    @StateObject var viewModel = RegisterViewViewModel()
+    @StateObject var viewModel = RegisterViewController()
     var body: some View {
         VStack {
             ZStack {
