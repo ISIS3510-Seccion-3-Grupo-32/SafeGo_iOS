@@ -24,8 +24,6 @@ struct HomeView: View {
         {
             VStack
             {
-
-                
                 VStack (alignment: .leading)
                 {
 
@@ -47,7 +45,7 @@ struct HomeView: View {
                         .disabled(false)
                     
                     HStack {
-                        NavigationLink(destination: ReportBugView()) {
+                        NavigationLink(destination: UserComplaintsView()) {
                             RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
                                 .foregroundColor(Color(hex: 0xCFF2E5))
                                 .frame(height: UIScreen.main.bounds.height / 12)

@@ -18,6 +18,7 @@
 		0EB087602AF0654400496E31 /* ReportBugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0875F2AF0654400496E31 /* ReportBugViewController.swift */; };
 		0EB087622AF067AD00496E31 /* UserComplaintsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB087612AF067AD00496E31 /* UserComplaintsView.swift */; };
 		0EB087682AF2FD0700496E31 /* PQRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB087672AF2FD0700496E31 /* PQRView.swift */; };
+		30A1620F2AF477830047A893 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A1620E2AF477830047A893 /* SettingsView.swift */; };
 		30B791DA2AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B791D92AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift */; };
 		30D43F792ABEB6140069E0F0 /* TravelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D43F782ABEB6140069E0F0 /* TravelsViewController.swift */; };
 		30D43F7B2ABEB7170069E0F0 /* TravelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D43F7A2ABEB7170069E0F0 /* TravelsView.swift */; };
@@ -79,6 +80,7 @@
 		0EB0875F2AF0654400496E31 /* ReportBugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportBugViewController.swift; sourceTree = "<group>"; };
 		0EB087612AF067AD00496E31 /* UserComplaintsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserComplaintsView.swift; sourceTree = "<group>"; };
 		0EB087672AF2FD0700496E31 /* PQRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQRView.swift; sourceTree = "<group>"; };
+		30A1620E2AF477830047A893 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		30B791D92AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSuggestionsViewViewModel.swift; sourceTree = "<group>"; };
 		30D43F782ABEB6140069E0F0 /* TravelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelsViewController.swift; sourceTree = "<group>"; };
 		30D43F7A2ABEB7170069E0F0 /* TravelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TravelsView.swift; path = SafeGo/ViewModels/TravelsView.swift; sourceTree = SOURCE_ROOT; };
@@ -176,6 +178,7 @@
 				0EB0875B2AF0641500496E31 /* ReportBugView.swift */,
 				0EB087612AF067AD00496E31 /* UserComplaintsView.swift */,
 				0EB087672AF2FD0700496E31 /* PQRView.swift */,
+				30A1620E2AF477830047A893 /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				0E5774082AD9016D0077DF85 /* ReportCrimeView.swift in Sources */,
 				30D43F792ABEB6140069E0F0 /* TravelsViewController.swift in Sources */,
 				E0829F442ACB102400D0FA43 /* Extensions.swift in Sources */,
+				30A1620F2AF477830047A893 /* SettingsView.swift in Sources */,
 				30D43F7B2ABEB7170069E0F0 /* TravelsView.swift in Sources */,
 				E0FD2D4A2ABA6BF60007A195 /* SafeGoApp.swift in Sources */,
 			);

@@ -40,7 +40,7 @@ struct PQRView: View
                     Spacer()
                     Spacer()
                     
-                    Text("Report of Suggestion")
+                    Text("Report a Suggestion")
                         .font(.largeTitle)
                         .foregroundColor(.white)
                         .padding()
