@@ -9,10 +9,9 @@
 import SwiftUI
 import MapKit
 
-struct CurrentMapView: View
-{
+struct CurrentMapView: View {
     @State private var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 4.6767, longitude: -74.0483) ,
+        center: CLLocationCoordinate2D(latitude: 4.6767, longitude: -74.0483), // Initial center, but it will be updated with the user's location
         span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
     )
 
@@ -20,28 +19,27 @@ struct CurrentMapView: View
         Map(coordinateRegion: $region, showsUserLocation: true)
             .onAppear {
                 // Center the map on the user's current location
-                if let userLocation = LocationManager.shared.userLocation 
-                {
+                if let userLocation = LocationManager.shared.userLocation {
                     region.center = userLocation
                 }
             }
+            .edgesIgnoringSafeArea(.all) // Make the map fill the entire screen
     }
 }
 
 struct ContentView: View {
     var body: some View {
         NavigationView {
-            MapView()
+            CurrentMapView()
+                .navigationBarTitle("Map View")
         }
     }
 }
 
-
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     static let shared = LocationManager()
-    
-    @Published var userLocation: CLLocationCoordinate2D?
 
+    @Published var userLocation: CLLocationCoordinate2D?
     private var locationManager = CLLocationManager()
 
     private override init() {
@@ -58,9 +56,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
 }
-
-
-#Preview 
+// Preview
+#Preview
 {
     CurrentMapView()
 }

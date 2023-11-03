@@ -5,12 +5,7 @@
 //  Created by Gabriela on 10/12/23.
 //
 
-//
-//  ContentView.swift
-//  SafeGo
-//
-//  Created by Gabriela on 10/12/23.
-//
+
 import SwiftUI
 import MapKit
 import CoreLocation
