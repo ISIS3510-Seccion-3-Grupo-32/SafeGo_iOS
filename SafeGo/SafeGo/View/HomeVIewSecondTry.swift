@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct HomeVIewSecondTry: View {
     @StateObject var viewModel = HomeViewController()
     
     @State private var isTextFieldExpanded = false
@@ -189,5 +189,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    HomeVIewSecondTry()
 }
