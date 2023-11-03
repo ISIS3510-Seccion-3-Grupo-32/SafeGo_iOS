@@ -24,7 +24,7 @@ struct UserComplaintsView: View
                 
                 RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
                     .foregroundColor(Color(hex: 0xCFF2E5))
-                    .frame(height: UIScreen.main.bounds.height / 12)
+                    .frame(width: UIScreen.main.bounds.width / 1.1, height: UIScreen.main.bounds.height / 12)
                     .overlay(
                         HStack {
                             Image(systemName: "gear")
@@ -44,7 +44,7 @@ struct UserComplaintsView: View
                 
                 RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
                     .foregroundColor(Color(hex: 0xCFF2E5))
-                    .frame(height: UIScreen.main.bounds.height / 12)
+                    .frame(width: UIScreen.main.bounds.width / 1.1, height: UIScreen.main.bounds.height / 12)
                     .overlay(
                         HStack {
                             Image(systemName: "pencil")
@@ -63,7 +63,7 @@ struct UserComplaintsView: View
                 
                 RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
                     .foregroundColor(Color(hex: 0xCFF2E5))
-                    .frame(height: UIScreen.main.bounds.height / 12)
+                    .frame(width: UIScreen.main.bounds.width / 1.1, height: UIScreen.main.bounds.height / 12)
                     .overlay(
                         HStack {
                             Image(systemName: "speaker")
