@@ -34,17 +34,21 @@ struct HomeView: View {
                             .foregroundColor(.black)
                     }
                     
-                    TextField("Where to?", text: $viewModel.whereto)
-                        .padding()
-                        .frame(height: UIScreen.main.bounds.height / 12, alignment: .leading)
-                        .background(Color.white)
-                        .cornerRadius(10)
-                        .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
-                        .foregroundColor(.gray)
-                        .shadow(radius: 10)
-                        .disabled(false)
+                    VStack
+                    {
+                        TextField("Where to?", text: $viewModel.whereto)
+                            .padding()
+                            .frame(height: UIScreen.main.bounds.height / 12, alignment: .leading)
+                            .background(Color.white)
+                            .cornerRadius(10)
+                            .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
+                            .foregroundColor(.gray)
+                            .shadow(radius: 10)
+    
+                    }
                     
-                    HStack {
+                    HStack 
+                    {
                         NavigationLink(destination: UserComplaintsView()) {
                             RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
                                 .foregroundColor(Color(hex: 0xCFF2E5))
@@ -59,7 +63,8 @@ struct HomeView: View {
                                 .shadow(radius: 10)
                         }
                         
-                        NavigationLink(destination: TravelsView()) {
+                        NavigationLink(destination: TravelsView()) 
+                        {
                             RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
                                 .foregroundColor(Color(hex: 0xCFF2E5))
                                 .frame(height: UIScreen.main.bounds.height / 12)
