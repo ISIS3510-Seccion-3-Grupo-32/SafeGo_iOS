@@ -10,9 +10,15 @@ import SwiftUI
 struct ReportBugView: View
 {
     
-    @StateObject var viewModel = ReportBugViewController()
+        @StateObject var serviceAdapter = ServiceAdapter()
+        @StateObject var viewController: ReportBugViewController
+
+        @State private var isTextFieldExpanded = false
+        @State private var description = ""
     
-    @State private var isTextFieldExpanded = false
+    init() {
+            _viewController = StateObject(wrappedValue: ReportBugViewController(serviceAdapter: serviceAdapter))
+        }
     
     var body: some View
     {
@@ -46,29 +52,22 @@ struct ReportBugView: View
                         .foregroundColor(.white)
                         .padding()
                     
-                    TextField("Whats wrong with the app", text: $viewModel.writeaDescription)
+                    TextField("Whats wrong with the app", text: $description)
                         .padding()
                         .frame(width: UIScreen.main.bounds.width / 1.2, height: isTextFieldExpanded ? UIScreen.main.bounds.height / 4 : UIScreen.main.bounds.height / 8)
                         .background(Color.white)
                         .cornerRadius(10)
                         .autocapitalization(.words)
-                    
-                        // On tap gestuse is what is to happened when something is tapped, in this case the text field.
                         .onTapGesture {
-                            isTextFieldExpanded.toggle() //A control that toggles between on and off states
+                            isTextFieldExpanded.toggle()
                         }
                     
-                    ButtonFactory.createButton(title: "Send Report")
+                    Button("Send Report") 
                     {
-                        viewModel.uploadToCloud()
+                        viewController.sendDescription(description)
                     }
                     
                     Spacer()
-                    
-                    .alert(isPresented: $viewModel.showAlert)
-                    {
-                        Alert(title: Text("Report"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))
-                    }
                     
                 }
                 
