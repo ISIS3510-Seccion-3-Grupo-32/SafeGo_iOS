@@ -8,14 +8,18 @@
 import SwiftUI
 import UIKit
 
-struct ImagePickerView: UIViewControllerRepresentable {
+// ProfileViewController for picking and saving profile image
+struct ProfileViewController: UIViewControllerRepresentable {
     @Binding var image: Image?
+    @Binding var userDefaultsKey: String
 
     class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         @Binding var image: Image?
+        @Binding var userDefaultsKey: String
 
-        init(image: Binding<Image?>) {
+        init(image: Binding<Image?>, userDefaultsKey: Binding<String>) {
             _image = image
+            _userDefaultsKey = userDefaultsKey
         }
 
         func imagePickerController(
@@ -24,6 +28,11 @@ struct ImagePickerView: UIViewControllerRepresentable {
         ) {
             if let uiImage = info[.originalImage] as? UIImage {
                 image = Image(uiImage: uiImage)
+
+                // Save the image data to UserDefaults
+                if let jpegData = uiImage.jpegData(compressionQuality: 1.0) {
+                    UserDefaults.standard.set(jpegData, forKey: userDefaultsKey)
+                }
             }
 
             picker.dismiss(animated: true)
@@ -35,20 +44,22 @@ struct ImagePickerView: UIViewControllerRepresentable {
     }
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(image: $image)
+        Coordinator(image: $image, userDefaultsKey: $userDefaultsKey)
     }
 
-    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePickerView>) -> UIImagePickerController {
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ProfileViewController>) -> UIImagePickerController {
         let picker = UIImagePickerController()
         picker.delegate = context.coordinator
         return picker
     }
 
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePickerView>) {}
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ProfileViewController>) {}
 }
 
-struct ImagePickerView_Previews: PreviewProvider {
+struct ProfileViewController_Previews: PreviewProvider {
     static var previews: some View {
-        ImagePickerView(image: .constant(nil))
+        ProfileViewController(image: .constant(nil), userDefaultsKey: .constant("profileImage"))
     }
 }
+
+

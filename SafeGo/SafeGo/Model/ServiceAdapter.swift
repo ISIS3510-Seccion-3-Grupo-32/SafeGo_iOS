@@ -58,4 +58,31 @@ class ServiceAdapter: ObservableObject
                 }
             }
         }
+    
+    func connectGCPClassifyBugs(text: String) {
+    
+        let urlString = "https://us-central1-safego-399621.cloudfunctions.net/classify-bugs"
+        
+        if let url = URL(string: urlString) {
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            
+            let bodyString = "text=\(text)"
+            request.httpBody = bodyString.data(using: .utf8)
+            
+            // Create a URLSession task
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    print("Error: \(error)")
+                } else if let data = data {
+                    if let result = String(data: data, encoding: .utf8) {
+                        print("Response: \(result)")
+                    }
+                }
+            }
+            task.resume()
+        } else {
+            print("Invalid URL")
+        }
+    }
 }
