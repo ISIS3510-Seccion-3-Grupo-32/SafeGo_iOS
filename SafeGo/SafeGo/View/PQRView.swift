@@ -2,16 +2,21 @@
 //  PQRView.swift
 //  SafeGo
 //
-//  Created by Gabriela on 11/1/23.
+//  Created by Gabriela on 11/5/23.
 //
 
 import SwiftUI
 
-struct PQRView: View 
+struct PQRView: View
 {
-    @StateObject var viewModel = ReportBugViewController()
     
-    @State private var isTextFieldExpanded = false
+        @StateObject var serviceAdapter = ServiceAdapter()
+        @StateObject var viewController: ReportSuggestionsViewController
+
+        @State private var isTextFieldExpanded = false
+        @State private var descriptionText = ""
+
+    
     
     var body: some View
     {
@@ -45,29 +50,22 @@ struct PQRView: View
                         .foregroundColor(.white)
                         .padding()
                     
-                    TextField("Description of the suggestion", text: $viewModel.writeaDescription)
+                    TextField("Description of your suggestion", text: $descriptionText)
                         .padding()
                         .frame(width: UIScreen.main.bounds.width / 1.2, height: isTextFieldExpanded ? UIScreen.main.bounds.height / 4 : UIScreen.main.bounds.height / 8)
                         .background(Color.white)
                         .cornerRadius(10)
                         .autocapitalization(.words)
-                    
-                        // On tap gestuse is what is to happened when something is tapped, in this case the text field.
                         .onTapGesture {
-                            isTextFieldExpanded.toggle() //A control that toggles between on and off states
+                            isTextFieldExpanded.toggle()
                         }
                     
-                    ButtonFactory.createButton(title: "Send Report")
+                    Button("Send Report")
                     {
-                        viewModel.uploadToCloud()
+                        viewController.sendDescription(descriptionText)
                     }
                     
                     Spacer()
-                    
-                    .alert(isPresented: $viewModel.showAlert)
-                    {
-                        Alert(title: Text("Report"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))
-                    }
                     
                 }
                 
@@ -77,8 +75,9 @@ struct PQRView: View
     }
 }
 
-
-#Preview 
-{
-    PQRView()
+@available(iOS 17.0, macOS 14.0, tvOS 17.0, watchOS 10.0, xrOS 1.0, *)
+struct PQRView_Previews: PreviewProvider {
+    static var previews: some View {
+        PQRView(viewController: ReportSuggestionsViewController(serviceAdapter: ServiceAdapter()))
+    }
 }

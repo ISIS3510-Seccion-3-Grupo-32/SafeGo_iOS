@@ -14,11 +14,9 @@ struct ReportBugView: View
         @StateObject var viewController: ReportBugViewController
 
         @State private var isTextFieldExpanded = false
-        @State private var description = ""
+        @State private var descriptionText = ""
+
     
-    init() {
-            _viewController = StateObject(wrappedValue: ReportBugViewController(serviceAdapter: serviceAdapter))
-        }
     
     var body: some View
     {
@@ -52,7 +50,7 @@ struct ReportBugView: View
                         .foregroundColor(.white)
                         .padding()
                     
-                    TextField("Whats wrong with the app", text: $description)
+                    TextField("Whats wrong with the app", text: $descriptionText)
                         .padding()
                         .frame(width: UIScreen.main.bounds.width / 1.2, height: isTextFieldExpanded ? UIScreen.main.bounds.height / 4 : UIScreen.main.bounds.height / 8)
                         .background(Color.white)
@@ -64,7 +62,7 @@ struct ReportBugView: View
                     
                     Button("Send Report") 
                     {
-                        viewController.sendDescription(description)
+                        viewController.sendDescription(descriptionText)
                     }
                     
                     Spacer()
@@ -79,6 +77,7 @@ struct ReportBugView: View
 
 struct ReportBugView_Previews: PreviewProvider {
     static var previews: some View {
-        ReportBugView()
+        ReportBugView(viewController: ReportBugViewController(serviceAdapter: ServiceAdapter()))
+
     }
 }

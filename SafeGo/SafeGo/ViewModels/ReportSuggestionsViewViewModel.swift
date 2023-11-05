@@ -6,10 +6,8 @@
 //
 
 import SwiftUI
-import FirebaseFirestore
 
-class ReportSuggestionViewController: ObservableObject
-{
+class ReportSuggestionsViewController: ObservableObject {
     @Published var alertMessage = ""
     @Published var showAlert = false
 
@@ -29,7 +27,7 @@ class ReportSuggestionViewController: ObservableObject
             }
         }
     }
-
+    
     func displayMessage(_ message: String) {
         alertMessage = message
         showAlert = true

@@ -76,7 +76,7 @@ struct UserComplaintsView: View
                 Spacer()
 
                 
-                NavigationLink(destination: PQRView()){
+                NavigationLink(destination: PQRView(viewController: ReportSuggestionsViewController(serviceAdapter: ServiceAdapter()))) {
                     RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
                         .foregroundColor(Color(hex: 0xCFF2E5))
                         .frame(width: UIScreen.main.bounds.width / 1.1, height: UIScreen.main.bounds.height / 12)
@@ -91,7 +91,7 @@ struct UserComplaintsView: View
                                     .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
                                     .foregroundColor(.gray)
                             }
-                                .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
+                            .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
                         )
                         .shadow(radius: 10)
                 }
@@ -100,25 +100,28 @@ struct UserComplaintsView: View
                 
                 Spacer()
                 
-                NavigationLink(destination: ReportBugView()){
-                    RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
-                        .foregroundColor(Color(hex: 0xCFF2E5))
-                        .frame(width: UIScreen.main.bounds.width / 1.1, height: UIScreen.main.bounds.height / 12)
-                        .overlay(
-                            HStack {
-                                Image(systemName: "speaker")
-                                    .font(.system(size: 60))
-                                    .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
-                                    .padding(.horizontal, UIScreen.main.bounds.width / 15)
-                                    .foregroundColor(.black)
-                                Text("Complaints")
-                                    .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
-                                    .foregroundColor(.gray)
-                            }
+                NavigationLink(
+                    destination: ReportBugView(viewController: ReportBugViewController(serviceAdapter: ServiceAdapter())),
+                    label: {
+                        RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
+                            .foregroundColor(Color(hex: 0xCFF2E5))
+                            .frame(width: UIScreen.main.bounds.width / 1.1, height: UIScreen.main.bounds.height / 12)
+                            .overlay(
+                                HStack {
+                                    Image(systemName: "speaker")
+                                        .font(.system(size: 60))
+                                        .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
+                                        .padding(.horizontal, UIScreen.main.bounds.width / 15)
+                                        .foregroundColor(.black)
+                                    Text("Complaints")
+                                        .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
+                                        .foregroundColor(.gray)
+                                }
                                 .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
-                        )
-                        .shadow(radius: 10)
-                }
+                            )
+                            .shadow(radius: 10)
+                    }
+                )
                 .navigationBarBackButtonHidden(true)
                 
                 

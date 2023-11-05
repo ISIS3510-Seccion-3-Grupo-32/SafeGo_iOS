@@ -8,10 +8,8 @@
 // Idea originally taken from https://www.youtube.com/watch?v=7VjkVAreYeg but then noticed that the connection was to firestore and not firedatabase
 
 import SwiftUI
-import FirebaseFirestore
 
-class ReportCrimeViewController: ObservableObject 
-{
+class ReportCrimesViewController: ObservableObject {
     @Published var alertMessage = ""
     @Published var showAlert = false
 

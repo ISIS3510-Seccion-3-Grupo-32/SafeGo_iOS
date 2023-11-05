@@ -27,7 +27,7 @@ class ReportBugViewController: ObservableObject {
             }
         }
     }
-
+    
     func displayMessage(_ message: String) {
         alertMessage = message
         showAlert = true

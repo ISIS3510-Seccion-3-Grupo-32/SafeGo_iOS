@@ -8,5 +8,30 @@
 import Foundation
 import Network
 
-// func
+class NetworkManager 
+{
+    static let shared = NetworkManager()
+    private let monitor = NWPathMonitor()
+    private var isConnected: Bool = false
 
+    private init() {
+        startMonitoring()
+    }
+
+    private func startMonitoring() {
+        monitor.pathUpdateHandler = { path in
+            if path.status == .satisfied {
+                self.isConnected = true
+            } else {
+                self.isConnected = false
+            }
+        }
+
+        let queue = DispatchQueue(label: "NetworkMonitor")
+        monitor.start(queue: queue)
+    }
+
+    func isNetworkAvailable() -> Bool {
+        return isConnected
+    }
+}
