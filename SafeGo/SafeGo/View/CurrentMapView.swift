@@ -16,14 +16,16 @@ struct CurrentMapView: View {
     )
 
     var body: some View {
-        Map(coordinateRegion: $region, showsUserLocation: true)
-            .onAppear {
-                // Center the map on the user's current location
-                if let userLocation = LocationManager.shared.userLocation {
-                    region.center = userLocation
+        HStack {
+            Map(coordinateRegion: $region, showsUserLocation: true)
+                .onAppear {
+                    // Center the map on the user's current location
+                    if let userLocation = LocationManager.shared.userLocation {
+                        region.center = userLocation
+                    }
                 }
-            }
-            .edgesIgnoringSafeArea(.all) // Make the map fill the entire screen
+            .edgesIgnoringSafeArea(.all)
+        } // Make the map fill the entire screen
     }
 }
 

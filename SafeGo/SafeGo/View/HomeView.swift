@@ -45,6 +45,11 @@ struct HomeView: View {
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
+                    
+                    HStack{
+                        CurrentMapView()
+                    }.frame(width: UIScreen.main.bounds.width / 1.2, height: UIScreen.main.bounds.height / 1.5)
+                    
                     Spacer()
                     
                     HStack {
@@ -78,10 +83,7 @@ struct HomeView: View {
                                 .background(Color(hex: 0xCFF2E5))
                                 .cornerRadius(10)
                         }
-                        .background(
-                            NavigationLink("", destination: CurrentMapView(destinationCoordinate: $viewModel.destinationCoordinate), isActive: $navigateToMapView)
-                                .opacity(0)
-                        )
+                        
                     }
 
                     HStack {
