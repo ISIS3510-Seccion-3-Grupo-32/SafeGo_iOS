@@ -101,18 +101,6 @@ struct TripView: View
                                     //.foregroundColor(.black)
                                     //.cornerRadius(8)
                             }
-                            
-                            Button(action: {
-                                // Handle the "Change Input Address" button action
-                            }) {
-                                Text("Change Input Address")
-                                    .font(.system(size: 18))
-                                    .bold()
-                                    .padding()
-                                    .background(Color(hex: 0xCFF2E5))
-                                    .foregroundColor(.black)
-                                    .cornerRadius(8)
-                            }
                         }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(hex: 0x96CEB4))

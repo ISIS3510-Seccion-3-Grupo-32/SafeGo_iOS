@@ -21,7 +21,8 @@ struct HomeView: View {
                 {
                     VStack
                     {
-                        HStack {
+                        HStack 
+                        {
                             Spacer()
 
                             NavigationLink(destination: UserComplaintsView())

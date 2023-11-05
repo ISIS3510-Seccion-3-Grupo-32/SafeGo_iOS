@@ -45,7 +45,7 @@ struct LoginView: View {
                             .cornerRadius(10)
                             .autocapitalization(.none)
                             .onChange(of: viewModel.username) {
-                                if viewModel.username.count > 40 {
+                                if viewModel.username.count > 35 {
                                     viewModel.username = String(viewModel.username.prefix(40))
                                 }
                             }
@@ -58,7 +58,7 @@ struct LoginView: View {
                             .autocorrectionDisabled()
                             .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                             .onChange(of: viewModel.password) {
-                                if viewModel.password.count > 32 {
+                                if viewModel.password.count > 30 {
                                     viewModel.password = String(viewModel.password.prefix(32))
                                 }
                             }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @State private var profileImage: Image = Image(systemName: "person.circle")
+    @State private var showImagePicker = false
     
     var body: some View {
         NavigationView {
@@ -19,8 +20,7 @@ struct ProfileView: View {
                 VStack {
                     
                     Button(action: {
-                        // Allow the user to change the profile picture here.
-                        // You can implement this using an ImagePicker or your preferred method.
+                        showImagePicker = true
                     }) {
                         profileImage
                             .resizable()
@@ -29,6 +29,7 @@ struct ProfileView: View {
                             .padding()
                     }
                     
+                    // See your travel History button
                     NavigationLink(destination: TravelsView()) {
                                             RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
                                                 .foregroundColor(Color(hex: 0xCFF2E5))
