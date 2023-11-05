@@ -22,7 +22,7 @@ struct ReportCrimeView: View {
             ZStack
             {
                 
-                CurrentMapView() //Background
+             //   CurrentMapView() //Background
                 
                 RoundedRectangle(cornerRadius: 25)
                     .foregroundColor(Color(hex: 0x96CEB4))

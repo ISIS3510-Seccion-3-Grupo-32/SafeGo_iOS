@@ -20,6 +20,12 @@
 		0EB087682AF2FD0700496E31 /* PQRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB087672AF2FD0700496E31 /* PQRView.swift */; };
 		0ECD91F42AF480BA00013F3A /* travelingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD91F32AF480BA00013F3A /* travelingView.swift */; };
 		0ECD91F62AF495E700013F3A /* TripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD91F52AF495E700013F3A /* TripView.swift */; };
+		0ECD91F82AF54AFD00013F3A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD91F72AF54AFD00013F3A /* LocationManager.swift */; };
+		0ECD91FC2AF5C7AA00013F3A /* Home VIew 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD91FB2AF5C7AA00013F3A /* Home VIew 2.swift */; };
+		0ECD91FE2AF6A56700013F3A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD91FD2AF6A56600013F3A /* ProfileView.swift */; };
+		0ECD92002AF6A7C500013F3A /* MapLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD91FF2AF6A7C500013F3A /* MapLocationView.swift */; };
+		0ECD92062AF810F300013F3A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD92052AF810F300013F3A /* Repository.swift */; };
+		0ECD92082AF8111C00013F3A /* ServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD92072AF8111C00013F3A /* ServiceAdapter.swift */; };
 		30A1620F2AF477830047A893 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A1620E2AF477830047A893 /* SettingsView.swift */; };
 		30B791DA2AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B791D92AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift */; };
 		30D43F792ABEB6140069E0F0 /* TravelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D43F782ABEB6140069E0F0 /* TravelsViewController.swift */; };
@@ -84,6 +90,12 @@
 		0EB087672AF2FD0700496E31 /* PQRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQRView.swift; sourceTree = "<group>"; };
 		0ECD91F32AF480BA00013F3A /* travelingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = travelingView.swift; sourceTree = "<group>"; };
 		0ECD91F52AF495E700013F3A /* TripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripView.swift; sourceTree = "<group>"; };
+		0ECD91F72AF54AFD00013F3A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		0ECD91FB2AF5C7AA00013F3A /* Home VIew 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home VIew 2.swift"; sourceTree = "<group>"; };
+		0ECD91FD2AF6A56600013F3A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		0ECD91FF2AF6A7C500013F3A /* MapLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationView.swift; sourceTree = "<group>"; };
+		0ECD92052AF810F300013F3A /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		0ECD92072AF8111C00013F3A /* ServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAdapter.swift; sourceTree = "<group>"; };
 		30A1620E2AF477830047A893 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		30B791D92AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSuggestionsViewViewModel.swift; sourceTree = "<group>"; };
 		30D43F782ABEB6140069E0F0 /* TravelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelsViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				E0F085C42ABD022000EA1F8E /* User.swift */,
+				0ECD92052AF810F300013F3A /* Repository.swift */,
+				0ECD92072AF8111C00013F3A /* ServiceAdapter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -185,6 +199,9 @@
 				30A1620E2AF477830047A893 /* SettingsView.swift */,
 				0ECD91F32AF480BA00013F3A /* travelingView.swift */,
 				0ECD91F52AF495E700013F3A /* TripView.swift */,
+				0ECD91FB2AF5C7AA00013F3A /* Home VIew 2.swift */,
+				0ECD91FD2AF6A56600013F3A /* ProfileView.swift */,
+				0ECD91FF2AF6A7C500013F3A /* MapLocationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,6 +230,7 @@
 				0E5774092AD9050E0077DF85 /* ReportCrimeViewController.swift */,
 				0EB0875F2AF0654400496E31 /* ReportBugViewController.swift */,
 				30B791D92AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift */,
+				0ECD91F72AF54AFD00013F3A /* LocationManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -363,8 +381,12 @@
 				5326326E2ABED9E800F96002 /* MapViewController.swift in Sources */,
 				0EB087622AF067AD00496E31 /* UserComplaintsView.swift in Sources */,
 				E0DDD2332ABD116F0053F726 /* LoginViewController.swift in Sources */,
+				0ECD92002AF6A7C500013F3A /* MapLocationView.swift in Sources */,
+				0ECD92082AF8111C00013F3A /* ServiceAdapter.swift in Sources */,
 				E0DDD2352ABD11780053F726 /* RegisterViewController.swift in Sources */,
+				0ECD91F82AF54AFD00013F3A /* LocationManager.swift in Sources */,
 				0ECD91F62AF495E700013F3A /* TripView.swift in Sources */,
+				0ECD92062AF810F300013F3A /* Repository.swift in Sources */,
 				0E57554D2ADA1F57009433B6 /* AddressToCordinates.swift in Sources */,
 				E0DDD23F2ABD458B0053F726 /* SGButtonLR.swift in Sources */,
 				30DF54732ABE912E00C03732 /* HomeView.swift in Sources */,
@@ -383,7 +405,9 @@
 				0E57740A2AD9050E0077DF85 /* ReportCrimeViewController.swift in Sources */,
 				532632702AC3D80400F96002 /* Popup.swift in Sources */,
 				E0F085C52ABD022000EA1F8E /* User.swift in Sources */,
+				0ECD91FC2AF5C7AA00013F3A /* Home VIew 2.swift in Sources */,
 				0EB087682AF2FD0700496E31 /* PQRView.swift in Sources */,
+				0ECD91FE2AF6A56700013F3A /* ProfileView.swift in Sources */,
 				0ECD91F42AF480BA00013F3A /* travelingView.swift in Sources */,
 				0E5774082AD9016D0077DF85 /* ReportCrimeView.swift in Sources */,
 				30D43F792ABEB6140069E0F0 /* TravelsViewController.swift in Sources */,

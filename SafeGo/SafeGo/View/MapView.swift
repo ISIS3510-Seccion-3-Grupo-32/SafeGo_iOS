@@ -103,21 +103,6 @@ struct MapView: View {
                         
                         Spacer()
                         
-                        ZStack
-                        {
-                            NavigationLink(
-                                destination: CurrentMapView(),
-                                label: {
-                                    RoundedRectangle(cornerRadius: 10) // Adjust the corner radius and other properties as needed
-                                        .foregroundColor(Color(hex: 0xCFF2E5))
-                                        .frame(width: 200, height: 40) // Adjust the width and height as needed
-                                        .overlay(
-                                            Text("Start your journey")
-                                                .foregroundColor(.primary)
-                                        )
-                                }
-                            )
-                        }
                     }
                         
                         

@@ -7,6 +7,8 @@
 	<key>CFBundleLocalizations</key>
 	<array>
 		<string>en</string>
+		<string>en</string>
+		<string>en</string>
 	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
