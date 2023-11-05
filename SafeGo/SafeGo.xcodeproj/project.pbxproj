@@ -25,6 +25,7 @@
 		0ECD92062AF810F300013F3A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD92052AF810F300013F3A /* Repository.swift */; };
 		0ECD92082AF8111C00013F3A /* ServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD92072AF8111C00013F3A /* ServiceAdapter.swift */; };
 		0ECD920A2AF830E700013F3A /* PQRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD92092AF830E700013F3A /* PQRView.swift */; };
+		0ECD920C2AF838F900013F3A /* ChangeAddressesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD920B2AF838F900013F3A /* ChangeAddressesView.swift */; };
 		30A1620F2AF477830047A893 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A1620E2AF477830047A893 /* SettingsView.swift */; };
 		30B791DA2AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B791D92AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift */; };
 		30D43F792ABEB6140069E0F0 /* TravelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D43F782ABEB6140069E0F0 /* TravelsViewController.swift */; };
@@ -94,6 +95,7 @@
 		0ECD92052AF810F300013F3A /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		0ECD92072AF8111C00013F3A /* ServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAdapter.swift; sourceTree = "<group>"; };
 		0ECD92092AF830E700013F3A /* PQRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQRView.swift; sourceTree = "<group>"; };
+		0ECD920B2AF838F900013F3A /* ChangeAddressesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAddressesView.swift; sourceTree = "<group>"; };
 		30A1620E2AF477830047A893 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		30B791D92AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSuggestionsViewViewModel.swift; sourceTree = "<group>"; };
 		30D43F782ABEB6140069E0F0 /* TravelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelsViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				0ECD91FD2AF6A56600013F3A /* ProfileView.swift */,
 				0ECD91FF2AF6A7C500013F3A /* MapLocationView.swift */,
 				0ECD92092AF830E700013F3A /* PQRView.swift */,
+				0ECD920B2AF838F900013F3A /* ChangeAddressesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				5326326E2ABED9E800F96002 /* MapViewController.swift in Sources */,
 				0EB087622AF067AD00496E31 /* UserComplaintsView.swift in Sources */,
 				E0DDD2332ABD116F0053F726 /* LoginViewController.swift in Sources */,
+				0ECD920C2AF838F900013F3A /* ChangeAddressesView.swift in Sources */,
 				0ECD92002AF6A7C500013F3A /* MapLocationView.swift in Sources */,
 				0ECD92082AF8111C00013F3A /* ServiceAdapter.swift in Sources */,
 				E0DDD2352ABD11780053F726 /* RegisterViewController.swift in Sources */,
