@@ -16,21 +16,35 @@ struct ReportCrimeView: View {
 
     var body: some View {
         NavigationView {
-            ZStack {
-                RoundedRectangle(cornerRadius: 25)
-                    .foregroundColor(Color(hex: 0x96CEB4))
-                    .offset(y: 420)
+            
+            VStack{
+                HStack()
+                {
+                    NavigationLink(destination: HomeView()
+                        .navigationBarBackButtonHidden(true))
+                    {
+                        Image(systemName: "house.fill")
+                            .foregroundColor(.black)
+                            .font(.system(size: 40))
+                    }
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    NavigationLink(destination: UserComplaintsView()
+                        .navigationBarBackButtonHidden(true))
+                    {
+                        Image(systemName: "line.horizontal.3")
+                            .foregroundColor(.black)
+                            .font(.system(size: 40))
+                    }
+                }
+                .frame(width: UIScreen.main.bounds.width / 1.2)
 
-                VStack {
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    Spacer()
+                Spacer()
 
                     Text("Report a Crime")
                         .font(.largeTitle)
@@ -39,7 +53,7 @@ struct ReportCrimeView: View {
 
                     TextField("Description of the crime", text: $descriptionText)
                         .padding()
-                        .frame(width: UIScreen.main.bounds.width / 1.2, height: isTextFieldExpanded ? UIScreen.main.bounds.height / 4 : UIScreen.main.bounds.height / 8)
+                        .frame(width: UIScreen.main.bounds.width / 1.2, height: isTextFieldExpanded ? UIScreen.main.bounds.height / 3 : UIScreen.main.bounds.height / 8)
                         .background(Color.white)
                         .cornerRadius(10)
                         .autocapitalization(.words)
@@ -47,20 +61,22 @@ struct ReportCrimeView: View {
                             isTextFieldExpanded.toggle()
                         }
 
-                    Button("Send Report") {
-                        viewController.sendDescription(descriptionText)
-                    }
-
-                    Spacer()
-
-                    .alert(isPresented: $viewController.showAlert) {
-                        Alert(title: Text("Report"), message: Text(viewController.alertMessage), dismissButton: .default(Text("OK")))
-                    }
+                
+                ButtonFactory.createButton(title: "Send Report") {
+                    viewController.sendDescription(descriptionText)
                 }
+                .alert(isPresented: $viewController.showAlert) {
+                    Alert(title: Text("Report"), message: Text(viewController.alertMessage), dismissButton: .default(Text("OK")))
+                }
+               
+                Spacer()
+                
+                }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color(hex: 0x96CEB4))
             }
-            .edgesIgnoringSafeArea(.all)
         }
-    }
+    
 }
 
 struct ReportCrimeView_Previews: PreviewProvider {

@@ -13,36 +13,34 @@ struct TravelsView: View {
     var body: some View {
         
         VStack{
-            HStack
+            HStack()
             {
+                NavigationLink(destination: HomeView()
+                    .navigationBarBackButtonHidden(true))
+                {
+                    Image(systemName: "house.fill")
+                        .foregroundColor(.black)
+                        .font(.system(size: 40))
+                }
+                .navigationBarBackButtonHidden(true)
+                
+                
                 Spacer()
-
-                NavigationLink(destination: UserComplaintsView())
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                NavigationLink(destination: UserComplaintsView()
+                    .navigationBarBackButtonHidden(true))
                 {
                     Image(systemName: "line.horizontal.3")
                         .foregroundColor(.black)
-                        .font(.system(size: 30))
-                }
-                .navigationBarTitle("")
-                .padding(.leading)
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                NavigationLink(destination: ProfileView())
-                {
-                    Image(systemName: "person.circle")
-                        .foregroundColor(.black)
                         .font(.system(size: 40))
-                        .padding(.leading, 2)
-                    
                 }
-                Spacer()
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(width: UIScreen.main.bounds.width / 1.2)
             
             Spacer()
             
