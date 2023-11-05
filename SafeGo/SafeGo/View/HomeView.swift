@@ -22,7 +22,9 @@ struct HomeView: View {
                     VStack
                     {
                         HStack {
-                            NavigationLink(destination: UserComplaintsView()) 
+                            Spacer()
+
+                            NavigationLink(destination: UserComplaintsView())
                             {
                                 Image(systemName: "line.horizontal.3")
                                     .foregroundColor(.black)
@@ -30,10 +32,13 @@ struct HomeView: View {
                             }
                             .navigationBarTitle("")
                             .padding(.leading)
-                            
                             Spacer()
-                            
-
+                            Spacer()
+                            Spacer()
+                            Spacer()
+                            Spacer()
+                            Spacer()
+                            Spacer()
                             NavigationLink(destination: ProfileView()) 
                             {
                                 Image(systemName: "person.circle")
@@ -42,6 +47,7 @@ struct HomeView: View {
                                     .padding(.leading, 2)
                                 
                             }
+                            Spacer()
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }

@@ -38,7 +38,7 @@ struct LoginView: View {
                         Spacer()
                         
                         // Login Form
-                        TextField("Username", text: $viewModel.username)
+                        TextField("Email", text: $viewModel.username)
                             .padding()
                             .frame(height: UIScreen.main.bounds.height / 15)
                             .background(Color.white)

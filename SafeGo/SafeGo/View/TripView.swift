@@ -13,12 +13,37 @@ struct TripView: View
     {
         NavigationView
         {
-            ZStack
-            {
-                Color(hex: 0x96CEB4)
-                    .ignoresSafeArea()
+            VStack(alignment: .center) {
+                    HStack {
+                        Spacer()
 
-                VStack(spacing: 20) {
+                        NavigationLink(destination: UserComplaintsView())
+                        {
+                            Image(systemName: "line.horizontal.3")
+                                .foregroundColor(.black)
+                                .font(.system(size: 30))
+                        }
+                        .navigationBarTitle("")
+                        .padding(.leading)
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        NavigationLink(destination: ProfileView())
+                        {
+                            Image(systemName: "person.circle")
+                                .foregroundColor(.black)
+                                .font(.system(size: 40))
+                                .padding(.leading, 2)
+                            
+                        }
+                        Spacer()
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    
                     Spacer()
                     Spacer()
                     Spacer()
@@ -39,8 +64,7 @@ struct TripView: View
                             .bold()
                     }
                     Spacer()
-                    Spacer()
-                    Spacer()
+
 
                     VStack {
                         HStack
@@ -62,6 +86,11 @@ struct TripView: View
                     
                         HStack
                         {
+                            
+                            ButtonFactory.createButton(title: "Go [WIP]") {
+                               HomeView()
+                            }             
+                            
                             //NavigationLink(destination: CurrentMapView())
                             //{
                               //  Text("Go")
@@ -85,12 +114,9 @@ struct TripView: View
                                     .cornerRadius(8)
                             }
                         }
-                    Spacer()
-                }
-                .padding()
-            }
-            
-            
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color(hex: 0x96CEB4))
+        }
             
         }
     }
