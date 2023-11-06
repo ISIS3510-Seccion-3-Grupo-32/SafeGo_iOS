@@ -6,34 +6,32 @@
 //
 
 import SwiftUI
-import FirebaseFirestore
 
 class ReportBugViewController: ObservableObject {
-    @Published var writeaDescription = ""
-    @Published var showAlert = false
     @Published var alertMessage = ""
+    @Published var showAlert = false
 
-    private let db = Firestore.firestore()
-    private let collectionReference = "bugReports"
+    let serviceAdapter: ServiceAdapter
 
-    func uploadToCloud() {
-            let data = ["description": writeaDescription]
-            
-            db.collection(collectionReference).addDocument(data: data) { error in
-                
-                // taken from https://developer.apple.com/documentation/swiftui/alert
-                if let error = error
-                {
-                    self.alertMessage = "Report could not be sent"
-                } else
-                
-                {
-                    self.alertMessage = "Report sent"
-                    self.writeaDescription = ""
-                }
-                self.showAlert = true
+    init(serviceAdapter: ServiceAdapter) {
+        self.serviceAdapter = serviceAdapter
+    }
+
+    func sendDescription(_ description: String) {
+        serviceAdapter.uploadToCloudBugs(description: description) { result in
+            switch result {
+            case .success:
+                self.displayMessage("Report sent")
+            case .failure(let error):
+                self.displayMessage("Report could not be sent: \(error.localizedDescription)")
             }
         }
+    }
+    
+    func displayMessage(_ message: String) {
+        alertMessage = message
+        showAlert = true
+    }
 }
 
 

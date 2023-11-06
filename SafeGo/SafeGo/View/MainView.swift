@@ -28,7 +28,7 @@ struct MainView: View {
         } 
         else if viewModel.isSignedIn && !viewModel.currentUserId.isEmpty
         {
-            MapView()
+            HomeView()
         } else {
             LoginView()
         }

@@ -83,16 +83,14 @@ struct MapView: View {
                             )
                         }
                     }
-                    HStack(alignment: .center)
-                    {
-                        ZStack
-                        {
+                    HStack(alignment: .center) {
+                        ZStack {
                             NavigationLink(
-                                destination: ReportCrimeView(),
+                                destination: ReportCrimeView(viewController: ReportCrimesViewController(serviceAdapter: ServiceAdapter())),
                                 label: {
-                                    RoundedRectangle(cornerRadius: 10) // Adjust the corner radius and other properties as needed
+                                    RoundedRectangle(cornerRadius: 10)
                                         .foregroundColor(Color(hex: 0xCFF2E5))
-                                        .frame(width: 200, height: 40) // Adjust the width and height as needed
+                                        .frame(width: 200, height: 40)
                                         .overlay(
                                             Text("Report a Crime")
                                                 .foregroundColor(.primary)
@@ -100,25 +98,10 @@ struct MapView: View {
                                 }
                             )
                         }
-                        
+
                         Spacer()
-                        
-                        ZStack
-                        {
-                            NavigationLink(
-                                destination: CurrentMapView(),
-                                label: {
-                                    RoundedRectangle(cornerRadius: 10) // Adjust the corner radius and other properties as needed
-                                        .foregroundColor(Color(hex: 0xCFF2E5))
-                                        .frame(width: 200, height: 40) // Adjust the width and height as needed
-                                        .overlay(
-                                            Text("Start your journey")
-                                                .foregroundColor(.primary)
-                                        )
-                                }
-                            )
-                        }
                     }
+
                         
                         
                     }

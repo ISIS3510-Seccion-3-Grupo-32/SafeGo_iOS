@@ -8,34 +8,32 @@
 // Idea originally taken from https://www.youtube.com/watch?v=7VjkVAreYeg but then noticed that the connection was to firestore and not firedatabase
 
 import SwiftUI
-import FirebaseFirestore
 
-class ReportCrimeViewController: ObservableObject {
-    @Published var writeaDescription = ""
-    @Published var showAlert = false
+class ReportCrimesViewController: ObservableObject {
     @Published var alertMessage = ""
+    @Published var showAlert = false
 
-    private let db = Firestore.firestore()
-    private let collectionReference = "crimeReports"
+    let serviceAdapter: ServiceAdapter
 
-    func uploadToCloud() {
-            let data = ["description": writeaDescription]
-            
-            db.collection(collectionReference).addDocument(data: data) { error in
-                
-                // taken from https://developer.apple.com/documentation/swiftui/alert
-                if let error = error 
-                {
-                    self.alertMessage = "Report could not be sent"
-                } else
-                
-                {
-                    self.alertMessage = "Report sent"
-                    self.writeaDescription = ""
-                }
-                self.showAlert = true
+    init(serviceAdapter: ServiceAdapter) {
+        self.serviceAdapter = serviceAdapter
+    }
+
+    func sendDescription(_ description: String) {
+        serviceAdapter.uploadToCloudCrimes(description: description) { result in
+            switch result {
+            case .success:
+                self.displayMessage("Report sent")
+            case .failure(let error):
+                self.displayMessage("Report could not be sent: \(error.localizedDescription)")
             }
         }
+    }
+
+    func displayMessage(_ message: String) {
+        alertMessage = message
+        showAlert = true
+    }
 }
 
 

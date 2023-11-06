@@ -11,16 +11,39 @@ struct TravelsView: View {
     @StateObject var viewModel = TravelsViewController()
 
     var body: some View {
-
+        
         VStack{
+            HStack()
+            {
+                NavigationLink(destination: HomeView()
+                    .navigationBarBackButtonHidden(true))
+                {
+                    Image(systemName: "house.fill")
+                        .foregroundColor(.black)
+                        .font(.system(size: 40))
+                }
+                .navigationBarBackButtonHidden(true)
+                
+                
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                NavigationLink(destination: UserComplaintsView()
+                    .navigationBarBackButtonHidden(true))
+                {
+                    Image(systemName: "line.horizontal.3")
+                        .foregroundColor(.black)
+                        .font(.system(size: 40))
+                }
+            }
+            .frame(width: UIScreen.main.bounds.width / 1.2)
+            
             Spacer()
-
-            ZStack{
-                RoundedRectangle(cornerRadius: 25)
-                    .foregroundColor(Color(hex: 0x96CEB4))
-                    .offset(y:40)
-                VStack{
-                    Spacer()
+            
                     Text("Travel History:")
                         .font(Font.custom("DM Sans", size: 30))
                         .foregroundColor(.white)
@@ -34,7 +57,7 @@ struct TravelsView: View {
                         .font(Font.custom("DM Sans", size: 17))
                         .disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                         .padding()
-                        .frame(height: UIScreen.main.bounds.height / 15)
+                        .frame(width: UIScreen.main.bounds.width / 1.2, height: UIScreen.main.bounds.height / 15)
                         .background(Color.white)
                         .cornerRadius(10)
                         .autocapitalization(.words)
@@ -43,7 +66,7 @@ struct TravelsView: View {
                         .font(Font.custom("DM Sans", size: 17))
                         .disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                         .padding()
-                        .frame(height: UIScreen.main.bounds.height / 15)
+                        .frame(width: UIScreen.main.bounds.width / 1.2, height: UIScreen.main.bounds.height / 15)
                         .background(Color.white)
                         .cornerRadius(10)
                         .autocapitalization(.words)
@@ -52,7 +75,7 @@ struct TravelsView: View {
                         .font(Font.custom("DM Sans", size: 17))
                         .disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                         .padding()
-                        .frame(height: UIScreen.main.bounds.height / 15)
+                        .frame(width: UIScreen.main.bounds.width / 1.2, height: UIScreen.main.bounds.height / 15)
                         .background(Color.white)
                         .cornerRadius(10)
                         .autocapitalization(.words)
@@ -61,27 +84,17 @@ struct TravelsView: View {
                         .font(Font.custom("DM Sans", size: 17))
                         .disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                         .padding()
-                        .frame(height: UIScreen.main.bounds.height / 15)
+                        .frame(width: UIScreen.main.bounds.width / 1.2, height: UIScreen.main.bounds.height / 15)
                         .background(Color.white)
                         .cornerRadius(10)
                         .autocapitalization(.words)
-                    
-                    SGButtonLR(title: "Log Out") {
-                        viewModel.logOut()
-                    }
-                }
-                .padding()
+            
+            Spacer()
+
             }
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/1.9)
-            .background(
-                Image("Map")
-                    .resizable()
-                    .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                    .frame(width: UIScreen.main.bounds.width * 1.2,
-                           height: UIScreen.main.bounds.height * 1.2)
-                    .blur(radius: 1.8))
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color(hex: 0x96CEB4))
         }
-    }
 }
 
 #Preview {
