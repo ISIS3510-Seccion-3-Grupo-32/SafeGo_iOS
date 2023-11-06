@@ -75,15 +75,15 @@ class RegisterViewController: ObservableObject {
         guard calculateAge(from: dateOfBirt) >= 14 else {
             DispatchQueue.main.async {
                 self.showAlert = true
-                self.validationError = "You must be at least 14 years old to registrate"
+                self.validationError = "You must be at least 14 years old to register"
             }
             return false
         }
         
-        guard calculateAge(from: dateOfBirt) <= 100 else {
+        guard calculateAge(from: dateOfBirt) <= 120 else {
             DispatchQueue.main.async {
                 self.showAlert = true
-                self.validationError = "Are you really over 100 years old?"
+                self.validationError = "Please insert a valid date"
             }
             return false
         }
