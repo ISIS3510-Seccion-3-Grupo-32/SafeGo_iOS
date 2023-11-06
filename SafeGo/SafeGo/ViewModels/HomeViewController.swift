@@ -2,7 +2,7 @@
 //  HomeViewViewModel.swift
 //  SafeGo
 //
-//  Created by Pipe on 22/09/23.
+//  Created by Juan Felipe on 22/09/23.
 //
 
 import SwiftUI

@@ -1,8 +1,8 @@
 //
-//  HomeVIewSecondTry.swift
+//  HomeView.swift
 //  SafeGo
 //
-//  Created by Pipe on 2/11/23.
+//  Created by Juan Felipe on 2/11/23.
 //
 
 import SwiftUI
