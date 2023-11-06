@@ -20,15 +20,10 @@ struct HomeView: View {
         NavigationView {
             VStack {
                 HStack() {
-                    NavigationLink(destination: HomeView()
-                        .navigationBarBackButtonHidden(true))
-                    {
-                        Image(systemName: "house.fill")
-                            .foregroundColor(.black)
-                            .font(.system(size: 40))
-                    }
-                    .navigationBarBackButtonHidden(true)
-
+                    Image(systemName: "house.fill")
+                        .foregroundColor(.black)
+                        .font(.system(size: 40))
+                    
                     Spacer()
                     Spacer()
                     Spacer()
@@ -87,7 +82,8 @@ struct HomeView: View {
                     Spacer()
 
                     // Home
-                    NavigationLink(destination: TripView(address: viewModel.getSavedAddress(icon: "house"), icon: "house"))
+                    NavigationLink(destination: TripView(address: viewModel.getSavedAddress(icon: "house"), icon: "house")
+                        .navigationBarBackButtonHidden(true))
                     {
                         RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
                             .foregroundColor(Color(hex: 0xCFF2E5))
@@ -101,10 +97,12 @@ struct HomeView: View {
                             .shadow(radius: 5)
                     }
 
+
                     Spacer()
 
                     // Work
-                    NavigationLink(destination: TripView(address: viewModel.getSavedAddress(icon: "bag"), icon: "bag"))
+                    NavigationLink(destination: TripView(address: viewModel.getSavedAddress(icon: "bag"), icon: "bag")
+                        .navigationBarBackButtonHidden(true))
                     {
                         RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
                             .foregroundColor(Color(hex: 0xCFF2E5))
@@ -121,7 +119,8 @@ struct HomeView: View {
                     Spacer()
 
                     // Education
-                    NavigationLink(destination: TripView(address: viewModel.getSavedAddress(icon: "graduationcap"), icon: "graduationcap"))
+                    NavigationLink(destination: TripView(address: viewModel.getSavedAddress(icon: "graduationcap"), icon: "graduationcap")
+                        .navigationBarBackButtonHidden(true))
                     {
                         RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
                             .foregroundColor(Color(hex: 0xCFF2E5))
@@ -138,7 +137,8 @@ struct HomeView: View {
                     Spacer()
 
                     // Partner
-                    NavigationLink(destination: TripView(address: viewModel.getSavedAddress(icon: "heart"), icon: "heart"))
+                    NavigationLink(destination: TripView(address: viewModel.getSavedAddress(icon: "heart"), icon: "heart")
+                        .navigationBarBackButtonHidden(true))
                     {
                         RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
                             .foregroundColor(Color(hex: 0xCFF2E5))

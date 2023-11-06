@@ -9,7 +9,10 @@ import SwiftUI
 
 struct UserComplaintsView: View 
 {
-    var body: some View 
+    @StateObject var viewController = UserComplaintsViewController()
+
+    
+    var body: some View
     {
         NavigationView
         {
@@ -145,6 +148,12 @@ struct UserComplaintsView: View
                 .navigationBarBackButtonHidden(true)
                 
                 Spacer()
+                
+                ButtonFactory.createButton(title: "Sign Out"){
+                    viewController.logOut()
+                    //TODO send back to log in view
+                }
+                
                 Spacer()
                 Spacer()
                 Spacer()

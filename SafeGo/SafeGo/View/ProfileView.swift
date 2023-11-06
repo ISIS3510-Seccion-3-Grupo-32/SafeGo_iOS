@@ -18,8 +18,44 @@ struct ProfileView: View {
             ZStack {
                 Color(hex: 0x96CEB4)
                     .ignoresSafeArea()
-
+                
                 VStack {
+                    HStack()
+                        {
+                            NavigationLink(destination: HomeView()
+                                .navigationBarBackButtonHidden(true))
+                            {
+                                Image(systemName: "house.fill")
+                                    .foregroundColor(.black)
+                                    .font(.system(size: 40))
+                            }
+                            Spacer()
+                            Spacer()
+                            Spacer()
+                            Spacer()
+                            Spacer()
+                            Spacer()
+                            Spacer()
+                            NavigationLink(destination: UserComplaintsView()
+                                .navigationBarBackButtonHidden(true))
+                            {
+                                Image(systemName: "line.horizontal.3")
+                                    .foregroundColor(.black)
+                                    .font(.system(size: 40))
+                            }
+                        }
+                        .frame(width: UIScreen.main.bounds.width / 1.2)
+                    
+                    
+                    Text("Profile")
+                        .frame(width: UIScreen.main.bounds.width / 1.4,
+                               height: UIScreen.main.bounds.height / 15,
+                               alignment: .center)
+                        .cornerRadius(10)
+                        .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 25))
+                        .foregroundColor(.white)
+                    
+
                     Button(action: {
                         showImagePicker = true
                     }) {
@@ -29,6 +65,8 @@ struct ProfileView: View {
                             .foregroundColor(.white)
                             .padding()
                     }
+                    
+                    Spacer()
 
                     NavigationLink(destination: TravelsView()) {
                                             RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
@@ -50,6 +88,8 @@ struct ProfileView: View {
                                                 .shadow(radius: 10)
                                         }
 
+                    Spacer()
+                    
                     NavigationLink(destination: ChangeAddressesView()) {
                         RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
                             .foregroundColor(Color(hex: 0xCFF2E5))
@@ -69,11 +109,15 @@ struct ProfileView: View {
                             )
                             .shadow(radius: 10)
                     }
-
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
                     Spacer()
                 }
             }
-            .navigationBarTitle("Profile")
             .sheet(isPresented: $showImagePicker) {
                 ProfileViewController(image: $selectedImage, userDefaultsKey: $userDefaultsKey) // Pass userDefaultsKey as a binding
             }
@@ -85,6 +129,7 @@ struct ProfileView: View {
                 }
             }
         }
+        
     }
 }
 
