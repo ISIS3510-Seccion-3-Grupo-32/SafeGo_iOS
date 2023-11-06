@@ -13,36 +13,35 @@ struct TripView: View
     {
         NavigationView
         {
-            VStack(alignment: .center) {
-                    HStack {
-                        Spacer()
-
-                        NavigationLink(destination: UserComplaintsView())
-                        {
-                            Image(systemName: "line.horizontal.3")
-                                .foregroundColor(.black)
-                                .font(.system(size: 30))
-                        }
-                        .navigationBarTitle("")
-                        .padding(.leading)
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        NavigationLink(destination: ProfileView())
-                        {
-                            Image(systemName: "person.circle")
-                                .foregroundColor(.black)
-                                .font(.system(size: 40))
-                                .padding(.leading, 2)
-                            
-                        }
-                        Spacer()
+            VStack() {
+                   
+                HStack()
+                {
+                    NavigationLink(destination: HomeView()
+                        .navigationBarBackButtonHidden(true))
+                    {
+                        Image(systemName: "house.fill")
+                            .foregroundColor(.black)
+                            .font(.system(size: 40))
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    NavigationLink(destination: UserComplaintsView()
+                        .navigationBarBackButtonHidden(true))
+                    {
+                        Image(systemName: "line.horizontal.3")
+                            .foregroundColor(.black)
+                            .font(.system(size: 40))
+                    }
+                }
+                .frame(width: UIScreen.main.bounds.width / 1.2)
+                
+                
                     
                     Spacer()
                     Spacer()
@@ -89,7 +88,8 @@ struct TripView: View
                             
                             ButtonFactory.createButton(title: "Go [WIP]") {
                                HomeView()
-                            }             
+                                    .navigationBarBackButtonHidden(true)
+                            }
                             
                             //NavigationLink(destination: CurrentMapView())
                             //{

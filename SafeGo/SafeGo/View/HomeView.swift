@@ -13,45 +13,38 @@ struct HomeView: View {
     @State private var isTextFieldExpanded = false
     @State private var navigateToMapView = false
     @State private var destinationCoordinate: CLLocationCoordinate2D?
-
     var body: some View {
         NavigationView {
             VStack {
                 VStack 
                 {
-                    VStack
+                    HStack()
                     {
-                        HStack 
+                        NavigationLink(destination: HomeView()
+                            .navigationBarBackButtonHidden(true))
                         {
-                            Spacer()
-
-                            NavigationLink(destination: UserComplaintsView())
-                            {
-                                Image(systemName: "line.horizontal.3")
-                                    .foregroundColor(.black)
-                                    .font(.system(size: 30))
-                            }
-                            .navigationBarTitle("")
-                            .padding(.leading)
-                            Spacer()
-                            Spacer()
-                            Spacer()
-                            Spacer()
-                            Spacer()
-                            Spacer()
-                            Spacer()
-                            NavigationLink(destination: ProfileView()) 
-                            {
-                                Image(systemName: "person.circle")
-                                    .foregroundColor(.black)
-                                    .font(.system(size: 40))
-                                    .padding(.leading, 2)
-                                
-                            }
-                            Spacer()
+                            Image(systemName: "house.fill")
+                                .foregroundColor(.black)
+                                .font(.system(size: 40))
                         }
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .navigationBarBackButtonHidden(true)
+                        
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        NavigationLink(destination: UserComplaintsView()
+                            .navigationBarBackButtonHidden(true))
+                        {
+                            Image(systemName: "line.horizontal.3")
+                                .foregroundColor(.black)
+                                .font(.system(size: 40))
+                        }
                     }
+                    .frame(width: UIScreen.main.bounds.width / 1.2)
                     
                     HStack{
                         CurrentMapView()
@@ -97,7 +90,8 @@ struct HomeView: View {
                         Spacer()
 
                         // Home
-                        NavigationLink(destination: TripView()) {
+                        NavigationLink(destination: TripView()
+                            .navigationBarBackButtonHidden(true)) {
                             RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
                                 .foregroundColor(Color(hex: 0xCFF2E5))
                                 .frame(width: UIScreen.main.bounds.width / 6, height: UIScreen.main.bounds.height / 15)
@@ -113,7 +107,8 @@ struct HomeView: View {
                         Spacer()
 
                         // Work
-                        NavigationLink(destination: TripView()) {
+                        NavigationLink(destination: TripView()
+                            .navigationBarBackButtonHidden(true)) {
                             RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
                                 .foregroundColor(Color(hex: 0xCFF2E5))
                                 .frame(width: UIScreen.main.bounds.width / 6, height: UIScreen.main.bounds.height / 15)
@@ -129,7 +124,8 @@ struct HomeView: View {
                         Spacer()
 
                         // Education
-                        NavigationLink(destination: TripView()) {
+                        NavigationLink(destination: TripView()
+                            .navigationBarBackButtonHidden(true)) {
                             RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
                                 .foregroundColor(Color(hex: 0xCFF2E5))
                                 .frame(width: UIScreen.main.bounds.width / 6, height: UIScreen.main.bounds.height / 15)
@@ -145,7 +141,8 @@ struct HomeView: View {
                         Spacer()
 
                         // Partner
-                        NavigationLink(destination: TripView()) {
+                        NavigationLink(destination: TripView()
+                            .navigationBarBackButtonHidden(true)) {
                             RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
                                 .foregroundColor(Color(hex: 0xCFF2E5))
                                 .frame(width: UIScreen.main.bounds.width / 6, height: UIScreen.main.bounds.height / 15)

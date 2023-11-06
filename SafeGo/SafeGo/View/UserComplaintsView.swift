@@ -15,44 +15,38 @@ struct UserComplaintsView: View
         {
             VStack
             {
-                HStack {
+                HStack()
+                {
+                    NavigationLink(destination: HomeView()
+                        .navigationBarBackButtonHidden(true))
+                    {
+                        Image(systemName: "house.fill")
+                            .foregroundColor(.black)
+                            .font(.system(size: 40))
+                    }
                     Spacer()
-
-                    NavigationLink(destination: UserComplaintsView())
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    NavigationLink(destination: UserComplaintsView()
+                        .navigationBarBackButtonHidden(true))
                     {
                         Image(systemName: "line.horizontal.3")
                             .foregroundColor(.black)
-                            .font(.system(size: 30))
-                    }
-                    .navigationBarTitle("")
-                    .padding(.leading)
-                    
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    Spacer()
-
-                    NavigationLink(destination: ProfileView())
-                    {
-                        Image(systemName: "person.circle")
-                            .foregroundColor(.black)
                             .font(.system(size: 40))
-                            .padding(.leading, 2)
-                        
                     }
-                    Spacer()
-
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(width: UIScreen.main.bounds.width / 1.2)
                 
                 Spacer()
                 Spacer()
                 Spacer()
                 
-                NavigationLink(destination: SettingsView()){
+                NavigationLink(destination: SettingsView()
+                    .navigationBarBackButtonHidden(true)){
                     RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
                         .foregroundColor(Color(hex: 0xCFF2E5))
                         .frame(width: UIScreen.main.bounds.width / 1.1, height: UIScreen.main.bounds.height / 12)
@@ -76,7 +70,8 @@ struct UserComplaintsView: View
                 Spacer()
 
                 
-                NavigationLink(destination: PQRView(viewController: ReportSuggestionsViewController(serviceAdapter: ServiceAdapter()))) {
+                NavigationLink(destination: PQRView(viewController: ReportSuggestionsViewController(serviceAdapter: ServiceAdapter()))
+                    .navigationBarBackButtonHidden(true)) {
                     RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
                         .foregroundColor(Color(hex: 0xCFF2E5))
                         .frame(width: UIScreen.main.bounds.width / 1.1, height: UIScreen.main.bounds.height / 12)
@@ -101,7 +96,8 @@ struct UserComplaintsView: View
                 Spacer()
                 
                 NavigationLink(
-                    destination: ReportBugView(viewController: ReportBugViewController(serviceAdapter: ServiceAdapter())),
+                    destination: ReportBugView(viewController: ReportBugViewController(serviceAdapter: ServiceAdapter())
+                                              ).navigationBarBackButtonHidden(true),
                     label: {
                         RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
                             .foregroundColor(Color(hex: 0xCFF2E5))
@@ -124,8 +120,30 @@ struct UserComplaintsView: View
                 )
                 .navigationBarBackButtonHidden(true)
                 
-                
                 Spacer()
+                
+                NavigationLink(destination: ProfileView()
+                    .navigationBarBackButtonHidden(true)){
+                    RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
+                        .foregroundColor(Color(hex: 0xCFF2E5))
+                        .frame(width: UIScreen.main.bounds.width / 1.1, height: UIScreen.main.bounds.height / 12)
+                        .overlay(
+                            HStack {
+                                Image(systemName: "person")
+                                    .font(.system(size: 60))
+                                    .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
+                                    .padding(.horizontal, UIScreen.main.bounds.width / 15)
+                                    .foregroundColor(.black)
+                                Text("Profile")
+                                    .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
+                                    .foregroundColor(.gray)
+                            }
+                                .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
+                        )
+                        .shadow(radius: 10)
+                }
+                .navigationBarBackButtonHidden(true)
+                
                 Spacer()
                 Spacer()
                 Spacer()
