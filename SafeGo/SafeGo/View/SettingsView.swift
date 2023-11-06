@@ -12,6 +12,8 @@ struct SettingsView: View {
     @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = true
     @State private var soundLevel: Double = 0.5
     @AppStorage("selectedLanguage") var selectedLanguage: String = "English"
+    @State private var isSaveSuccessful = false
+    @State private var isChangesFailed = false
 
     var body: some View {
         NavigationView {
@@ -116,7 +118,21 @@ struct SettingsView: View {
                         UserDefaults.standard.set(soundLevel, forKey: "soundLevel")
                         UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
                     }
-                    
+                    .alert(isPresented: $isSaveSuccessful)
+                    {
+                        Alert(
+                            title: Text("Saved Successfully"),
+                            message: Text("Your settings have been saved."),
+                            dismissButton: .default(Text("OK"))
+                        )
+                    }
+                    .alert(isPresented: $isChangesFailed) {
+                        Alert(
+                            title: Text("Changes Could Not Be Made"),
+                            message: Text("An error occurred while saving your settings."),
+                            dismissButton: .default(Text("OK"))
+                        )
+                    }
                     
                     .frame(width: UIScreen.main.bounds.width / 2.5, height: UIScreen.main.bounds.height / 20)
                     .background(Color(hex: 0xCFF2E5))
