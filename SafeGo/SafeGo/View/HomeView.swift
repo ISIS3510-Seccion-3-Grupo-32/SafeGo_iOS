@@ -96,9 +96,9 @@ struct HomeView: View {
                                 .foregroundColor(Color(hex: 0xCFF2E5))
                                 .frame(width: UIScreen.main.bounds.width / 6, height: UIScreen.main.bounds.height / 15)
                                 .overlay(
-                                    Image(systemName: "house")
+                                    Image(systemName: "building")
                                         .resizable()
-                                        .frame(width: UIScreen.main.bounds.width / 8, height: UIScreen.main.bounds.height / 20)
+                                        .frame(width: UIScreen.main.bounds.width / 12, height: UIScreen.main.bounds.height / 20)
                                         .foregroundColor(.black)
                                 )
                                 .shadow(radius: 5)
