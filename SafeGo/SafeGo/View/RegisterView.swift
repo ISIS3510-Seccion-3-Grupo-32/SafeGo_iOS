@@ -57,9 +57,12 @@ struct RegisterView: View {
                             }
                         }
                     
-                    DatePicker("Birth Date", selection: $viewModel.dateOfBirt, displayedComponents: [.date])
+                    DatePicker("Birth Date", selection: $viewModel.dateOfBirth,
+                               in: ...Date(),
+                               displayedComponents: [.date])
                         .foregroundColor(.white)
                         .fontWeight(.bold)
+                    
                     
                     Spacer()
 
