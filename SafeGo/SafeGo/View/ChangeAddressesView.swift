@@ -12,6 +12,11 @@ struct ChangeAddressesView: View {
     @State private var buttonColor: Color = Color(hex: 0xCFF2E5)
     @State private var isButtonSelected: [String: Bool] = ["house": false, "bag": false, "graduationcap": false, "heart": false]
     @State private var whereTo: String = ""
+    @StateObject var viewController = ChangeAddressesViewController()
+    @State private var isAddressSaved = true
+    @State private var showAlert = false
+    @State private var alertMessage = ""
+    @State private var navigateToHome = false
 
     var body: some View {
             VStack {
@@ -126,8 +131,11 @@ struct ChangeAddressesView: View {
 
 
                 Button(action: {
-                    // No se que hace. donde lo vamos aguardar?
-                }) {
+                                viewController.saveAddressForSelectedIcon()
+
+
+                                showAlert = true
+                            }) {
                     Text("Save changes")
                         .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
                         .padding()
@@ -135,12 +143,28 @@ struct ChangeAddressesView: View {
                         .background(buttonColor)
                         .cornerRadius(10)
                 }
+                .alert(isPresented: $showAlert) {
+                                Alert(
+                                    title: Text("Save Successful"),
+                                    message: Text("Address saved successfully."),
+                                    primaryButton: .default(Text("OK"), action: {
+                                    // Navigate to HomeView after pressing OK
+                                    navigateToHome = true
+                                    }),
+                                secondaryButton: .cancel()
+                                )
+                        }
                 
                 Spacer()
 
         }
+        
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(hex: 0x96CEB4))
+            .fullScreenCover(isPresented: $navigateToHome) {
+                HomeView()
+            }
+        
     }
 
     private func toggleButtonSelection(_ iconName: String) {

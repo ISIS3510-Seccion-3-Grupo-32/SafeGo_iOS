@@ -25,6 +25,7 @@
 		0ECD920C2AF838F900013F3A /* ChangeAddressesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD920B2AF838F900013F3A /* ChangeAddressesView.swift */; };
 		0ECD920E2AF83B5300013F3A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD920D2AF83B5300013F3A /* ProfileViewController.swift */; };
 		0ECD92122AF8781F00013F3A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD92112AF8781F00013F3A /* SettingsViewController.swift */; };
+		0ECD92142AF95B6700013F3A /* changeAddressesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD92132AF95B6700013F3A /* changeAddressesViewController.swift */; };
 		30A1620F2AF477830047A893 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A1620E2AF477830047A893 /* SettingsView.swift */; };
 		30B791DA2AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B791D92AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift */; };
 		30D43F792ABEB6140069E0F0 /* TravelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D43F782ABEB6140069E0F0 /* TravelsViewController.swift */; };
@@ -93,6 +94,7 @@
 		0ECD920B2AF838F900013F3A /* ChangeAddressesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAddressesView.swift; sourceTree = "<group>"; };
 		0ECD920D2AF83B5300013F3A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0ECD92112AF8781F00013F3A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0ECD92132AF95B6700013F3A /* changeAddressesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changeAddressesViewController.swift; sourceTree = "<group>"; };
 		30A1620E2AF477830047A893 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		30B791D92AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSuggestionsViewViewModel.swift; sourceTree = "<group>"; };
 		30D43F782ABEB6140069E0F0 /* TravelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelsViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				30B791D92AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift */,
 				0ECD920D2AF83B5300013F3A /* ProfileViewController.swift */,
 				0ECD92112AF8781F00013F3A /* SettingsViewController.swift */,
+				0ECD92132AF95B6700013F3A /* changeAddressesViewController.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				30B791DA2AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift in Sources */,
 				E0DDD2312ABD11690053F726 /* MainViewController.swift in Sources */,
 				0E5755492AD9D8DC009433B6 /* CurrentMapView.swift in Sources */,
+				0ECD92142AF95B6700013F3A /* changeAddressesViewController.swift in Sources */,
 				0E57554F2ADA2437009433B6 /* SafeGoView.swift in Sources */,
 				0EB0875C2AF0641500496E31 /* ReportBugView.swift in Sources */,
 				E0FD2D4C2ABA6BF60007A195 /* MainView.swift in Sources */,
