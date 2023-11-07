@@ -179,8 +179,10 @@ struct ChangeAddressesView: View {
     }
 }
 
-struct ChangeAddressesView_Previews: PreviewProvider {
-    static var previews: some View {
+struct ChangeAddressesView_Previews: PreviewProvider 
+{
+    static var previews: some View 
+    {
         ChangeAddressesView()
     }
 }
