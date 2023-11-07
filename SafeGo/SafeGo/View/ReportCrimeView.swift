@@ -45,11 +45,25 @@ struct ReportCrimeView: View {
                 .frame(width: UIScreen.main.bounds.width / 1.2)
 
                 Spacer()
+                
+                Image(systemName: "exclamationmark.triangle.fill")
+                    .foregroundColor(.black)
+                    .font(.system(size: 80))
+
+                Spacer()
 
                     Text("Report a Crime")
                         .font(.largeTitle)
                         .foregroundColor(.white)
                         .padding()
+                Text("Write the crime you've witnessed, it will be considered to have taken place in a small radius around your current location")
+                    .font(Font.custom("DM Sans", size: 20))
+                    .foregroundColor(.white)
+                    .bold()
+                    .frame(width: UIScreen.main.bounds.width - 80,
+                           alignment: .leading)
+                
+                Spacer()
 
                     TextField("Description of the crime", text: $descriptionText)
                         .padding()
@@ -70,6 +84,9 @@ struct ReportCrimeView: View {
                 }
                
                 Spacer()
+                Spacer()
+                Spacer()
+
                 
                 }
             .frame(maxWidth: .infinity, maxHeight: .infinity)

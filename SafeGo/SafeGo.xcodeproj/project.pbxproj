@@ -21,7 +21,7 @@
 		0ECD92002AF6A7C500013F3A /* MapLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD91FF2AF6A7C500013F3A /* MapLocationView.swift */; };
 		0ECD92062AF810F300013F3A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD92052AF810F300013F3A /* Repository.swift */; };
 		0ECD92082AF8111C00013F3A /* ServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD92072AF8111C00013F3A /* ServiceAdapter.swift */; };
-		0ECD920A2AF830E700013F3A /* PQRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD92092AF830E700013F3A /* PQRView.swift */; };
+		0ECD920A2AF830E700013F3A /* ReportSuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD92092AF830E700013F3A /* ReportSuggestionsView.swift */; };
 		0ECD920C2AF838F900013F3A /* ChangeAddressesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD920B2AF838F900013F3A /* ChangeAddressesView.swift */; };
 		0ECD920E2AF83B5300013F3A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD920D2AF83B5300013F3A /* ProfileViewController.swift */; };
 		0ECD92122AF8781F00013F3A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD92112AF8781F00013F3A /* SettingsViewController.swift */; };
@@ -91,7 +91,7 @@
 		0ECD91FF2AF6A7C500013F3A /* MapLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationView.swift; sourceTree = "<group>"; };
 		0ECD92052AF810F300013F3A /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		0ECD92072AF8111C00013F3A /* ServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAdapter.swift; sourceTree = "<group>"; };
-		0ECD92092AF830E700013F3A /* PQRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQRView.swift; sourceTree = "<group>"; };
+		0ECD92092AF830E700013F3A /* ReportSuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSuggestionsView.swift; sourceTree = "<group>"; };
 		0ECD920B2AF838F900013F3A /* ChangeAddressesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAddressesView.swift; sourceTree = "<group>"; };
 		0ECD920D2AF83B5300013F3A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0ECD92112AF8781F00013F3A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 				0ECD91F52AF495E700013F3A /* TripView.swift */,
 				0ECD91FD2AF6A56600013F3A /* ProfileView.swift */,
 				0ECD91FF2AF6A7C500013F3A /* MapLocationView.swift */,
-				0ECD92092AF830E700013F3A /* PQRView.swift */,
+				0ECD92092AF830E700013F3A /* ReportSuggestionsView.swift */,
 				0ECD920B2AF838F900013F3A /* ChangeAddressesView.swift */,
 			);
 			path = View;
@@ -409,7 +409,7 @@
 				0ECD920E2AF83B5300013F3A /* ProfileViewController.swift in Sources */,
 				0ECD91FE2AF6A56700013F3A /* ProfileView.swift in Sources */,
 				0E5774082AD9016D0077DF85 /* ReportCrimeView.swift in Sources */,
-				0ECD920A2AF830E700013F3A /* PQRView.swift in Sources */,
+				0ECD920A2AF830E700013F3A /* ReportSuggestionsView.swift in Sources */,
 				30D43F792ABEB6140069E0F0 /* TravelsViewController.swift in Sources */,
 				E0829F442ACB102400D0FA43 /* Extensions.swift in Sources */,
 				30A1620F2AF477830047A893 /* SettingsView.swift in Sources */,

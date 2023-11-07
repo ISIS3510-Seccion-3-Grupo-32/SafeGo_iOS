@@ -34,13 +34,10 @@ struct UserComplaintsView: View
                     Spacer()
                     Spacer()
                     Spacer()
-                    NavigationLink(destination: UserComplaintsView()
-                        .navigationBarBackButtonHidden(true))
-                    {
-                        Image(systemName: "line.horizontal.3")
-                            .foregroundColor(.black)
-                            .font(.system(size: 40))
-                    }
+                    
+                    Image(systemName: "line.horizontal.3")
+                        .foregroundColor(.black)
+                        .font(.system(size: 40))
                 }
                 .frame(width: UIScreen.main.bounds.width / 1.2)
                 
@@ -73,7 +70,7 @@ struct UserComplaintsView: View
                 Spacer()
 
                 
-                NavigationLink(destination: PQRView(viewController: ReportSuggestionsViewController(serviceAdapter: ServiceAdapter()))
+                NavigationLink(destination: ReportSuggestionsView(viewController: ReportSuggestionsViewController(serviceAdapter: ServiceAdapter()))
                     .navigationBarBackButtonHidden(true)) {
                     RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
                         .foregroundColor(Color(hex: 0xCFF2E5))
@@ -107,7 +104,7 @@ struct UserComplaintsView: View
                             .frame(width: UIScreen.main.bounds.width / 1.1, height: UIScreen.main.bounds.height / 12)
                             .overlay(
                                 HStack {
-                                    Image(systemName: "speaker")
+                                    Image(systemName: "speaker.wave.2")
                                         .font(.system(size: 60))
                                         .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
                                         .padding(.horizontal, UIScreen.main.bounds.width / 15)

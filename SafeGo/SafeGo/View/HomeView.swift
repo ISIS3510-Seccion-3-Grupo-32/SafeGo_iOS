@@ -41,10 +41,28 @@ struct HomeView: View {
                 }
                 .frame(width: UIScreen.main.bounds.width / 1.2)
 
-                HStack {
+                ZStack{
                     CurrentMapView()
+                        .cornerRadius(10)
+                    
+                    VStack{
+                        Spacer()
+                        HStack{
+                            Spacer()
+                            NavigationLink(destination: ReportCrimeView(viewController: ReportCrimesViewController(serviceAdapter: ServiceAdapter()))
+                                .navigationBarBackButtonHidden(true))
+                            {
+                                Image(systemName: "exclamationmark.triangle.fill")
+                                    .foregroundColor(.black)
+                                    .font(.system(size: 50))
+                            }
+                        }
+                    }
+                    .frame(width: UIScreen.main.bounds.width / 1.22, height: UIScreen.main.bounds.height / 1.52)
+                    
                 }
                 .frame(width: UIScreen.main.bounds.width / 1.2, height: UIScreen.main.bounds.height / 1.5)
+
 
                 Spacer()
 

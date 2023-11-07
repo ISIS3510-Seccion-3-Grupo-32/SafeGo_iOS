@@ -81,7 +81,7 @@ struct TripView: View
 
                 HStack
                 {
-                    ButtonFactory.createButton(title: "Go [WIP]") {
+                    ButtonFactory.createButton(title: "Go") {
                         // Handle the action when the "Go" button is pressed
                     }
                 }

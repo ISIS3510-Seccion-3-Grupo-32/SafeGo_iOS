@@ -50,7 +50,13 @@ struct ReportBugView: View
                 .frame(width: UIScreen.main.bounds.width / 1.2)
 
                 Spacer()
+                
+                Image(systemName: "speaker.wave.2")
+                    .foregroundColor(.black)
+                    .font(.system(size: 80))
 
+                Spacer()
+                
                     Text("Report an issue \nwith the app")
                         .font(.largeTitle)
                         .foregroundColor(.white)
@@ -76,6 +82,8 @@ struct ReportBugView: View
                 }
                
                 Spacer()
+                Spacer()
+
                 
                 }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
