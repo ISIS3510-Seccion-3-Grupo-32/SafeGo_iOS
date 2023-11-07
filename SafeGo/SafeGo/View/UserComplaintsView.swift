@@ -149,10 +149,28 @@ struct UserComplaintsView: View
                 
                 Spacer()
                 
-                ButtonFactory.createButton(title: "Sign Out"){
-                    viewController.logOut()
-                    //TODO send back to log in view
+                NavigationLink(destination:  LoginView()
+                    .navigationBarBackButtonHidden(true)){
+                    RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
+                        .foregroundColor(Color(hex: 0xCFF2E5))
+                        .frame(width: UIScreen.main.bounds.width / 1.1, height: UIScreen.main.bounds.height / 12)
+                        .overlay(
+                            HStack {
+                                Image(systemName: "person.fill")
+                                    .font(.system(size: 60))
+                                    .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
+                                    .padding(.horizontal, UIScreen.main.bounds.width / 15)
+                                    .foregroundColor(.black)
+                                Text("Sign Out")
+                                    .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
+                                    .foregroundColor(.gray)
+                            }
+                                .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
+                        )
+                        .shadow(radius: 10)
                 }
+                .navigationBarBackButtonHidden(true)
+                
                 
                 Spacer()
                 Spacer()
