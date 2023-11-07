@@ -9,14 +9,13 @@ import SwiftUI
 
 struct TripView: View 
 {
-    var body: some View
-    {
-        NavigationView
-        {
+    let address: String?
+    let icon: String
+
+    var body: some View {
+        NavigationView {
             VStack() {
-                   
-                HStack()
-                {
+                HStack() {
                     NavigationLink(destination: HomeView()
                         .navigationBarBackButtonHidden(true))
                     {
@@ -40,77 +39,94 @@ struct TripView: View
                     }
                 }
                 .frame(width: UIScreen.main.bounds.width / 1.2)
-                
-                
-                    
+
+                Spacer()
+                Spacer()
+                Spacer()
+
+                VStack
+                {
                     Spacer()
                     Spacer()
-                    Spacer()
-                    
-                    VStack
+                    HStack
                     {
-                        HStack
-                        {
-                            Image(systemName: "clock")
-                                .font(.system(size: 24))
-                            Text("You will get there at")
-                                .font(.system(size: 20))
-                                .foregroundColor(.black)
-                        }
-                        
-                        Text("Date and Time")
+                        Image(systemName: "clock")
+                            .font(.system(size: 24))
+                        Text("You will get there at")
                             .font(.system(size: 20))
-                            .bold()
+                            .foregroundColor(.black)
                     }
+                    
                     Spacer()
 
-
-                    VStack {
-                        HStack
-                        {
-                            Image(systemName: "location.fill")
-                                .font(.system(size: 24))
-                            Text("You are going to")
-                                .font(.system(size: 20))
-                                .foregroundColor(.black)
-                        }
+                    if let address = address {
                         Text("Destination")
                             .font(.system(size: 20))
                             .bold()
+
+                        Text(address) // Display the saved address
+                            .font(.system(size: 20))
+                            .bold()
+                        
+                    } else {
+                        Text("No address saved") // Display a message if no address is available
+                            .font(.system(size: 20))
+                            .bold()
                     }
-                    
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    
-                        HStack
-                        {
-                            
-                            ButtonFactory.createButton(title: "Go [WIP]") {
-                               HomeView()
-                                    .navigationBarBackButtonHidden(true)
-                            }
-                            
-                            //NavigationLink(destination: CurrentMapView())
-                            //{
-                              //  Text("Go")
-                                //    .font(.system(size: 18))
-                                  //  .bold()
-                                    //.padding()
-                                    //.background(Color(hex: 0xCFF2E5))
-                                    //.foregroundColor(.black)
-                                    //.cornerRadius(8)
-                            }
-                        }
+                }
+
+                Spacer()
+                Spacer()
+                Spacer()
+
+                HStack
+                {
+                    ButtonFactory.createButton(title: "Go") {
+                        // Handle the action when the "Go" button is pressed
+                    }
+                }
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+            }
+            
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(hex: 0x96CEB4))
         }
-            
-        }
+        
     }
-
+}
 
 
 #Preview {
-    TripView()
+    TripView(address: "Your saved address here", icon: "Icon name here")
 }

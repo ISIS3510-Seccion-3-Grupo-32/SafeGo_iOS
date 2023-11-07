@@ -2,7 +2,7 @@
 //  TravelsViewViewModel.swift
 //  SafeGo
 //
-//  Created by Pipe on 23/09/23.
+//  Created by Juan Felipe on 23/09/23.
 //
 
 import Foundation

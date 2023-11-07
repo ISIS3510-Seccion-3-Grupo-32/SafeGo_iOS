@@ -9,7 +9,10 @@ import SwiftUI
 
 struct UserComplaintsView: View 
 {
-    var body: some View 
+    @StateObject var viewController = UserComplaintsViewController()
+
+    
+    var body: some View
     {
         NavigationView
         {
@@ -31,13 +34,10 @@ struct UserComplaintsView: View
                     Spacer()
                     Spacer()
                     Spacer()
-                    NavigationLink(destination: UserComplaintsView()
-                        .navigationBarBackButtonHidden(true))
-                    {
-                        Image(systemName: "line.horizontal.3")
-                            .foregroundColor(.black)
-                            .font(.system(size: 40))
-                    }
+                    
+                    Image(systemName: "line.horizontal.3")
+                        .foregroundColor(.black)
+                        .font(.system(size: 40))
                 }
                 .frame(width: UIScreen.main.bounds.width / 1.2)
                 
@@ -70,7 +70,7 @@ struct UserComplaintsView: View
                 Spacer()
 
                 
-                NavigationLink(destination: PQRView(viewController: ReportSuggestionsViewController(serviceAdapter: ServiceAdapter()))
+                NavigationLink(destination: ReportSuggestionsView(viewController: ReportSuggestionsViewController(serviceAdapter: ServiceAdapter()))
                     .navigationBarBackButtonHidden(true)) {
                     RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
                         .foregroundColor(Color(hex: 0xCFF2E5))
@@ -104,7 +104,7 @@ struct UserComplaintsView: View
                             .frame(width: UIScreen.main.bounds.width / 1.1, height: UIScreen.main.bounds.height / 12)
                             .overlay(
                                 HStack {
-                                    Image(systemName: "speaker")
+                                    Image(systemName: "speaker.wave.2")
                                         .font(.system(size: 60))
                                         .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
                                         .padding(.horizontal, UIScreen.main.bounds.width / 15)
@@ -145,6 +145,30 @@ struct UserComplaintsView: View
                 .navigationBarBackButtonHidden(true)
                 
                 Spacer()
+                
+                NavigationLink(destination:  LoginView()
+                    .navigationBarBackButtonHidden(true)){
+                    RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
+                        .foregroundColor(Color(hex: 0xCFF2E5))
+                        .frame(width: UIScreen.main.bounds.width / 1.1, height: UIScreen.main.bounds.height / 12)
+                        .overlay(
+                            HStack {
+                                Image(systemName: "person.fill")
+                                    .font(.system(size: 60))
+                                    .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
+                                    .padding(.horizontal, UIScreen.main.bounds.width / 15)
+                                    .foregroundColor(.black)
+                                Text("Sign Out")
+                                    .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
+                                    .foregroundColor(.gray)
+                            }
+                                .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
+                        )
+                        .shadow(radius: 10)
+                }
+                .navigationBarBackButtonHidden(true)
+                
+                
                 Spacer()
                 Spacer()
                 Spacer()

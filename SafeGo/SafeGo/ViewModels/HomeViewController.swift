@@ -2,7 +2,7 @@
 //  HomeViewViewModel.swift
 //  SafeGo
 //
-//  Created by Pipe on 22/09/23.
+//  Created by Juan Felipe on 22/09/23.
 //
 
 import SwiftUI
@@ -18,11 +18,21 @@ class HomeViewController: ObservableObject {
     @Published var showAlert = false
     @Published var alertMessage = ""
     @Published var destinationCoordinate: CLLocationCoordinate2D?
+    @Published var savedAddresses: [String: String] = [:]
+    @StateObject var changeAddressesController = ChangeAddressesViewController()
+
+    
 
     private let db = Firestore.firestore()
     private let collectionReference = "directions"
 
-    init() {}
+    init() 
+    {
+        if let savedAddresses = UserDefaults.standard.dictionary(forKey: "savedAddressesChange") as? [String: String]
+        {
+            self.savedAddresses = savedAddresses
+        }
+    }
 
     func logOut() {
         do {
@@ -61,5 +71,10 @@ class HomeViewController: ObservableObject {
     func uploadToCloudClicks()
     {
         
+    }
+    
+    func getSavedAddress(icon: String) -> String? 
+    {
+           return changeAddressesController.savedAddresses[icon]
     }
 }

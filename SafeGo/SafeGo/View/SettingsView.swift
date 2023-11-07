@@ -2,7 +2,7 @@
 //  SwiftUIView.swift
 //  SafeGo
 //
-//  Created by Pipe on 2/11/23.
+//  Created by Juan Felipe on 2/11/23.
 //
 
 import SwiftUI
@@ -88,22 +88,21 @@ struct SettingsView: View {
                         ) {
                         Picker("Language", selection: $selectedLanguage) {
                             Text("English").tag("English")
-                                .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 40))
+                                .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 30))
                                 .foregroundColor(.white)
 
                             Text("Español").tag("Español")
-                                .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 40))
+                                .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 30))
                                 .foregroundColor(.white)
 
 
                             Text("French").tag("French")
-                                .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 40))
+                                .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 30))
                                 .foregroundColor(.white)
 
                         }
                         .pickerStyle(SegmentedPickerStyle())
-                        .frame(width: UIScreen.main.bounds.width / 1.2)
-
+                        .frame(width: UIScreen.main.bounds.width / 1.1)
                     }
                     
                     Spacer()

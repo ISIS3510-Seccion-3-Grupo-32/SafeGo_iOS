@@ -2,7 +2,7 @@
 //  ReportSuggestionsViewViewModel.swift
 //  SafeGo
 //
-//  Created by Pipe on 1/11/23.
+//  Created by Juan Felipe on 1/11/23.
 //
 
 import SwiftUI

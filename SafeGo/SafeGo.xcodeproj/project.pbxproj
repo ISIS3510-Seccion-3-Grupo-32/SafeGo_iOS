@@ -21,14 +21,16 @@
 		0ECD92002AF6A7C500013F3A /* MapLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD91FF2AF6A7C500013F3A /* MapLocationView.swift */; };
 		0ECD92062AF810F300013F3A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD92052AF810F300013F3A /* Repository.swift */; };
 		0ECD92082AF8111C00013F3A /* ServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD92072AF8111C00013F3A /* ServiceAdapter.swift */; };
-		0ECD920A2AF830E700013F3A /* PQRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD92092AF830E700013F3A /* PQRView.swift */; };
+		0ECD920A2AF830E700013F3A /* ReportSuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD92092AF830E700013F3A /* ReportSuggestionsView.swift */; };
 		0ECD920C2AF838F900013F3A /* ChangeAddressesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD920B2AF838F900013F3A /* ChangeAddressesView.swift */; };
 		0ECD920E2AF83B5300013F3A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD920D2AF83B5300013F3A /* ProfileViewController.swift */; };
 		0ECD92122AF8781F00013F3A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD92112AF8781F00013F3A /* SettingsViewController.swift */; };
+		0ECD92142AF95B6700013F3A /* changeAddressesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD92132AF95B6700013F3A /* changeAddressesViewController.swift */; };
 		30A1620F2AF477830047A893 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A1620E2AF477830047A893 /* SettingsView.swift */; };
 		30B791DA2AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B791D92AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift */; };
 		30D43F792ABEB6140069E0F0 /* TravelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D43F782ABEB6140069E0F0 /* TravelsViewController.swift */; };
 		30D43F7B2ABEB7170069E0F0 /* TravelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D43F7A2ABEB7170069E0F0 /* TravelsView.swift */; };
+		30DE2F672AF982C500475E82 /* UserComplaintsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DE2F662AF982C500475E82 /* UserComplaintsViewController.swift */; };
 		30DF54732ABE912E00C03732 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF54722ABE912E00C03732 /* HomeView.swift */; };
 		30DF54752ABE926000C03732 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF54742ABE926000C03732 /* HomeViewController.swift */; };
 		5326326E2ABED9E800F96002 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5326326D2ABED9E800F96002 /* MapViewController.swift */; };
@@ -89,14 +91,16 @@
 		0ECD91FF2AF6A7C500013F3A /* MapLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationView.swift; sourceTree = "<group>"; };
 		0ECD92052AF810F300013F3A /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		0ECD92072AF8111C00013F3A /* ServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAdapter.swift; sourceTree = "<group>"; };
-		0ECD92092AF830E700013F3A /* PQRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQRView.swift; sourceTree = "<group>"; };
+		0ECD92092AF830E700013F3A /* ReportSuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSuggestionsView.swift; sourceTree = "<group>"; };
 		0ECD920B2AF838F900013F3A /* ChangeAddressesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAddressesView.swift; sourceTree = "<group>"; };
 		0ECD920D2AF83B5300013F3A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0ECD92112AF8781F00013F3A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0ECD92132AF95B6700013F3A /* changeAddressesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changeAddressesViewController.swift; sourceTree = "<group>"; };
 		30A1620E2AF477830047A893 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		30B791D92AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSuggestionsViewViewModel.swift; sourceTree = "<group>"; };
 		30D43F782ABEB6140069E0F0 /* TravelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelsViewController.swift; sourceTree = "<group>"; };
 		30D43F7A2ABEB7170069E0F0 /* TravelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TravelsView.swift; path = SafeGo/ViewModels/TravelsView.swift; sourceTree = SOURCE_ROOT; };
+		30DE2F662AF982C500475E82 /* UserComplaintsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserComplaintsViewController.swift; sourceTree = "<group>"; };
 		30DF54722ABE912E00C03732 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		30DF54742ABE926000C03732 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5326326D2ABED9E800F96002 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -193,7 +197,7 @@
 				0ECD91F52AF495E700013F3A /* TripView.swift */,
 				0ECD91FD2AF6A56600013F3A /* ProfileView.swift */,
 				0ECD91FF2AF6A7C500013F3A /* MapLocationView.swift */,
-				0ECD92092AF830E700013F3A /* PQRView.swift */,
+				0ECD92092AF830E700013F3A /* ReportSuggestionsView.swift */,
 				0ECD920B2AF838F900013F3A /* ChangeAddressesView.swift */,
 			);
 			path = View;
@@ -225,6 +229,8 @@
 				30B791D92AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift */,
 				0ECD920D2AF83B5300013F3A /* ProfileViewController.swift */,
 				0ECD92112AF8781F00013F3A /* SettingsViewController.swift */,
+				0ECD92132AF95B6700013F3A /* changeAddressesViewController.swift */,
+				30DE2F662AF982C500475E82 /* UserComplaintsViewController.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -389,9 +395,11 @@
 				30B791DA2AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift in Sources */,
 				E0DDD2312ABD11690053F726 /* MainViewController.swift in Sources */,
 				0E5755492AD9D8DC009433B6 /* CurrentMapView.swift in Sources */,
+				0ECD92142AF95B6700013F3A /* changeAddressesViewController.swift in Sources */,
 				0E57554F2ADA2437009433B6 /* SafeGoView.swift in Sources */,
 				0EB0875C2AF0641500496E31 /* ReportBugView.swift in Sources */,
 				E0FD2D4C2ABA6BF60007A195 /* MainView.swift in Sources */,
+				30DE2F672AF982C500475E82 /* UserComplaintsViewController.swift in Sources */,
 				30DF54752ABE926000C03732 /* HomeViewController.swift in Sources */,
 				E0829F072ACAFC2900D0FA43 /* UserState.swift in Sources */,
 				E0829F422ACB0A5600D0FA43 /* LoginView.swift in Sources */,
@@ -401,7 +409,7 @@
 				0ECD920E2AF83B5300013F3A /* ProfileViewController.swift in Sources */,
 				0ECD91FE2AF6A56700013F3A /* ProfileView.swift in Sources */,
 				0E5774082AD9016D0077DF85 /* ReportCrimeView.swift in Sources */,
-				0ECD920A2AF830E700013F3A /* PQRView.swift in Sources */,
+				0ECD920A2AF830E700013F3A /* ReportSuggestionsView.swift in Sources */,
 				30D43F792ABEB6140069E0F0 /* TravelsViewController.swift in Sources */,
 				E0829F442ACB102400D0FA43 /* Extensions.swift in Sources */,
 				30A1620F2AF477830047A893 /* SettingsView.swift in Sources */,
@@ -540,7 +548,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SafeGo/Preview Content\"";
-				DEVELOPMENT_TEAM = MD7XHTZ242;
+				DEVELOPMENT_TEAM = S98HLWZVU4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SafeGo/Info.plist;
@@ -575,7 +583,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SafeGo/Preview Content\"";
-				DEVELOPMENT_TEAM = MD7XHTZ242;
+				DEVELOPMENT_TEAM = S98HLWZVU4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SafeGo/Info.plist;

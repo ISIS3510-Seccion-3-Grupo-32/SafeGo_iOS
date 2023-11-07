@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PQRView: View
+struct ReportSuggestionsView: View
 {
     
         @StateObject var serviceAdapter = ServiceAdapter()
@@ -51,7 +51,13 @@ struct PQRView: View
                 .frame(width: UIScreen.main.bounds.width / 1.2)
 
                 Spacer()
+                
+                Image(systemName: "pencil")
+                    .foregroundColor(.black)
+                    .font(.system(size: 80))
 
+                Spacer()
+                
                     Text("Give us a suggestion")
                         .font(.largeTitle)
                         .foregroundColor(.white)
@@ -77,6 +83,8 @@ struct PQRView: View
                 }
                
                 Spacer()
+                Spacer()
+
                 
                 }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -88,6 +96,6 @@ struct PQRView: View
 @available(iOS 17.0, macOS 14.0, tvOS 17.0, watchOS 10.0, xrOS 1.0, *)
 struct PQRView_Previews: PreviewProvider {
     static var previews: some View {
-        PQRView(viewController: ReportSuggestionsViewController(serviceAdapter: ServiceAdapter()))
+        ReportSuggestionsView(viewController: ReportSuggestionsViewController(serviceAdapter: ServiceAdapter()))
     }
 }

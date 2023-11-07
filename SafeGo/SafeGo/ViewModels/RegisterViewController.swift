@@ -13,7 +13,7 @@ class RegisterViewController: ObservableObject {
     @Published var name = ""
     @Published var password = ""
     @Published var email = ""
-    @Published var dateOfBirt = Date()
+    @Published var dateOfBirth = Date()
     @Published var validationError: String = ""
     @Published var showAlert = false
     
@@ -36,7 +36,7 @@ class RegisterViewController: ObservableObject {
         let newUser = User(id: id,
                            name: name,
                            email: email,
-                           birthDate: dateOfBirt.timeIntervalSince1970,
+                           birthDate: dateOfBirth.timeIntervalSince1970,
                            joinned: Date().timeIntervalSince1970)
         
         let db = Firestore.firestore()
@@ -72,18 +72,18 @@ class RegisterViewController: ObservableObject {
             return false
         }
         
-        guard calculateAge(from: dateOfBirt) >= 14 else {
+        guard calculateAge(from: dateOfBirth) >= 14 else {
             DispatchQueue.main.async {
                 self.showAlert = true
-                self.validationError = "You must be at least 14 years old to registrate"
+                self.validationError = "You must be at least 14 years old to register"
             }
             return false
         }
         
-        guard calculateAge(from: dateOfBirt) <= 100 else {
+        guard calculateAge(from: dateOfBirth) <= 120 else {
             DispatchQueue.main.async {
                 self.showAlert = true
-                self.validationError = "Are you really over 100 years old?"
+                self.validationError = "Please insert a valid date"
             }
             return false
         }
