@@ -8,7 +8,7 @@
 import FirebaseAuth
 import Foundation
 
-class MainViewViewModel: ObservableObject {
+class MainViewController: ObservableObject {
     @Published var currentUserId: String = ""
     private var handler: AuthStateDidChangeListenerHandle?
     

@@ -2,135 +2,188 @@
 //  HomeView.swift
 //  SafeGo
 //
-//  Created by Pipe on 22/09/23.
-//
-//
-//  HomeView.swift
-//  SafeGo
-//
-//  Created by Pipe on 22/09/23.
+//  Created by Juan Felipe on 2/11/23.
 //
 
 import SwiftUI
+import MapKit
 
 struct HomeView: View {
-    @StateObject var viewModel = HomeViewViewModel()
-    
+    @StateObject var viewModel = HomeViewController()
+
+    @State private var isTextFieldExpanded = false
+    @State private var navigateToMapView = false
+    @State private var destinationCoordinate: CLLocationCoordinate2D?
+    @State private var showAlert = false
+
     var body: some View {
-        
-        VStack{
-            Spacer()
-            ZStack{
-                RoundedRectangle(cornerRadius: 25)
-                    .foregroundColor(Color(hex: 0x96CEB4))
-                    .offset(y:40)
-                VStack{
+        NavigationView {
+            VStack {
+                HStack() {
+                    Image(systemName: "house.fill")
+                        .foregroundColor(.black)
+                        .font(.system(size: 40))
                     
                     Spacer()
                     Spacer()
                     Spacer()
                     Spacer()
                     Spacer()
-                    //Where to
-                    HStack{
-                        TextField("Where to?", text: $viewModel.whereto)
-                            .padding()
-                            .frame(height: UIScreen.main.bounds.height / 12, alignment: .leading)
-                            .background(Color.white)
-                            .cornerRadius(10)
-                            .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
-                            .foregroundColor(.gray)
-
-                        NavigationLink {
-                            TravelsView()
-                        } label: {
-                            Image("calendar")
-                                .frame(width: UIScreen.main.bounds.width / 5, height: UIScreen.main.bounds.height / 11)
-                        }
-                    }
-                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                    //Home
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 25)
-                            .foregroundColor(Color(hex: 0xCFF2E5))
-                            .frame(height: UIScreen.main.bounds.height / 12)
-                        HStack{
-                            Image("house")
-                                .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
-                                .padding(.horizontal, UIScreen.main.bounds.width / 15)
-                            NavigationLink("Home", destination: MainView())
-                                .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
-                                .foregroundColor(.gray)
-                        }
-                        .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
-                    }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                               
-                    //Work
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 25)
-                            .foregroundColor(Color(hex: 0xCFF2E5))
-                            .frame(height: UIScreen.main.bounds.height / 12)
-                        HStack{
-                            Image("work")
-                                .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
-                                .padding(.horizontal, UIScreen.main.bounds.width / 15)
-                            NavigationLink("Work", destination: MainView())
-                                .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
-                                .foregroundColor(.gray)
-                        }
-                        .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
-                    }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                    //Educatioon
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 25)
-                            .foregroundColor(Color(hex: 0xCFF2E5))
-                            .frame(height: UIScreen.main.bounds.height / 12)
-                        HStack{
-                            Image("education")
-                                .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
-                                .padding(.horizontal, UIScreen.main.bounds.width / 15)
-                            NavigationLink("Education", destination: MainView())
-                                .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
-                                .foregroundColor(.gray)
-                        }
-                        .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
-                    }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                    //Partner
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 25)
-                            .foregroundColor(Color(hex: 0xCFF2E5))
-                            .frame(height: UIScreen.main.bounds.height / 12)
-                        HStack{
-                            Image("partner")
-                                .frame(width: UIScreen.main.bounds.width / 10, height: UIScreen.main.bounds.height / 10)
-                                .padding(.horizontal, UIScreen.main.bounds.width / 15)
-                            NavigationLink("Partner", destination: MainView())
-                                .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
-                                .foregroundColor(.gray)
-                        }
-                        .frame(width: UIScreen.main.bounds.width / 1.2, alignment: .leading)
-                    }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                    Text("PQRS: https://forms.gle/UPGXXCDFYLrQNY9i9")
-                    ButtonFactory.createButton(title: "Logout") {
-                        viewModel.logOut()
+                    Spacer()
+                    Spacer()
+                    NavigationLink(destination: UserComplaintsView()
+                        .navigationBarBackButtonHidden(true))
+                    {
+                        Image(systemName: "line.horizontal.3")
+                            .foregroundColor(.black)
+                            .font(.system(size: 40))
                     }
                 }
-                .padding()
+                .frame(width: UIScreen.main.bounds.width / 1.2)
+
+                ZStack{
+                    CurrentMapView()
+                        .cornerRadius(10)
+                    
+                    VStack{
+                        Spacer()
+                        HStack{
+                            Spacer()
+                            NavigationLink(destination: ReportCrimeView(viewController: ReportCrimesViewController(serviceAdapter: ServiceAdapter()))
+                                .navigationBarBackButtonHidden(true))
+                            {
+                                Image(systemName: "exclamationmark.triangle.fill")
+                                    .foregroundColor(.black)
+                                    .font(.system(size: 50))
+                            }
+                        }
+                    }
+                    .frame(width: UIScreen.main.bounds.width / 1.22, height: UIScreen.main.bounds.height / 1.52)
+                    
+                }
+                .frame(width: UIScreen.main.bounds.width / 1.2, height: UIScreen.main.bounds.height / 1.5)
+
+
+                Spacer()
+
+                HStack {
+                    // Where to
+                    TextField("Where to?", text: $viewModel.whereto)
+                        .padding()
+                        .frame(width: UIScreen.main.bounds.width / 1.4,
+                               height: UIScreen.main.bounds.height / 15,
+                               alignment: .center)
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
+                        .foregroundColor(.gray)
+                        .shadow(radius: 10)
+
+                    Button(action: {
+                        if viewModel.whereto.isEmpty {
+                            showAlert = true
+                        } else {
+                            viewModel.uploadToCloud()
+                            navigateToMapView = true // Set the state to trigger navigation
+                        }
+                    }) {
+                        Text("Go")
+                            .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
+                            .foregroundColor(.black)
+                            .padding()
+                            .background(Color(hex: 0xCFF2E5))
+                            .cornerRadius(10)
+                    }
+                }
+
+                HStack {
+                    Spacer()
+
+                    // Home
+                    NavigationLink(destination: TripView(address: viewModel.getSavedAddress(icon: "house"), icon: "house")
+                        .navigationBarBackButtonHidden(true))
+                    {
+                        RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+                            .foregroundColor(Color(hex: 0xCFF2E5))
+                            .frame(width: UIScreen.main.bounds.width / 6, height: UIScreen.main.bounds.height / 15)
+                            .overlay(
+                                Image(systemName: "building")
+                                    .resizable()
+                                    .frame(width: UIScreen.main.bounds.width / 12, height: UIScreen.main.bounds.height / 20)
+                                    .foregroundColor(.black)
+                            )
+                            .shadow(radius: 5)
+                    }
+
+
+                    Spacer()
+
+                    // Work
+                    NavigationLink(destination: TripView(address: viewModel.getSavedAddress(icon: "bag"), icon: "bag")
+                        .navigationBarBackButtonHidden(true))
+                    {
+                        RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+                            .foregroundColor(Color(hex: 0xCFF2E5))
+                            .frame(width: UIScreen.main.bounds.width / 6, height: UIScreen.main.bounds.height / 15)
+                            .overlay(
+                                Image(systemName: "bag")
+                                    .resizable()
+                                    .frame(width: UIScreen.main.bounds.width / 8, height: UIScreen.main.bounds.height / 20)
+                                    .foregroundColor(.black)
+                            )
+                            .shadow(radius: 5)
+                    }
+
+                    Spacer()
+
+                    // Education
+                    NavigationLink(destination: TripView(address: viewModel.getSavedAddress(icon: "graduationcap"), icon: "graduationcap")
+                        .navigationBarBackButtonHidden(true))
+                    {
+                        RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+                            .foregroundColor(Color(hex: 0xCFF2E5))
+                            .frame(width: UIScreen.main.bounds.width / 6, height: UIScreen.main.bounds.height / 15)
+                            .overlay(
+                                Image(systemName: "graduationcap")
+                                    .resizable()
+                                    .frame(width: UIScreen.main.bounds.width / 8, height: UIScreen.main.bounds.height / 20)
+                                    .foregroundColor(.black)
+                            )
+                            .shadow(radius: 5)
+                    }
+
+                    Spacer()
+
+                    // Partner
+                    NavigationLink(destination: TripView(address: viewModel.getSavedAddress(icon: "heart"), icon: "heart")
+                        .navigationBarBackButtonHidden(true))
+                    {
+                        RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+                            .foregroundColor(Color(hex: 0xCFF2E5))
+                            .frame(width: UIScreen.main.bounds.width / 6, height: UIScreen.main.bounds.height / 15)
+                            .overlay(
+                                Image(systemName: "heart")
+                                    .resizable()
+                                    .frame(width: UIScreen.main.bounds.width / 8, height: UIScreen.main.bounds.height / 20)
+                                    .foregroundColor(.black)
+                            )
+                            .shadow(radius: 5)
+                    }
+
+                    Spacer()
+                }
             }
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/1.6)
-            .background(
-                Image("Map")
-                    .resizable()
-                    .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                    .frame(width: UIScreen.main.bounds.width * 1.2,
-                           height: UIScreen.main.bounds.height * 1.2)
-                    .blur(radius: 1.8))
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color(hex: 0x96CEB4))
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("No address saved"), message: Text("Please enter a valid address."), dismissButton: .default(Text("OK")))
         }
     }
 }
+
+
+
 #Preview {
     HomeView()
 }
-
-
-

@@ -9,88 +9,83 @@ import SwiftUI
 import UIKit
 
 struct LoginView: View {
-    @StateObject var viewModel = LoginViewViewModel()
+    @StateObject var viewModel = LoginViewController()
     
     var body: some View {
         NavigationView {
             VStack {
                 Spacer()
-                ZStack {
-                    RoundedRectangle(cornerRadius: 25)
-                        .foregroundColor(Color(hex: 0x96CEB4))
-                        .offset(y:40)
-                    
-                    VStack {
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-
-                        Text("Welcome to SafeGo")
-                            .font(Font.custom("DM Sans", size: 30))
-                            .foregroundColor(.white)
-                            .bold()
-                            .padding(.bottom, 10)
-                            .frame(width: UIScreen.main.bounds.width - 40,
-                                   alignment: .leading)
-                        Text("Login before starting your trip")
-                            .font(Font.custom("DM Sans", size: 17))
-                            .foregroundColor(.white)
-                            .bold()
-                            .frame(width: UIScreen.main.bounds.width - 40,
-                                   alignment: .leading)
-                        
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        
-                        if !viewModel.errorMessage.isEmpty {
-                            Text(viewModel.errorMessage)
-                                .foregroundColor(Color.red)
-                        }
-                        
-                        // Login Form
-                        TextField("Username", text: $viewModel.username)
-                            .padding()
-                            .frame(height: UIScreen.main.bounds.height / 15)
-                            .background(Color.white)
-                            .cornerRadius(10)
-                            .autocapitalization(.words)
-                        SecureField("Password", text: $viewModel.password)
-                            .padding()
-                            .frame(height: UIScreen.main.bounds.height / 15)
-                            .background(Color.white)
-                            .cornerRadius(10)
-                            .autocorrectionDisabled()
-                            .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
-                        ButtonFactory.createButton(title: "Login")
-                        {
-                            viewModel.login()
-                        }
-                        Spacer()
-                        
-                        // Register Now
-                        HStack(alignment: .center) {
-                            Text("Don't have an account?")
-                                .foregroundColor(.white)
-                            NavigationLink("Register Now", destination: RegisterView())
-                        }
-                        .padding()
-                    }
-                    .padding()
-                }
-                .frame(width: UIScreen.main.bounds.width,
-                       height: UIScreen.main.bounds.height / 1.9)
-            }
-            .background(
-                Image("Map")
+                Text("Welcome to SafeGo")
+                    .font(Font.custom("DM Sans", size: 30))
+                    .foregroundColor(.white)
+                    .bold()
+                    .padding(.bottom, 10)
+                    .frame(width: UIScreen.main.bounds.width - 40,
+                           alignment: .leading)
+                Text("Login before you start your trip")
+                    .font(Font.custom("DM Sans", size: 17))
+                    .foregroundColor(.white)
+                    .bold()
+                    .frame(width: UIScreen.main.bounds.width - 40,
+                           alignment: .leading)
+                
+                Spacer()
+                
+                Image("IconForApp")
                     .resizable()
-                    .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                    .frame(width: UIScreen.main.bounds.width * 1.2,
-                           height: UIScreen.main.bounds.height * 1.2)
-                    .blur(radius: 1.8)
-            )
-            
+                    .scaledToFit()
+                    .frame(width: UIScreen.main.bounds.width / 1.5)
+                    .foregroundColor(.white)
+                
+                Spacer()
+                
+                // Login Form
+                TextField("Email", text: $viewModel.username)
+                    .padding()
+                    .frame(width: UIScreen.main.bounds.width / 1.2,
+                           height: UIScreen.main.bounds.height / 15)
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .autocapitalization(.none)
+                    .onChange(of: viewModel.username) {
+                        if viewModel.username.count > 35 {
+                            viewModel.username = String(viewModel.username.prefix(40))
+                        }
+                    }
+                
+                SecureField("Password", text: $viewModel.password)
+                    .padding()
+                    .frame(width: UIScreen.main.bounds.width / 1.2, height: UIScreen.main.bounds.height / 15)
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .autocorrectionDisabled()
+                    .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
+                    .onChange(of: viewModel.password) {
+                        if viewModel.password.count > 30 {
+                            viewModel.password = String(viewModel.password.prefix(32))
+                        }
+                    }
+                
+                ButtonFactory.createButton(title: "Login")
+                {
+                    viewModel.login()
+                }.alert(isPresented: $viewModel.showAlert) {
+                    Alert(title: Text("Error"), message: Text(viewModel.validationError), dismissButton: .default(Text("Ok")))
+                }
+                Spacer()
+                
+                // Register Now
+                HStack(alignment: .center) {
+                    Text("Don't have an account?")
+                        .foregroundColor(.white)
+                    NavigationLink("Register Now", destination: RegisterView())
+                }
+                
+                Spacer()
+                
+            }
+            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
+            .background(Color(hex: 0x96CEB4))
         }
     }
 }

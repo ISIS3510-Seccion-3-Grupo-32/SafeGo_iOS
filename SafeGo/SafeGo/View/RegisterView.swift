@@ -8,15 +8,11 @@
 import SwiftUI
 
 struct RegisterView: View {
-    @StateObject var viewModel = RegisterViewViewModel()
+    @StateObject var viewModel = RegisterViewController()
     var body: some View {
         VStack {
-            Spacer()
             ZStack {
-                RoundedRectangle(cornerRadius: 20)
-                    .foregroundColor(Color(hex: 0x96CEB4))
-                    .offset(y:40)
-                
+                            
                 VStack {
                     
                     Spacer()
@@ -34,41 +30,61 @@ struct RegisterView: View {
                         .frame(height: UIScreen.main.bounds.height / 15)
                         .background(Color.white)
                         .cornerRadius(10)
+                        .onChange(of: viewModel.name) {
+                            if viewModel.name.count > 32 {
+                                viewModel.name = String(viewModel.name.prefix(32))
+                            }
+                        }
+                    
                     SecureField("Password", text: $viewModel.password)
                         .padding()
                         .frame(height: UIScreen.main.bounds.height / 15)
                         .background(Color.white)
                         .cornerRadius(10)
+                        .onChange(of: viewModel.password) {
+                            if viewModel.password.count > 32 {
+                                viewModel.password = String(viewModel.password.prefix(32))
+                            }
+                        }
                     TextField("Email", text: $viewModel.email)
                         .padding()
                         .frame(height: UIScreen.main.bounds.height / 15)
                         .background(Color.white)
                         .cornerRadius(10)
-                    DatePicker("Birth Date", selection: $viewModel.dateOfBirt, displayedComponents: [.date])
+                        .onChange(of: viewModel.email) {
+                            if viewModel.email.count > 40 {
+                                viewModel.email = String(viewModel.email.prefix(40))
+                            }
+                        }
+                    
+                    DatePicker("Birth Date", selection: $viewModel.dateOfBirth,
+                               in: ...Date(),
+                               displayedComponents: [.date])
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                     
+                    
+                    Spacer()
+
+                    
                     ButtonFactory.createButton(title: "Register") {
                         viewModel.register()
+                    }.alert(isPresented: $viewModel.showAlert) {
+                        Alert(title: Text("Error"), message: Text(viewModel.validationError), dismissButton: .default(Text("Ok")))
                     }
+                    
+                    Spacer()
+
                 }
                 .padding()
                 
             }
-            .frame(width: UIScreen.main.bounds.width,
-                   height: UIScreen.main.bounds.height / 1.9)
+
         }
-        .background(
-            Image("Map")
-                .resizable()
-                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                .frame(width: UIScreen.main.bounds.width * 1.2,
-                       height: UIScreen.main.bounds.height * 1.2)
-                .blur(radius: 1.8)
-        )
+        .background(Color(hex: 0x96CEB4))
+
     }
 }
-
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
