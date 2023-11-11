@@ -29,6 +29,7 @@ struct RegisterView: View {
                         .padding()
                         .frame(height: UIScreen.main.bounds.height / 15)
                         .background(Color.white)
+                        .autocapitalization(.sentences)
                         .cornerRadius(10)
                         .onChange(of: viewController.name) {
                             if viewController.name.count > 32 {
@@ -40,6 +41,8 @@ struct RegisterView: View {
                         .padding()
                         .frame(height: UIScreen.main.bounds.height / 15)
                         .background(Color.white)
+                        .autocorrectionDisabled()
+                        .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                         .cornerRadius(10)
                         .onChange(of: viewController.password) {
                             if viewController.password.count > 32 {
@@ -50,6 +53,8 @@ struct RegisterView: View {
                         .padding()
                         .frame(height: UIScreen.main.bounds.height / 15)
                         .background(Color.white)
+                        .autocorrectionDisabled()
+                        .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                         .cornerRadius(10)
                         .onChange(of: viewController.email) {
                             if viewController.email.count > 40 {
