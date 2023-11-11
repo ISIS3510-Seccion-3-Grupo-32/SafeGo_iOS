@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import FirebaseFirestore
+import FirebaseAuth
 
 struct User: Codable
 {
@@ -17,3 +19,20 @@ struct User: Codable
 }
 
     	
+class UserModel {
+    func insertUser(user: User){
+        let db = Firestore.firestore()
+        db.collection("users")
+            .document(user.id)
+            .setData(user.asDictionary())
+    }
+    
+    func calculateAge(from date: Date) -> Int {
+        let calendar = Calendar.current
+        let currentDate = Date()
+        let birthDate = date
+        let ageComponents = calendar.dateComponents([.year], from: birthDate, to: currentDate)
+        let age = ageComponents.year ?? 0
+        return age
+    }
+}

@@ -16,6 +16,8 @@ class RegisterViewController: ObservableObject {
     @Published var dateOfBirth = Date()
     @Published var validationError: String = ""
     @Published var showAlert = false
+    @Published var alerTitle = "Error"
+    let user = UserModel()
     
     init() {}
 
@@ -39,10 +41,10 @@ class RegisterViewController: ObservableObject {
                            birthDate: dateOfBirth.timeIntervalSince1970,
                            joinned: Date().timeIntervalSince1970)
         
-        let db = Firestore.firestore()
-        db.collection("users")
-            .document(id)
-            .setData(newUser.asDictionary())
+        user.insertUser(user: newUser)
+        self.showAlert = true
+        self.alerTitle = "Register Success"
+        self.validationError = "Loging into the app"
     }
     
     private func validation() -> Bool{
@@ -72,7 +74,7 @@ class RegisterViewController: ObservableObject {
             return false
         }
         
-        guard calculateAge(from: dateOfBirth) >= 14 else {
+        guard user.calculateAge(from: dateOfBirth) >= 14 else {
             DispatchQueue.main.async {
                 self.showAlert = true
                 self.validationError = "You must be at least 14 years old to register"
@@ -80,23 +82,15 @@ class RegisterViewController: ObservableObject {
             return false
         }
         
-        guard calculateAge(from: dateOfBirth) <= 120 else {
+        guard user.calculateAge(from: dateOfBirth) <= 120 else {
             DispatchQueue.main.async {
                 self.showAlert = true
-                self.validationError = "Please insert a valid date"
+                self.validationError = "please isnert a valid date"
             }
             return false
         }
         
         return true
     }
-    
-    func calculateAge(from date: Date) -> Int {
-        let calendar = Calendar.current
-        let currentDate = Date()
-        let birthDate = date
-        let ageComponents = calendar.dateComponents([.year], from: birthDate, to: currentDate)
-        let age = ageComponents.year ?? 0
-        return age
-    }
+
 }

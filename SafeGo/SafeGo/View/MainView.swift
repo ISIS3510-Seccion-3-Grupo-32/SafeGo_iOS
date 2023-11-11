@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     
-    @StateObject var viewModel = MainViewController()
+    @StateObject var viewController = MainViewController()
     @State private var showSafeGoView = true
 
     var body: some View 
@@ -26,7 +26,7 @@ struct MainView: View {
                     }
             }
         } 
-        else if viewModel.isSignedIn && !viewModel.currentUserId.isEmpty
+        else if viewController.isSignedIn && !viewController.currentUserId.isEmpty
         {
             HomeView()
         } else {

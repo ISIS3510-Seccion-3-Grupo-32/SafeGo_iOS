@@ -34,14 +34,6 @@ class HomeViewController: ObservableObject {
         }
     }
 
-    func logOut() {
-        do {
-            try Auth.auth().signOut()
-        } catch {
-            print(error)
-        }
-    }
-
     func uploadToCloud() {
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(whereto) { (placemarks, error) in

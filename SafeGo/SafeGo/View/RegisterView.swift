@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RegisterView: View {
-    @StateObject var viewModel = RegisterViewController()
+    @StateObject var viewController = RegisterViewController()
     var body: some View {
         VStack {
             ZStack {
@@ -25,39 +25,39 @@ struct RegisterView: View {
                         .bold()
                     
                     
-                    TextField("Full name", text: $viewModel.name)
+                    TextField("Full name", text: $viewController.name)
                         .padding()
                         .frame(height: UIScreen.main.bounds.height / 15)
                         .background(Color.white)
                         .cornerRadius(10)
-                        .onChange(of: viewModel.name) {
-                            if viewModel.name.count > 32 {
-                                viewModel.name = String(viewModel.name.prefix(32))
+                        .onChange(of: viewController.name) {
+                            if viewController.name.count > 32 {
+                                viewController.name = String(viewController.name.prefix(32))
                             }
                         }
                     
-                    SecureField("Password", text: $viewModel.password)
+                    SecureField("Password", text: $viewController.password)
                         .padding()
                         .frame(height: UIScreen.main.bounds.height / 15)
                         .background(Color.white)
                         .cornerRadius(10)
-                        .onChange(of: viewModel.password) {
-                            if viewModel.password.count > 32 {
-                                viewModel.password = String(viewModel.password.prefix(32))
+                        .onChange(of: viewController.password) {
+                            if viewController.password.count > 32 {
+                                viewController.password = String(viewController.password.prefix(32))
                             }
                         }
-                    TextField("Email", text: $viewModel.email)
+                    TextField("Email", text: $viewController.email)
                         .padding()
                         .frame(height: UIScreen.main.bounds.height / 15)
                         .background(Color.white)
                         .cornerRadius(10)
-                        .onChange(of: viewModel.email) {
-                            if viewModel.email.count > 40 {
-                                viewModel.email = String(viewModel.email.prefix(40))
+                        .onChange(of: viewController.email) {
+                            if viewController.email.count > 40 {
+                                viewController.email = String(viewController.email.prefix(40))
                             }
                         }
                     
-                    DatePicker("Birth Date", selection: $viewModel.dateOfBirth,
+                    DatePicker("Birth Date", selection: $viewController.dateOfBirth,
                                in: ...Date(),
                                displayedComponents: [.date])
                         .foregroundColor(.white)
@@ -68,9 +68,9 @@ struct RegisterView: View {
 
                     
                     ButtonFactory.createButton(title: "Register") {
-                        viewModel.register()
-                    }.alert(isPresented: $viewModel.showAlert) {
-                        Alert(title: Text("Error"), message: Text(viewModel.validationError), dismissButton: .default(Text("Ok")))
+                        viewController.register()
+                    }.alert(isPresented: $viewController.showAlert) {
+                        Alert(title: Text(viewController.alerTitle), message: Text(viewController.validationError), dismissButton: .default(Text("Ok")))
                     }
                     
                     Spacer()
