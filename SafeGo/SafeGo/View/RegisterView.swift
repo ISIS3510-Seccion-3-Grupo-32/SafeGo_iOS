@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RegisterView: View {
-    @StateObject var viewController = RegisterViewController()
+    @StateObject var viewController: RegisterViewController
     var body: some View {
         VStack {
             ZStack {
@@ -75,7 +75,7 @@ struct RegisterView: View {
                     ButtonFactory.createButton(title: "Register") {
                         viewController.register()
                     }.alert(isPresented: $viewController.showAlert) {
-                        Alert(title: Text(viewController.alerTitle), message: Text(viewController.validationError), dismissButton: .default(Text("Ok")))
+                        Alert(title: Text("Register"), message: Text(viewController.alertMessage), dismissButton: .default(Text("Ok")))
                     }
                     
                     Spacer()
@@ -93,6 +93,6 @@ struct RegisterView: View {
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView()
+        RegisterView(viewController: RegisterViewController(serviceAdapter: ServiceAdapter()))
     }
 }

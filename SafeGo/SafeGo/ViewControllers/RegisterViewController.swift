@@ -14,12 +14,14 @@ class RegisterViewController: ObservableObject {
     @Published var password = ""
     @Published var email = ""
     @Published var dateOfBirth = Date()
-    @Published var validationError: String = ""
+    @Published var alertMessage: String = ""
     @Published var showAlert = false
-    @Published var alerTitle = "Error"
     let user = UserModel()
+    let serviceAdapter: ServiceAdapter
     
-    init() {}
+    init(serviceAdapter: ServiceAdapter) {
+        self.serviceAdapter = serviceAdapter
+    }
 
     func register(){
         guard validation() else {
@@ -41,10 +43,14 @@ class RegisterViewController: ObservableObject {
                            birthDate: dateOfBirth.timeIntervalSince1970,
                            joinned: Date().timeIntervalSince1970)
         
-        user.insertUser(user: newUser)
-        self.showAlert = true
-        self.alerTitle = "Register Success"
-        self.validationError = "Loging into the app"
+        serviceAdapter.uploadUserToCloud(user: newUser) { result in
+            switch result {
+            case .success:
+                self.displayMessage("Register Succesfull")
+            case .failure(let error):
+                self.displayMessage("We had a problem in the Register process. Try later \(error.localizedDescription)")
+            }
+        }
     }
     
     private func validation() -> Bool{
@@ -52,45 +58,45 @@ class RegisterViewController: ObservableObject {
               !email.trimmingCharacters(in: .whitespaces).isEmpty,
               !password.trimmingCharacters(in: .whitespaces).isEmpty else {
             DispatchQueue.main.async {
-                self.showAlert = true
-                self.validationError = "Please fill in all fields"
+                self.displayMessage("Please fill in all fields")
             }
             return false
         }
         
         guard password.count >= 8 else {
             DispatchQueue.main.async {
-                self.validationError = "Password must have atleast 8 characters"
-                self.showAlert = true
+                self.displayMessage("Password must have atleast 8 characters")
             }
             return false
         }
         
         guard email.contains("@") && email.contains(".") else {
             DispatchQueue.main.async {
-                self.showAlert = true
-                self.validationError = "Invalid Email"
+                self.displayMessage("Invalid Email")
             }
             return false
         }
         
         guard user.calculateAge(from: dateOfBirth) >= 14 else {
             DispatchQueue.main.async {
-                self.showAlert = true
-                self.validationError = "You must be at least 14 years old to register"
+                self.displayMessage("You must be at least 14 years old to register")
             }
             return false
         }
         
         guard user.calculateAge(from: dateOfBirth) <= 120 else {
             DispatchQueue.main.async {
-                self.showAlert = true
-                self.validationError = "please isnert a valid date"
+                self.displayMessage("please isnert a valid date")
             }
             return false
         }
         
         return true
+    }
+    
+    func displayMessage(_ message: String) {
+        alertMessage = message
+        showAlert = true
     }
 
 }
