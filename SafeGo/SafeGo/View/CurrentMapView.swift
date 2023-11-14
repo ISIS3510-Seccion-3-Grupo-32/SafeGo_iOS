@@ -10,7 +10,6 @@ import SwiftUI
 import MapKit
 
 struct CurrentMapView: View {
-    @ObservedObject var locationManager: LocationModel = LocationModel.shared
     @State private var cameraPosition: MapCameraPosition = .region(.userRegion)
     var body: some View {
         HStack {
@@ -35,7 +34,7 @@ extension CLLocationCoordinate2D {
 extension MKCoordinateRegion {
     static var userRegion: MKCoordinateRegion {
         return .init(center: .userLocation,
-                     latitudinalMeters: 10000,
+                     latitudinalMeters: 1000,
                      longitudinalMeters: 1000)
     }
 }

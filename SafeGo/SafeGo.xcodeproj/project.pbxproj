@@ -199,7 +199,6 @@
 				E0F085C42ABD022000EA1F8E /* User.swift */,
 				0ECD92052AF810F300013F3A /* Repository.swift */,
 				0ECD92072AF8111C00013F3A /* ServiceAdapter.swift */,
-				E02E22052B003A9A0042757D /* Location.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -232,6 +231,7 @@
 		E0F085BF2ABD003A00EA1F8E /* other */ = {
 			isa = PBXGroup;
 			children = (
+				E02E22052B003A9A0042757D /* Location.swift */,
 				E0829F3F2ACB063000D0FA43 /* GoogleService-Info.plist */,
 				E0829F062ACAFC2900D0FA43 /* UserState.swift */,
 				E0FD2D4D2ABA6BF80007A195 /* Assets.xcassets */,
