@@ -43,7 +43,6 @@ struct HomeView: View {
 
                 ZStack{
                     CurrentMapView()
-                        .cornerRadius(10)
                     
                     VStack{
                         Spacer()
