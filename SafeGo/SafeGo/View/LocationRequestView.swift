@@ -29,6 +29,11 @@ struct LocationRequestView: View {
     }
 }
 
-#Preview {
-    LocationRequestView()
+#if DEBUG
+struct LocationRequestView_Previews: PreviewProvider {
+    static var previews: some View {
+        LocationRequestView()
+    }
 }
+#endif
+

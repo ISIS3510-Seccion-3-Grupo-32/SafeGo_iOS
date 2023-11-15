@@ -11,27 +11,23 @@ struct MainView: View {
     @ObservedObject var locationManager: LocationModel = LocationModel.shared
     @StateObject var viewController = MainViewController()
     @State private var showSafeGoView = true
+    @State private var alertValue: Double?
 
     var body: some View {
-        
         Group {
             if locationManager.userLocation == nil {
                 LocationRequestView()
             } else {
-                if showSafeGoView
-                {
+                if showSafeGoView {
                     SafeGoView()
-                        .onAppear
-                    {
+                        .onAppear {
                             // Shows the SafeGoView for 7 seconds and then shows either login view or map view depending if a person is already logged in.
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 7)
-                            {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
                                 self.showSafeGoView = false
                             }
-                    }
+                        }
                 }
-                else if viewController.isSignedIn && !viewController.currentUserId.isEmpty
-                {
+                else if viewController.isSignedIn && !viewController.currentUserId.isEmpty {
                     HomeView()
                 } else {
                     LoginView()

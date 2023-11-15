@@ -34,8 +34,8 @@ extension CLLocationCoordinate2D {
 extension MKCoordinateRegion {
     static var userRegion: MKCoordinateRegion {
         return .init(center: .userLocation,
-                     latitudinalMeters: 1000,
-                     longitudinalMeters: 1000)
+                     latitudinalMeters: 10000,
+                     longitudinalMeters: 5000)
     }
 }
 // Preview
