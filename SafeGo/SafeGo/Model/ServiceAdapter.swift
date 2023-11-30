@@ -70,6 +70,18 @@ class ServiceAdapter: ObservableObject
             }
         }
     
+    func validateEmailNotRegistered(email: String, completion: @escaping (Bool, Error?) -> Void) {
+        Auth.auth().fetchSignInMethods(forEmail: email) { (signInMethods, error) in
+            if let error = error {
+                completion(false, error)
+                return
+            }
+            
+            let isUnique = signInMethods == nil
+            completion(isUnique, nil)
+        }
+    }
+    
     func connectGCPClassifyBugs(text: String) {
     
         let urlString = "https://us-central1-safego-399621.cloudfunctions.net/classify-bugs"
