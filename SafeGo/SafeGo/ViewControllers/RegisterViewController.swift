@@ -17,6 +17,7 @@ class RegisterViewController: ObservableObject {
     @Published var alertMessage: String = ""
     @Published var showAlert = false
     @Published var isRegistering = false
+    @Published var disablebutton = false
     let user = UserModel()
     let serviceAdapter: ServiceAdapter
     
@@ -25,7 +26,9 @@ class RegisterViewController: ObservableObject {
     }
 
     func register(){
+        self.disablebutton = true
         guard validation() else {
+            self.disablebutton = false
             return
         }
         
@@ -36,7 +39,6 @@ class RegisterViewController: ObservableObject {
             self?.insertUserInfo(id: userid)
             
             DispatchQueue.main.async {
-                // Trigger UI updates, show/hide loading indicators, etc.
                 self?.showAlert = true
             }
         }
@@ -83,18 +85,6 @@ class RegisterViewController: ObservableObject {
             return false
         }
         
-        serviceAdapter.validateEmailNotRegistered(email: email) { isUnique, error in
-            if let error = error {
-                self.displayMessage("Error checking email uniqueness: \(error.localizedDescription)")
-                return
-            }
-
-            if !isUnique {
-                self.displayMessage("Email is already registered")
-                return
-            }
-        }
-
         guard user.calculateAge(from: dateOfBirth) >= 14 else {
             DispatchQueue.main.async {
                 self.displayMessage("You must be at least 14 years old to register")

@@ -46,42 +46,31 @@ class ServiceAdapter: ObservableObject
     }
 
     func uploadToCloudBugs(description: String, completion: @escaping (Result<Void, Error>) -> Void) {
-            let data = ["description": description]
+        
+        let data = ["description": description]
 
-            db.collection(collectionReferenceBugs).addDocument(data: data) { error in
-                if let error = error {
-                    completion(.failure(error))
-                } else {
-                    completion(.success(()))
-                }
-            }
-        }
-    
-    
-    func uploadToCloudCrimes(description: String, completion: @escaping (Result<Void, Error>) -> Void) {
-            let data = ["description": description]
-
-            db.collection(collectionReferenceCrimes).addDocument(data: data) { error in
-                if let error = error {
-                    completion(.failure(error))
-                } else {
-                    completion(.success(()))
-                }
-            }
-        }
-    
-    func validateEmailNotRegistered(email: String, completion: @escaping (Bool, Error?) -> Void) {
-        Auth.auth().fetchSignInMethods(forEmail: email) { (signInMethods, error) in
+        db.collection(collectionReferenceBugs).addDocument(data: data) { error in
             if let error = error {
-                completion(false, error)
-                return
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
             }
-            
-            let isUnique = signInMethods == nil
-            completion(isUnique, nil)
         }
     }
     
+    
+    func uploadToCloudCrimes(description: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        let data = ["description": description]
+
+        db.collection(collectionReferenceCrimes).addDocument(data: data) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
+
     func connectGCPClassifyBugs(text: String) {
     
         let urlString = "https://us-central1-safego-399621.cloudfunctions.net/classify-bugs"

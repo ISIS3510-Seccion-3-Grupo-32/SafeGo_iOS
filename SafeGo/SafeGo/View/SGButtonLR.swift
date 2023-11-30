@@ -10,18 +10,13 @@ import SwiftUI
 struct SGButtonLR: View {
     let title: String
     let action: () -> Void
-    
-    @State private var isButtonDisabled = false
 
     var body: some View {
-        createButton().disabled(isButtonDisabled)
+        createButton()
     }
 
     private func createButton() -> some View {
-        Button(action: {
-            isButtonDisabled = true
-            action()
-        }) {
+        Button(action: action) {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
                     .foregroundColor(.white)
