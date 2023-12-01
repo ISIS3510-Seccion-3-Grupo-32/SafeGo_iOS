@@ -8,38 +8,42 @@
 import SwiftUI
 
 struct MainView: View {
-    
+    @ObservedObject var locationManager: LocationModel = LocationModel.shared
     @StateObject var viewController = MainViewController()
     @State private var showSafeGoView = true
     @State private var navigateToHomeView = false
+    @State private var alertValue: Double?
+    @State private var alertValue: Double?
 
-    var body: some View
-    {
-        if showSafeGoView
-        {
-            SafeGoView()
-                .onAppear
-            {
-                    // Shows the SafeGoView for 7 seconds and then shows either login view or map view depending if a person is already logged in.
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 7)
-                    {
-                        self.showSafeGoView = false
-                        viewController.calculateIfIsTime()
-                    }
-            }
-        }
-        else if viewController.isSignedIn && !viewController.currentUserId.isEmpty
-        {
-            if (viewController.showForms && navigateToHomeView == false) {
-                UserForm() {
-                    viewController.setUserFormTimeStamp()
-                    navigateToHomeView = true
+    var body: some View {
+        Group {
+            if locationManager.userLocation == nil {
+                LocationRequestView()
+            } else {
+                if showSafeGoView {
+                    SafeGoView()
+                        .onAppear {
+                            // Shows the SafeGoView for 7 seconds and then shows either login view or map view depending if a person is already logged in.
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
+                                self.showSafeGoView = false
+                                viewController.checkIfUserIsSignedIn()
+                            }
+                        }
                 }
+                else if viewController.isSignedIn && !viewController.currentUserId.isEmpty {
+                    if (viewController.showForms && navigateToHomeView = fasle) {
+                        UserForm() {
+                            viewController.setUserFormTimeStamp()
+                            navigateToHomeView = true
+                        }
+                    } else {
+                        HomeView()
+                    }
+                    HomeView()
                 } else {
-                HomeView()
+                    LoginView()
+                }
             }
-        } else {
-            LoginView()
         }
     }
 }

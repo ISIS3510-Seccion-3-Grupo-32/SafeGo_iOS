@@ -37,6 +37,8 @@
 		E02FBEE32B192E8A0007FCB1 /* UserForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FBEE22B192E8A0007FCB1 /* UserForm.swift */; };
 		E02FBEE52B1930660007FCB1 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FBEE42B1930660007FCB1 /* UserPreferences.swift */; };
 		E02FBEE72B1930840007FCB1 /* UserFormViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FBEE62B1930840007FCB1 /* UserFormViewControler.swift */; };
+		E02E22062B003A9A0042757D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E22052B003A9A0042757D /* Location.swift */; };
+		E02E220A2B03B6AB0042757D /* LocationRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E22092B03B6AB0042757D /* LocationRequestView.swift */; };
 		E0829F072ACAFC2900D0FA43 /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0829F062ACAFC2900D0FA43 /* UserState.swift */; };
 		E0829F0A2ACB04F200D0FA43 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E0829F092ACB04F200D0FA43 /* FirebaseAnalytics */; };
 		E0829F0C2ACB04F200D0FA43 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = E0829F0B2ACB04F200D0FA43 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -110,6 +112,8 @@
 		E02FBEE22B192E8A0007FCB1 /* UserForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserForm.swift; sourceTree = "<group>"; };
 		E02FBEE42B1930660007FCB1 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		E02FBEE62B1930840007FCB1 /* UserFormViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFormViewControler.swift; sourceTree = "<group>"; };
+		E02E22052B003A9A0042757D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		E02E22092B03B6AB0042757D /* LocationRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRequestView.swift; sourceTree = "<group>"; };
 		E04FF65B2ACA5F4F002B0014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E0829F062ACAFC2900D0FA43 /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
 		E0829F3F2ACB063000D0FA43 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -228,6 +232,7 @@
 				0ECD92092AF830E700013F3A /* ReportSuggestionsView.swift */,
 				0ECD920B2AF838F900013F3A /* ChangeAddressesView.swift */,
 				E02FBEE22B192E8A0007FCB1 /* UserForm.swift */,
+				E02E22092B03B6AB0042757D /* LocationRequestView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 		E0F085BF2ABD003A00EA1F8E /* other */ = {
 			isa = PBXGroup;
 			children = (
+				E02E22052B003A9A0042757D /* Location.swift */,
 				E0829F3F2ACB063000D0FA43 /* GoogleService-Info.plist */,
 				E0829F062ACAFC2900D0FA43 /* UserState.swift */,
 				E0FD2D4D2ABA6BF80007A195 /* Assets.xcassets */,
@@ -391,6 +397,7 @@
 				0EB087622AF067AD00496E31 /* UserComplaintsView.swift in Sources */,
 				E0DDD2332ABD116F0053F726 /* LoginViewController.swift in Sources */,
 				0ECD920C2AF838F900013F3A /* ChangeAddressesView.swift in Sources */,
+				E02E220A2B03B6AB0042757D /* LocationRequestView.swift in Sources */,
 				0ECD92002AF6A7C500013F3A /* MapLocationView.swift in Sources */,
 				0ECD92082AF8111C00013F3A /* ServiceAdapter.swift in Sources */,
 				E0DDD2352ABD11780053F726 /* RegisterViewController.swift in Sources */,
@@ -402,6 +409,7 @@
 				30DF54732ABE912E00C03732 /* HomeView.swift in Sources */,
 				0EB087602AF0654400496E31 /* ReportBugViewController.swift in Sources */,
 				E0F085C32ABD010C00EA1F8E /* RegisterView.swift in Sources */,
+				E02E22062B003A9A0042757D /* Location.swift in Sources */,
 				30B791DA2AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift in Sources */,
 				E0DDD2312ABD11690053F726 /* MainViewController.swift in Sources */,
 				0E5755492AD9D8DC009433B6 /* CurrentMapView.swift in Sources */,
@@ -569,6 +577,7 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = SafeGo;
 				INFOPLIST_KEY_NSLocationUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please give us your location :D";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -604,6 +613,7 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = SafeGo;
 				INFOPLIST_KEY_NSLocationUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please give us your location :D";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
