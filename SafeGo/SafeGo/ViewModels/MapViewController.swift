@@ -11,6 +11,8 @@ import Foundation
 
 import FirebaseAuth
 
+import FirebaseFirestore
+
 class MapViewController: ObservableObject
 {
     func logOut() {
