@@ -96,4 +96,47 @@ class ServiceAdapter: ObservableObject
             print("Invalid URL")
         }
     }
+    
+    func getTheClosestReport(latitude: Double, longitude: Double, completion: @escaping (Float?, Error?) -> Void) {
+        // Set up the URL components
+        let urlComponents = URLComponents(string: "http://localhost:8000/analytics/closest/\(latitude)/\(longitude)")!
+        
+        // Create the URL from the components
+        guard let url = urlComponents.url else {
+            print("Invalid URL")
+            completion(nil, YourError.invalidURL)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                print("Error: \(error)")
+                completion(nil, error)
+                return
+            }
+            
+            guard let data = data else {
+                print("No data received")
+                completion(nil, YourError.noDataReceived)
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let result = try decoder.decode(Float.self, from: data)
+                let roundedResult = round(result * 100) / 100 // Round to two decimal places
+                print("Received data: \(roundedResult)")
+                completion(roundedResult, nil)
+            } catch {
+                print("Error decoding data: \(error)")
+                completion(nil, error)
+            }
+        }.resume()
+    }
+
+    enum YourError: Error {
+        case invalidURL
+        case noDataReceived
+    }
+
 }

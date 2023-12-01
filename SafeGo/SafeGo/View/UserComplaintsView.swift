@@ -7,22 +7,18 @@
 
 import SwiftUI
 
-struct UserComplaintsView: View 
-{
-    @StateObject var viewController = UserComplaintsViewController()
+struct UserComplaintsView: View {
+    @StateObject var viewController = UserComplaintsViewController(serviceAdapter: ServiceAdapter())
+    @State private var showAlert = false
+    @State private var alertMessage = ""
 
     
-    var body: some View
-    {
-        NavigationView
-        {
-            VStack
-            {
-                HStack()
-                {
+    var body: some View {
+        NavigationView {
+            VStack {
+                HStack() {
                     NavigationLink(destination: HomeView()
-                        .navigationBarBackButtonHidden(true))
-                    {
+                        .navigationBarBackButtonHidden(true)) {
                         Image(systemName: "house.fill")
                             .foregroundColor(.black)
                             .font(.system(size: 40))
@@ -172,6 +168,13 @@ struct UserComplaintsView: View
                 Spacer()
                 Spacer()
                 Spacer()
+                
+                ButtonFactory.createButton(title: "Closest Report") {
+                    viewController.getClosestReport()
+                }
+                .alert(isPresented: $viewController.showAlert) {
+                    Alert(title: Text("Closest Report"), message: Text(viewController.alertMessage), dismissButton: .default(Text("OK")))
+                }
 
 
             }
