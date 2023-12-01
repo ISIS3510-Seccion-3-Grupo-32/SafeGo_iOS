@@ -146,8 +146,9 @@ struct UserComplaintsView: View
                 
                 Spacer()
                 
-                NavigationLink(destination:  LoginView()
-                    .navigationBarBackButtonHidden(true)){
+                Button(action: {
+                    viewController.logOut()
+                }) {
                     RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
                         .foregroundColor(Color(hex: 0xCFF2E5))
                         .frame(width: UIScreen.main.bounds.width / 1.1, height: UIScreen.main.bounds.height / 12)
@@ -166,7 +167,6 @@ struct UserComplaintsView: View
                         )
                         .shadow(radius: 10)
                 }
-                .navigationBarBackButtonHidden(true)
                 
                 
                 Spacer()

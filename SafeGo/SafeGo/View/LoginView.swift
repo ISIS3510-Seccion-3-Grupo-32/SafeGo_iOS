@@ -78,7 +78,7 @@ struct LoginView: View {
                 HStack(alignment: .center) {
                     Text("Don't have an account?")
                         .foregroundColor(.white)
-                    NavigationLink("Register Now", destination: RegisterView())
+                    NavigationLink("Register Now", destination: RegisterView(viewController: RegisterViewController(serviceAdapter: ServiceAdapter())))
                 }
                 
                 Spacer()

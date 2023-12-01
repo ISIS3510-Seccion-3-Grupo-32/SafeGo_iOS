@@ -21,6 +21,7 @@ class ServiceAdapter: ObservableObject
     private let collectionReferenceSuggestions = "suggReports"
     private let collectionReferenceBugs = "bugReports"
     private let collectionReferenceCrimes = "crimeReports"
+    private let collectionReferenceUser = "users"
 
     func uploadToCloudSuggestions(description: String, completion: @escaping (Result<Void, Error>) -> Void) {
             let data = ["description": description]
@@ -33,6 +34,16 @@ class ServiceAdapter: ObservableObject
                 }
             }
         }
+    
+    func uploadUserToCloud(user: User, completion: @escaping (Result<Void, Error>) -> Void) {
+        db.collection(collectionReferenceUser).document(user.id).setData(user.asDictionary()) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
 
     func uploadToCloudBugs(description: String, completion: @escaping (Result<Void, Error>) -> Void) {
             let data = ["description": description]

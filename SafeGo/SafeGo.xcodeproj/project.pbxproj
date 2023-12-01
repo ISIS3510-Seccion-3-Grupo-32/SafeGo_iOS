@@ -169,6 +169,26 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		E09E0CB02AFFD582005143A9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E0DDD2302ABD11690053F726 /* MainViewController.swift */,
+				E0DDD2322ABD116F0053F726 /* LoginViewController.swift */,
+				30DF54742ABE926000C03732 /* HomeViewController.swift */,
+				E0DDD2342ABD11780053F726 /* RegisterViewController.swift */,
+				30D43F782ABEB6140069E0F0 /* TravelsViewController.swift */,
+				5326326D2ABED9E800F96002 /* MapViewController.swift */,
+				0E5774092AD9050E0077DF85 /* ReportCrimeViewController.swift */,
+				0EB0875F2AF0654400496E31 /* ReportBugViewController.swift */,
+				30B791D92AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift */,
+				0ECD920D2AF83B5300013F3A /* ProfileViewController.swift */,
+				0ECD92112AF8781F00013F3A /* SettingsViewController.swift */,
+				0ECD92132AF95B6700013F3A /* changeAddressesViewController.swift */,
+				30DE2F662AF982C500475E82 /* UserComplaintsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		E0F085BC2ABCB3E700EA1F8E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,26 +235,6 @@
 			path = other;
 			sourceTree = "<group>";
 		};
-		E0F085C62ABD025000EA1F8E /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				E0DDD2302ABD11690053F726 /* MainViewController.swift */,
-				E0DDD2322ABD116F0053F726 /* LoginViewController.swift */,
-				30DF54742ABE926000C03732 /* HomeViewController.swift */,
-				E0DDD2342ABD11780053F726 /* RegisterViewController.swift */,
-				30D43F782ABEB6140069E0F0 /* TravelsViewController.swift */,
-				5326326D2ABED9E800F96002 /* MapViewController.swift */,
-				0E5774092AD9050E0077DF85 /* ReportCrimeViewController.swift */,
-				0EB0875F2AF0654400496E31 /* ReportBugViewController.swift */,
-				30B791D92AF327FA008DE4DA /* ReportSuggestionsViewViewModel.swift */,
-				0ECD920D2AF83B5300013F3A /* ProfileViewController.swift */,
-				0ECD92112AF8781F00013F3A /* SettingsViewController.swift */,
-				0ECD92132AF95B6700013F3A /* changeAddressesViewController.swift */,
-				30DE2F662AF982C500475E82 /* UserComplaintsViewController.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		E0FD2D3D2ABA6BF60007A195 = {
 			isa = PBXGroup;
 			children = (
@@ -254,9 +254,9 @@
 		E0FD2D482ABA6BF60007A195 /* SafeGo */ = {
 			isa = PBXGroup;
 			children = (
+				E09E0CB02AFFD582005143A9 /* ViewControllers */,
 				0E57554B2ADA1F3F009433B6 /* Classes */,
 				E04FF65B2ACA5F4F002B0014 /* Info.plist */,
-				E0F085C62ABD025000EA1F8E /* ViewModels */,
 				E0F085BF2ABD003A00EA1F8E /* other */,
 				E0F085BD2ABCB3F400EA1F8E /* View */,
 				E0F085BC2ABCB3E700EA1F8E /* Model */,
