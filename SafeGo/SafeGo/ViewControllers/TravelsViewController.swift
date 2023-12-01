@@ -20,8 +20,10 @@ class TravelsViewController: ObservableObject
     private var db = Firestore.firestore()
     
     func fetchData() {
-        db.collection("directions")
-            .order(by: "timestamp", descending: true) 
+        
+        DispatchQueue.global(qos: .userInitiated).async{
+            self.db.collection("directions")
+            .order(by: "timestamp", descending: true)
             .limit(to: 4)
             .getDocuments { (querySnapshot, error) in
                 if let error = error {
@@ -47,6 +49,8 @@ class TravelsViewController: ObservableObject
                         }
                     }
                 }
+            }
+            
             }
     }
 
