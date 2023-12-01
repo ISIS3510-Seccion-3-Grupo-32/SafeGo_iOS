@@ -123,7 +123,7 @@ class ServiceAdapter: ObservableObject
     
     func getTheClosestReport(latitude: Double, longitude: Double, completion: @escaping (Float?, Error?) -> Void) {
         // Set up the URL components
-        let urlComponents = URLComponents(string: "http://localhost:8000/analytics/closest/\(latitude)/\(longitude)")!
+        let urlComponents = URLComponents(string: "http://34.125.232.227:8080/analytics/closest/\(latitude)/\(longitude)")!
         
         // Create the URL from the components
         guard let url = urlComponents.url else {

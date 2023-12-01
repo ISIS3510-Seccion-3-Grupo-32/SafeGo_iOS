@@ -13,7 +13,6 @@ struct MainView: View {
     @State private var showSafeGoView = true
     @State private var navigateToHomeView = false
     @State private var alertValue: Double?
-    @State private var alertValue: Double?
 
     var body: some View {
         Group {
@@ -26,12 +25,11 @@ struct MainView: View {
                             // Shows the SafeGoView for 7 seconds and then shows either login view or map view depending if a person is already logged in.
                             DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
                                 self.showSafeGoView = false
-                                viewController.checkIfUserIsSignedIn()
                             }
                         }
                 }
                 else if viewController.isSignedIn && !viewController.currentUserId.isEmpty {
-                    if (viewController.showForms && navigateToHomeView = fasle) {
+                    if (viewController.showForms && navigateToHomeView == false) {
                         UserForm() {
                             viewController.setUserFormTimeStamp()
                             navigateToHomeView = true
@@ -39,7 +37,6 @@ struct MainView: View {
                     } else {
                         HomeView()
                     }
-                    HomeView()
                 } else {
                     LoginView()
                 }

@@ -9,11 +9,12 @@ import SwiftUI
 
 struct LocationRequestView: View {
     var body: some View {
-        Text("Request Location From User")
         VStack {
-            Button {
+            Text("Request Location From User")
+            
+            Button(action: {
                 LocationModel.shared.requestLocation()
-            } label: {
+            }) {
                 Text("Allow Location")
                     .padding()
                     .font(.headline)
@@ -24,7 +25,6 @@ struct LocationRequestView: View {
             .background(Color(.systemBlue))
             .clipShape(Capsule())
             .padding()
-            
         }
     }
 }
@@ -36,4 +36,5 @@ struct LocationRequestView_Previews: PreviewProvider {
     }
 }
 #endif
+
 

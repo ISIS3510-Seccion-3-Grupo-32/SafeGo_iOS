@@ -39,7 +39,7 @@ class UserComplaintsViewController: ObservableObject {
         serviceAdapter.getTheClosestReport(latitude: latitude, longitude: longitude) { distance, error in
             DispatchQueue.main.async {
                 if let error = error {
-                    self.alertMessage = "Error: \(error.localizedDescription)"
+                    self.alertMessage = "There is no connection in this momment, try later :D"
                 } else if let distance = distance {
                     self.alertMessage = "The last report was \(distance) km away from you. Be careful!"
                 }
