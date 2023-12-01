@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 struct LoginView: View {
-    @StateObject var viewModel = LoginViewController()
+    @StateObject var viewController = LoginViewController()
     
     var body: some View {
         NavigationView {
@@ -40,38 +40,39 @@ struct LoginView: View {
                 Spacer()
                 
                 // Login Form
-                TextField("Email", text: $viewModel.username)
+                TextField("Email", text: $viewController.username)
                     .padding()
                     .frame(width: UIScreen.main.bounds.width / 1.2,
                            height: UIScreen.main.bounds.height / 15)
                     .background(Color.white)
                     .cornerRadius(10)
                     .autocapitalization(.none)
-                    .onChange(of: viewModel.username) {
-                        if viewModel.username.count > 35 {
-                            viewModel.username = String(viewModel.username.prefix(40))
+                    .onChange(of: viewController.username) {
+                        if viewController.username.count > 35 {
+                            viewController.username = String(viewController.username.prefix(40))
                         }
                     }
                 
-                SecureField("Password", text: $viewModel.password)
+                SecureField("Password", text: $viewController.password)
                     .padding()
                     .frame(width: UIScreen.main.bounds.width / 1.2, height: UIScreen.main.bounds.height / 15)
                     .background(Color.white)
                     .cornerRadius(10)
                     .autocorrectionDisabled()
                     .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
-                    .onChange(of: viewModel.password) {
-                        if viewModel.password.count > 30 {
-                            viewModel.password = String(viewModel.password.prefix(32))
+                    .onChange(of: viewController.password) {
+                        if viewController.password.count > 30 {
+                            viewController.password = String(viewController.password.prefix(32))
                         }
                     }
                 
                 ButtonFactory.createButton(title: "Login")
                 {
-                    viewModel.login()
-                }.alert(isPresented: $viewModel.showAlert) {
-                    Alert(title: Text("Error"), message: Text(viewModel.validationError), dismissButton: .default(Text("Ok")))
+                    viewController.login()
+                }.alert(isPresented: $viewController.showAlert) {
+                    Alert(title: Text("Error"), message: Text(viewController.validationError), dismissButton: .default(Text("Ok")))
                 }
+                .disabled($viewController.disablebutton.wrappedValue)
                 Spacer()
                 
                 // Register Now
