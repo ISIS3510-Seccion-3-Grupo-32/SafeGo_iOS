@@ -50,6 +50,7 @@ class HomeViewController: ObservableObject {
                     "Latitude": location.coordinate.latitude,
                     "Longitude": location.coordinate.longitude,
                     "User": currentUser.uid,
+                    "timestamp": NSDate().timeIntervalSince1970
                 ]
                 
                 let db = Firestore.firestore()

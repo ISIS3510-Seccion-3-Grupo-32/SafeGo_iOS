@@ -19,39 +19,45 @@ class TravelsViewController: ObservableObject
     
     private var db = Firestore.firestore()
     
-    func fetchData() 
-    {
-        db.collection("HistoryTravels")
-            .order(by: "timestamp", descending: true)
-            .limit(to: 4)
-            .getDocuments { (querySnapshot, error) in
-                if let error = error {
-                    print("Error getting documents: \(error)")
-                } else {
-                    var index = 1
-                    for document in querySnapshot?.documents ?? [] {
-                        let data = document.data()
-                        if let directions = data["HistoryTravels"] as? String {
-                            switch index {
-                            case 1:
-                                self.travel1 = directions
-                            case 2:
-                                self.travel2 = directions
-                            case 3:
-                                self.travel3 = directions
-                            case 4:
-                                self.travel4 = directions
-                            default:
-                                break
+    func fetchData(forUser userId: String) {
+        
+        if let currentUser = Auth.auth().currentUser 
+        {
+            db.collection("HistoryTravels")
+                .whereField("User", isEqualTo: currentUser.uid)
+                .order(by: "timestamp", descending: true)
+                .limit(to: 4)
+                .getDocuments { (querySnapshot, error) in
+                    if let error = error 
+                    {
+                        print("Error getting documents: \(error)")
+                    } else 
+                    {
+                        var index = 1
+                        for document in querySnapshot?.documents ?? [] 
+                        {
+                            let data = document.data()
+                            if let Address = data["Address"] as? String {
+                                switch index {
+                                case 1:
+                                    self.travel1 = Address
+                                case 2:
+                                    self.travel2 = Address
+                                case 3:
+                                    self.travel3 = Address
+                                case 4:
+                                    self.travel4 = Address
+                                default:
+                                    break
+                                }
+                                index += 1
                             }
-                            index += 1
                         }
                     }
-                }
             }
+        }
     }
 
-    
     init () {}
     
     func logOut() {
