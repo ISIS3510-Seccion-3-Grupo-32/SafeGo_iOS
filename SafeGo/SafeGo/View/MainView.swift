@@ -30,16 +30,11 @@ struct MainView: View {
         }
         else if viewController.isSignedIn && !viewController.currentUserId.isEmpty
         {
-            if viewController.showForms {
-                NavigationLink(
-                    destination: HomeView(),
-                    isActive: $navigateToHomeView,
-                    label: {
-                        UserForm() {
-                            viewController.setUserFormTimeStamp()
-                            navigateToHomeView = true
-                        }
-                    })
+            if (viewController.showForms && navigateToHomeView == false) {
+                UserForm() {
+                    viewController.setUserFormTimeStamp()
+                    navigateToHomeView = true
+                }
                 } else {
                 HomeView()
             }

@@ -44,10 +44,14 @@ class UserFormController: ObservableObject {
     
     func userPreferencesAsDictionary() -> [String: String] {
         return [
-            "deviceForSafeNavigation": preferences.deviceForSafeNavigation,
-            "deviceForReportCrime": preferences.deviceForReportCrime,
-            "deviceForLogin": preferences.deviceForLogin,
-            "deviceForSuggestion": preferences.deviceForSuggestion
+            "question1": "SafeNavigation",
+            "answer1": preferences.deviceForSafeNavigation,
+            "question2": "DeviceForReportingACrime",
+            "answer2": preferences.deviceForReportCrime,
+            "question3": "DeviceForLogin",
+            "answer3": preferences.deviceForLogin,
+            "question4": "DeviceForSuggestions",
+            "answer4": preferences.deviceForSuggestion
         ]
     }
 
