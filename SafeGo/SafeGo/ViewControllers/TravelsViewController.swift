@@ -19,9 +19,10 @@ class TravelsViewController: ObservableObject
     
     private var db = Firestore.firestore()
     
-    func fetchData() {
-        db.collection("directions")
-            .order(by: "timestamp", descending: true) 
+    func fetchData() 
+    {
+        db.collection("HistoryTravels")
+            .order(by: "timestamp", descending: true)
             .limit(to: 4)
             .getDocuments { (querySnapshot, error) in
                 if let error = error {
@@ -30,7 +31,7 @@ class TravelsViewController: ObservableObject
                     var index = 1
                     for document in querySnapshot?.documents ?? [] {
                         let data = document.data()
-                        if let directions = data["directions"] as? String {
+                        if let directions = data["HistoryTravels"] as? String {
                             switch index {
                             case 1:
                                 self.travel1 = directions

@@ -8,7 +8,6 @@
 import SwiftUI
 import UIKit
 
-// ProfileViewController for picking and saving profile image
 struct ProfileViewController: UIViewControllerRepresentable {
     @Binding var image: Image?
     @Binding var userDefaultsKey: String
