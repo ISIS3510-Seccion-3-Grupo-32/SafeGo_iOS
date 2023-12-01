@@ -22,7 +22,7 @@ class ServiceAdapter: ObservableObject
     private let collectionReferenceBugs = "bugReports"
     private let collectionReferenceCrimes = "crimeReports"
     private let collectionReferenceUser = "users"
-    private let endpointReferenceUserFomr = "http://34.125.232.227:8080/analytics/userform/"
+    let endpointReferenceUserFomr = Bundle.main.infoDictionary!["EndpointReferenceUserFomr"] as! String
 
     func uploadToCloudSuggestions(description: String, completion: @escaping (Result<Void, Error>) -> Void) {
             let data = ["description": description]
