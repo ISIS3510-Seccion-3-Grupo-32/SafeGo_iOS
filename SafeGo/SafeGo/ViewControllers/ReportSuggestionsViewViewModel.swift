@@ -18,12 +18,14 @@ class ReportSuggestionsViewController: ObservableObject {
     }
 
     func sendDescription(_ description: String) {
-        serviceAdapter.uploadToCloudSuggestions(description: description) { result in
-            switch result {
-            case .success:
-                self.displayMessage("Report sent")
-            case .failure(let error):
-                self.displayMessage("Report could not be sent: \(error.localizedDescription)")
+        DispatchQueue.global(qos: .background).async{
+            self.serviceAdapter.uploadToCloudSuggestions(description: description) { result in
+                switch result {
+                case .success:
+                    self.displayMessage("Report sent")
+                case .failure(let error):
+                    self.displayMessage("Report could not be sent: \(error.localizedDescription)")
+                }
             }
         }
     }
