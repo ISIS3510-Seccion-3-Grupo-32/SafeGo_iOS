@@ -18,15 +18,12 @@ class ReportBugViewController: ObservableObject {
     }
 
     func sendDescription(_ description: String) {
-        
-        DispatchQueue.global(qos: .background).async{
-            self.serviceAdapter.uploadToCloudBugs(description: description) { result in
-                switch result {
-                case .success:
-                    self.displayMessage("Report sent")
-                case .failure(let error):
-                    self.displayMessage("Report could not be sent: \(error.localizedDescription)")
-                }
+        serviceAdapter.uploadToCloudBugs(description: description) { result in
+            switch result {
+            case .success:
+                self.displayMessage("Report sent")
+            case .failure(let error):
+                self.displayMessage("Report could not be sent: \(error.localizedDescription)")
             }
         }
     }
