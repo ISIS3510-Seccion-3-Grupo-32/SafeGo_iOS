@@ -9,6 +9,8 @@ import FirebaseAuth
 import Foundation
 
 class MainViewController: ObservableObject {
+    private let userModel = UserModel()
+    @Published var showForms: Bool = false
     @Published var currentUserId: String = ""
     private var handler: AuthStateDidChangeListenerHandle?
     
@@ -23,5 +25,17 @@ class MainViewController: ObservableObject {
     public var isSignedIn: Bool {
         Auth.auth().currentUser != nil
         
+    }
+    
+    func setUserFormTimeStamp() {
+        DispatchQueue.main.async {
+            self.userModel.setTimeStamp()
+        }
+    }
+    
+    func calculateIfIsTime() {
+        DispatchQueue.main.async {
+            self.showForms = self.userModel.calculateMOnths()
+        }
     }
 }

@@ -12,6 +12,7 @@ class UserFormController: ObservableObject {
     let devices = ["Apple Watch", "Headphones", "Mobile Phone", "iPad"]
 
     func submitForm() {
-        // Add code to handle form submission
+        // Enviar la informacion al back
+        // Redirigir al homeView
     }
 }

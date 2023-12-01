@@ -23,12 +23,21 @@ struct MainView: View {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 7)
                     {
                         self.showSafeGoView = false
+                        viewController.calculateIfIsTime()
                     }
             }
         } 
         else if viewController.isSignedIn && !viewController.currentUserId.isEmpty
         {
-            HomeView()
+            if (viewController.showForms) {
+                UserForm().onAppear {
+                    DispatchQueue.main.async {
+                        viewController.setUserFormTimeStamp()
+                    }
+                }
+            } else {
+                HomeView()
+            }
         } else {
             LoginView()
         }

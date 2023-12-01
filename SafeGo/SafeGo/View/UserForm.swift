@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserForm: View {
-    @ObservedObject var controller = UserFormController()
+    @ObservedObject var viewController = UserFormController()
 
     var body: some View {
         VStack{
@@ -18,35 +18,35 @@ struct UserForm: View {
                 .bold()
                 .padding()
 
-            Text("Which are the devices that you use the most for the followig funcitnalities?").padding()
+            Text("Which are the devices that you use the most for the followig functionalities?").padding()
             Form {
                 Section(header: Text("Safe Navigation").bold()) {
-                    Picker("Most Used Device", selection: $controller.preferences.deviceForSafeNavigation) {
-                        ForEach(controller.devices, id: \.self) { device in
+                    Picker("Most Used Device", selection: $viewController.preferences.deviceForSafeNavigation) {
+                        ForEach(viewController.devices, id: \.self) { device in
                             Text(device).tag(device)
                         }
                     }
                 }
 
                 Section(header: Text("Report a Crime").bold()) {
-                    Picker("Most Used Device", selection: $controller.preferences.deviceForReportCrime) {
-                        ForEach(controller.devices, id: \.self) { device in
+                    Picker("Most Used Device", selection: $viewController.preferences.deviceForReportCrime) {
+                        ForEach(viewController.devices, id: \.self) { device in
                             Text(device).tag(device)
                         }
                     }
                 }
 
                 Section(header: Text("Login").bold()) {
-                    Picker("Most Used Device", selection: $controller.preferences.deviceForLogin) {
-                        ForEach(controller.devices, id: \.self) { device in
+                    Picker("Most Used Device", selection: $viewController.preferences.deviceForLogin) {
+                        ForEach(viewController.devices, id: \.self) { device in
                             Text(device).tag(device)
                         }
                     }
                 }
 
                 Section(header: Text("Send a Suggestion").bold()) {
-                    Picker("Most Used Device", selection: $controller.preferences.deviceForSuggestion) {
-                        ForEach(controller.devices, id: \.self) { device in
+                    Picker("Most Used Device", selection: $viewController.preferences.deviceForSuggestion) {
+                        ForEach(viewController.devices, id: \.self) { device in
                             Text(device).tag(device)
                         }
                     }
@@ -54,7 +54,7 @@ struct UserForm: View {
 
                 Section {
                     Button(action: {
-                        self.controller.submitForm()
+                        self.viewController.submitForm()
                     }) {
                         Text("Submit")
                     }
