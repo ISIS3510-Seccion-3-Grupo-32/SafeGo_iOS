@@ -40,6 +40,7 @@ class RegisterViewController: ObservableObject {
             
             DispatchQueue.main.async {
                 self?.showAlert = true
+                self?.user.setTimeStamp()
             }
         }
     }

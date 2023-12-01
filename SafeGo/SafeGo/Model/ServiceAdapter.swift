@@ -22,6 +22,7 @@ class ServiceAdapter: ObservableObject
     private let collectionReferenceBugs = "bugReports"
     private let collectionReferenceCrimes = "crimeReports"
     private let collectionReferenceUser = "users"
+    private let endpointReferenceUserFomr = "34.125.232.227:8080/analytics/userForm/"
 
     func uploadToCloudSuggestions(description: String, completion: @escaping (Result<Void, Error>) -> Void) {
             let data = ["description": description]
@@ -70,6 +71,28 @@ class ServiceAdapter: ObservableObject
             }
         }
     }
+    
+    func uploadToAnalyticsForms(jsonString: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        if let endpointURL = URL(string: endpointReferenceUserFomr) {
+            var request = URLRequest(url: endpointURL)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonString.data(using: .utf8)
+
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.success(()))
+                }
+            }
+            task.resume()
+        } else {
+            // Handle invalid URL
+            completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
+        }
+    }
+
 
     func connectGCPClassifyBugs(text: String) {
     

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct UserForm: View {
-    @ObservedObject var viewController = UserFormController()
+    @ObservedObject var viewController = UserFormController(serviceApadter: ServiceAdapter())
+    var onSubmit: () -> Void
 
     var body: some View {
         VStack{
@@ -54,7 +55,8 @@ struct UserForm: View {
 
                 Section {
                     Button(action: {
-                        self.viewController.submitForm()
+                        viewController.submitForm()
+                        onSubmit()
                     }) {
                         Text("Submit")
                     }
@@ -69,6 +71,8 @@ struct UserForm: View {
 
 struct UserForm_Previews: PreviewProvider {
     static var previews: some View {
-        UserForm()
+        UserForm() {
+            print("Informe enviado al back...")
+        }
     }
 }
