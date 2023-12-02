@@ -4,11 +4,11 @@
 //
 //  Created by Juan Felipe on 22/09/23.
 //
-
 import SwiftUI
 import MapKit
 import CoreLocation
 import Firebase
+import FirebaseAuth
 
 class HomeViewController: ObservableObject {
     @Published var whereto = ""
@@ -24,9 +24,9 @@ class HomeViewController: ObservableObject {
     
 
     private let db = Firestore.firestore()
-    private let collectionReference = "directions"
+    private let collectionReference = "HistoryTravels"
 
-    init() 
+    init()
     {
         if let savedAddresses = UserDefaults.standard.dictionary(forKey: "savedAddressesChange") as? [String: String]
         {
@@ -41,20 +41,25 @@ class HomeViewController: ObservableObject {
                 self.alertMessage = "Address not found"
                 return
             }
-
-            let data: [String: Any] = [
-                "Address": self.whereto,
-                "Latitude": location.coordinate.latitude,
-                "Longitude": location.coordinate.longitude
-            ]
-
-            let db = Firestore.firestore()
-            db.collection(self.collectionReference).addDocument(data: data) { error in
-                if error != nil {
-                    self.alertMessage = "Address not found"
-                } else {
-                    self.alertMessage = "Ready for your trip"
-                    self.destinationCoordinate = location.coordinate // Set the destination coordinate
+            if let currentUser = Auth.auth().currentUser
+            {
+                let data: [String: Any] =
+                [
+                    "Address": self.whereto,
+                    "Latitude": location.coordinate.latitude,
+                    "Longitude": location.coordinate.longitude,
+                    "User": currentUser.uid,
+                    "timestamp": NSDate().timeIntervalSince1970
+                ]
+                
+                let db = Firestore.firestore()
+                db.collection(self.collectionReference).addDocument(data: data) { error in
+                    if error != nil {
+                        self.alertMessage = "Address not found"
+                    } else {
+                        self.alertMessage = "Ready for your trip"
+                        self.destinationCoordinate = location.coordinate // Set the destination coordinate
+                    }
                 }
             }
         }
@@ -65,7 +70,7 @@ class HomeViewController: ObservableObject {
         
     }
     
-    func getSavedAddress(icon: String) -> String? 
+    func getSavedAddress(icon: String) -> String?
     {
            return changeAddressesController.savedAddresses[icon]
     }
