@@ -45,7 +45,7 @@ struct TravelsView: View {
             Spacer()
             
                 TextField("Trip1", text: $viewModel.travel1)
-                            .font(Font.custom("DM Sans", size: 17))
+                            .font(Font.custom("DM Sans", size: UIScreen.main.bounds.height / 45))
                             .disabled(true)
                             .padding()
                             .frame(width: UIScreen.main.bounds.width / 1.2, height: UIScreen.main.bounds.height / 15)
@@ -55,7 +55,7 @@ struct TravelsView: View {
                     
                     //Trip2
                 TextField("Trip2", text: $viewModel.travel2)
-                        .font(Font.custom("DM Sans", size: 17))
+                        .font(Font.custom("DM Sans", size: UIScreen.main.bounds.height / 45))
                         .disabled(true)
                         .padding()
                         .frame(width: UIScreen.main.bounds.width / 1.2, height: UIScreen.main.bounds.height / 15)
@@ -65,7 +65,7 @@ struct TravelsView: View {
             
                     //Trip3
                 TextField("Trip3", text: $viewModel.travel3)
-                        .font(Font.custom("DM Sans", size: 17))
+                        .font(Font.custom("DM Sans", size: UIScreen.main.bounds.height / 45))
                         .disabled(true)
                         .padding()
                         .frame(width: UIScreen.main.bounds.width / 1.2, height: UIScreen.main.bounds.height / 15)
@@ -75,7 +75,7 @@ struct TravelsView: View {
             
                     //Trip4
                 TextField("Trip4", text: $viewModel.travel4)
-                        .font(Font.custom("DM Sans", size: 17))
+                        .font(Font.custom("DM Sans", size: UIScreen.main.bounds.height / 45))
                         .disabled(true)
                         .padding()
                         .frame(width: UIScreen.main.bounds.width / 1.2, height: UIScreen.main.bounds.height / 15)
