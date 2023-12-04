@@ -10,14 +10,12 @@
 		<string>en</string>
 		<string>en</string>
 	</array>
-	<key>EndpointReferenceUser</key>
-	<string>"http://34.125.232.227:8080/analytics/closest"</string>
-	<key>EndpointReferenceUserFomr</key>
-	<string>"http://34.125.232.227:8080/analytics/userform/"</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>ServerAddress</key>
+	<string>http://34.125.232.227</string>
 </dict>
 </plist>

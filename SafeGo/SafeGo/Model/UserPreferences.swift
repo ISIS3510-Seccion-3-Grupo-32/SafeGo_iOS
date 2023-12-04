@@ -8,8 +8,8 @@
 import Foundation
 
 struct UserPreferences {
-    var deviceForSafeNavigation: String = ""
-    var deviceForReportCrime: String = ""
-    var deviceForLogin: String = ""
-    var deviceForSuggestion: String = ""
+    var deviceForSafeNavigation: String = "Apple Watch"
+    var deviceForReportCrime: String = "Apple Watch"
+    var deviceForLogin: String = "Apple Watch"
+    var deviceForSuggestion: String = "Apple Watch"
 }

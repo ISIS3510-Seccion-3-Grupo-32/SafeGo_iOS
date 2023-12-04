@@ -22,7 +22,7 @@ class ServiceAdapter: ObservableObject
     private let collectionReferenceBugs = "bugReports"
     private let collectionReferenceCrimes = "crimeReports"
     private let collectionReferenceUser = "users"
-    let endpointReferenceUserFomr = Bundle.main.infoDictionary!["EndpointReferenceUserFomr"] as! String
+    let serverAddress = ServerManager.shared.serverAddresses["ServerAddress"]
 
     func uploadToCloudSuggestions(description: String, completion: @escaping (Result<Void, Error>) -> Void) {
             let data = ["description": description]
@@ -73,7 +73,7 @@ class ServiceAdapter: ObservableObject
     }
     
     func uploadToAnalyticsForms(jsonString: String, completion: @escaping (Result<Void, Error>) -> Void) {
-        if let endpointURL = URL(string: endpointReferenceUserFomr) {
+        if let serverAddress = serverAddress, let endpointURL = URL(string: "http://\(serverAddress):8080/analytics/userform/") {
             var request = URLRequest(url: endpointURL)
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -88,7 +88,7 @@ class ServiceAdapter: ObservableObject
             }
             task.resume()
         } else {
-            // Handle invalid URL
+    
             completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
         }
     }
@@ -120,31 +120,35 @@ class ServiceAdapter: ObservableObject
             print("Invalid URL")
         }
     }
-    
+
     func getTheClosestReport(latitude: Double, longitude: Double, completion: @escaping (Float?, Error?) -> Void) {
         // Set up the URL components
-        let urlComponents = URLComponents(string: "http://34.125.232.227:8080/analytics/closest/\(latitude)/\(longitude)")!
-        
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "http" // Use http instead of https
+        urlComponents.host = serverAddress
+        urlComponents.port = 8080
+        urlComponents.path = "/analytics/closest/\(latitude)/\(longitude)"
+
         // Create the URL from the components
         guard let url = urlComponents.url else {
             print("Invalid URL")
             completion(nil, YourError.invalidURL)
             return
         }
-        
+
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 print("Error: \(error)")
                 completion(nil, error)
                 return
             }
-            
+
             guard let data = data else {
                 print("No data received")
                 completion(nil, YourError.noDataReceived)
                 return
             }
-            
+
             do {
                 let decoder = JSONDecoder()
                 let result = try decoder.decode(Float.self, from: data)
@@ -153,14 +157,16 @@ class ServiceAdapter: ObservableObject
                 completion(roundedResult, nil)
             } catch {
                 print("Error decoding data: \(error)")
-                completion(nil, error)
+                completion(nil, YourError.decodingError)
             }
         }.resume()
     }
 
+
     enum YourError: Error {
         case invalidURL
         case noDataReceived
+        case decodingError
     }
 
 }

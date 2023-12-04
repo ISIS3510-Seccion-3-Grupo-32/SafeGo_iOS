@@ -37,8 +37,8 @@ class UserModel {
         let timestamp = Date().timeIntervalSince1970
         let lastTime = UserDefaults.standard.integer(forKey: "LastFormShown")
         
-        if (Int(timestamp) - lastTime >= 1 ) {
-            return true
+        if (Int(timestamp) - lastTime >= 5259600 ) {
+            return Bool.random()
         }
         return false
     }
