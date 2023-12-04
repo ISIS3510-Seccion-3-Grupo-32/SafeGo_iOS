@@ -53,7 +53,7 @@ struct HomeView: View {
                             {
                                 Image(systemName: "exclamationmark.triangle.fill")
                                     .foregroundColor(.black)
-                                    .font(.system(size: 50))
+                                    .font(.system(size: UIScreen.main.bounds.height / 15))
                             }
                         }
                     }
