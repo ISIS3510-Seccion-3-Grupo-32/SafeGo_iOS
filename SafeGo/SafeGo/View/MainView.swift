@@ -8,29 +8,31 @@
 import SwiftUI
 
 struct MainView: View {
-    
-    @StateObject var viewModel = MainViewController()
+    @ObservedObject var locationManager: LocationModel = LocationModel.shared
+    @StateObject var viewController = MainViewController()
     @State private var showSafeGoView = true
+    @State private var alertValue: Double?
 
-    var body: some View 
-    {
-        if showSafeGoView
-        {
-            SafeGoView()
-                .onAppear 
-            {
-                    // Shows the SafeGoView for 7 seconds and then shows either login view or map view depending if a person is already logged in.
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 7)
-                    {
-                        self.showSafeGoView = false
-                    }
+    var body: some View {
+        Group {
+            if locationManager.userLocation == nil {
+                LocationRequestView()
+            } else {
+                if showSafeGoView {
+                    SafeGoView()
+                        .onAppear {
+                            // Shows the SafeGoView for 7 seconds and then shows either login view or map view depending if a person is already logged in.
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
+                                self.showSafeGoView = false
+                            }
+                        }
+                }
+                else if viewController.isSignedIn && !viewController.currentUserId.isEmpty {
+                    HomeView()
+                } else {
+                    LoginView()
+                }
             }
-        } 
-        else if viewModel.isSignedIn && !viewModel.currentUserId.isEmpty
-        {
-            HomeView()
-        } else {
-            LoginView()
         }
     }
 }

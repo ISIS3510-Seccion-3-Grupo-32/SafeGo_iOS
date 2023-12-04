@@ -21,6 +21,7 @@ class ServiceAdapter: ObservableObject
     private let collectionReferenceSuggestions = "suggReports"
     private let collectionReferenceBugs = "bugReports"
     private let collectionReferenceCrimes = "crimeReports"
+    private let collectionReferenceUser = "users"
 
     func uploadToCloudSuggestions(description: String, completion: @escaping (Result<Void, Error>) -> Void) {
             let data = ["description": description]
@@ -33,6 +34,16 @@ class ServiceAdapter: ObservableObject
                 }
             }
         }
+    
+    func uploadUserToCloud(user: User, completion: @escaping (Result<Void, Error>) -> Void) {
+        db.collection(collectionReferenceUser).document(user.id).setData(user.asDictionary()) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
 
     func uploadToCloudBugs(description: String, completion: @escaping (Result<Void, Error>) -> Void) {
             let data = ["description": description]
@@ -85,4 +96,47 @@ class ServiceAdapter: ObservableObject
             print("Invalid URL")
         }
     }
+    
+    func getTheClosestReport(latitude: Double, longitude: Double, completion: @escaping (Float?, Error?) -> Void) {
+        // Set up the URL components
+        let urlComponents = URLComponents(string: "http://localhost:8000/analytics/closest/\(latitude)/\(longitude)")!
+        
+        // Create the URL from the components
+        guard let url = urlComponents.url else {
+            print("Invalid URL")
+            completion(nil, YourError.invalidURL)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                print("Error: \(error)")
+                completion(nil, error)
+                return
+            }
+            
+            guard let data = data else {
+                print("No data received")
+                completion(nil, YourError.noDataReceived)
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let result = try decoder.decode(Float.self, from: data)
+                let roundedResult = round(result * 100) / 100 // Round to two decimal places
+                print("Received data: \(roundedResult)")
+                completion(roundedResult, nil)
+            } catch {
+                print("Error decoding data: \(error)")
+                completion(nil, error)
+            }
+        }.resume()
+    }
+
+    enum YourError: Error {
+        case invalidURL
+        case noDataReceived
+    }
+
 }
