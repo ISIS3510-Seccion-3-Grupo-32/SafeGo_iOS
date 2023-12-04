@@ -175,6 +175,7 @@ struct UserComplaintsView: View {
                 .alert(isPresented: $viewController.showAlert) {
                     Alert(title: Text("Closest Report"), message: Text(viewController.alertMessage), dismissButton: .default(Text("OK")))
                 }
+                .disabled($viewController.disablebutton.wrappedValue)
 
 
             }

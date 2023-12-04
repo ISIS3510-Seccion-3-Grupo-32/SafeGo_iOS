@@ -15,7 +15,5 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>ServerAddress</key>
-	<string>http://34.125.232.227</string>
 </dict>
 </plist>
