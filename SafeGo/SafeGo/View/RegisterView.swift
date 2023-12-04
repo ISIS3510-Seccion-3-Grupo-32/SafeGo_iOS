@@ -73,10 +73,14 @@ struct RegisterView: View {
 
                     
                     ButtonFactory.createButton(title: "Register") {
-                        viewController.register()
-                    }.alert(isPresented: $viewController.showAlert) {
+                        DispatchQueue.main.async {
+                            viewController.register()
+                        }
+                    }
+                    .alert(isPresented: $viewController.showAlert) {
                         Alert(title: Text("Register"), message: Text(viewController.alertMessage), dismissButton: .default(Text("Ok")))
                     }
+                    .disabled($viewController.disablebutton.wrappedValue)
                     
                     Spacer()
 

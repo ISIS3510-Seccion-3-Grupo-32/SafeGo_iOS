@@ -22,6 +22,7 @@ class ServiceAdapter: ObservableObject
     private let collectionReferenceBugs = "bugReports"
     private let collectionReferenceCrimes = "crimeReports"
     private let collectionReferenceUser = "users"
+    let serverAddress = ServerManager.shared.serverAddresses["ServerAddress"]
 
     func uploadToCloudSuggestions(description: String, completion: @escaping (Result<Void, Error>) -> Void) {
             let data = ["description": description]
@@ -46,30 +47,53 @@ class ServiceAdapter: ObservableObject
     }
 
     func uploadToCloudBugs(description: String, completion: @escaping (Result<Void, Error>) -> Void) {
-            let data = ["description": description]
+        
+        let data = ["description": description]
 
-            db.collection(collectionReferenceBugs).addDocument(data: data) { error in
-                if let error = error {
-                    completion(.failure(error))
-                } else {
-                    completion(.success(()))
-                }
+        db.collection(collectionReferenceBugs).addDocument(data: data) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
             }
         }
+    }
     
     
     func uploadToCloudCrimes(description: String, completion: @escaping (Result<Void, Error>) -> Void) {
-            let data = ["description": description]
+        let data = ["description": description]
 
-            db.collection(collectionReferenceCrimes).addDocument(data: data) { error in
+        db.collection(collectionReferenceCrimes).addDocument(data: data) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
+    
+    func uploadToAnalyticsForms(jsonString: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        if let serverAddress = serverAddress, let endpointURL = URL(string: "http://\(serverAddress):8080/analytics/userform/") {
+            var request = URLRequest(url: endpointURL)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonString.data(using: .utf8)
+
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 if let error = error {
                     completion(.failure(error))
                 } else {
                     completion(.success(()))
                 }
             }
-        }
+            task.resume()
+        } else {
     
+            completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
+        }
+    }
+
+
     func connectGCPClassifyBugs(text: String) {
     
         let urlString = "https://us-central1-safego-399621.cloudfunctions.net/classify-bugs"
@@ -96,31 +120,35 @@ class ServiceAdapter: ObservableObject
             print("Invalid URL")
         }
     }
-    
+
     func getTheClosestReport(latitude: Double, longitude: Double, completion: @escaping (Float?, Error?) -> Void) {
         // Set up the URL components
-        let urlComponents = URLComponents(string: "http://localhost:8000/analytics/closest/\(latitude)/\(longitude)")!
-        
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "http" // Use http instead of https
+        urlComponents.host = serverAddress
+        urlComponents.port = 8080
+        urlComponents.path = "/analytics/closest/\(latitude)/\(longitude)"
+
         // Create the URL from the components
         guard let url = urlComponents.url else {
             print("Invalid URL")
             completion(nil, YourError.invalidURL)
             return
         }
-        
+
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 print("Error: \(error)")
                 completion(nil, error)
                 return
             }
-            
+
             guard let data = data else {
                 print("No data received")
                 completion(nil, YourError.noDataReceived)
                 return
             }
-            
+
             do {
                 let decoder = JSONDecoder()
                 let result = try decoder.decode(Float.self, from: data)
@@ -129,14 +157,16 @@ class ServiceAdapter: ObservableObject
                 completion(roundedResult, nil)
             } catch {
                 print("Error decoding data: \(error)")
-                completion(nil, error)
+                completion(nil, YourError.decodingError)
             }
         }.resume()
     }
 
+
     enum YourError: Error {
         case invalidURL
         case noDataReceived
+        case decodingError
     }
 
 }

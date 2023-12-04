@@ -11,6 +11,7 @@ struct MainView: View {
     @ObservedObject var locationManager: LocationModel = LocationModel.shared
     @StateObject var viewController = MainViewController()
     @State private var showSafeGoView = true
+    @State private var navigateToHomeView = false
     @State private var alertValue: Double?
 
     var body: some View {
@@ -28,7 +29,14 @@ struct MainView: View {
                         }
                 }
                 else if viewController.isSignedIn && !viewController.currentUserId.isEmpty {
-                    HomeView()
+                    if (viewController.showForms && navigateToHomeView == false) {
+                        UserForm() {
+                            viewController.setUserFormTimeStamp()
+                            navigateToHomeView = true
+                        }
+                    } else {
+                        HomeView()
+                    }
                 } else {
                     LoginView()
                 }
@@ -37,7 +45,7 @@ struct MainView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider 
+struct ContentView_Previews: PreviewProvider
 {
     static var previews: some View
     {
