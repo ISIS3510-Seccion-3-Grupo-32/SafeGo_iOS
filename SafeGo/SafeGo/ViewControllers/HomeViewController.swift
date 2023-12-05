@@ -21,9 +21,6 @@ class HomeViewController: ObservableObject {
     @Published var savedAddresses: [String: String] = [:]
     @StateObject var changeAddressesController = ChangeAddressesViewController()
 
-    
-
-    private let db = Firestore.firestore()
     private let collectionReference = "HistoryTravels"
 
     init()

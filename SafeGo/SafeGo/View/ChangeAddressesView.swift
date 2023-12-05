@@ -17,6 +17,7 @@ struct ChangeAddressesView: View {
     @State private var showAlert = false
     @State private var alertMessage = ""
     @State private var navigateToHome = false
+    private let font = "DM Sans"
 
     var body: some View {
         VStack {
@@ -50,14 +51,14 @@ struct ChangeAddressesView: View {
             Spacer()
 
             Text("Change addresses")
-                .font(Font.custom("DM Sans", size: 35))
+                .font(Font.custom(font, size: 35))
                 .foregroundColor(.white)
                 .bold()
                 .padding(.bottom, 10)
                 .frame(width: UIScreen.main.bounds.width - 40,
                        alignment: .leading)
             Text("Simply click on an icon, write in your new address and then click on save changes")
-                .font(Font.custom("DM Sans", size: 20))
+                .font(Font.custom(font, size: 20))
                 .foregroundColor(.white)
                 .bold()
                 .frame(width: UIScreen.main.bounds.width - 40,
@@ -107,7 +108,7 @@ struct ChangeAddressesView: View {
                     Image(systemName: "heart")
                         .font(.system(size: 40))
                         .padding()
-                        .foregroundColor(isButtonSelected["heart"] == true ? .black : buttonColor)
+                        .foregroundColor(isButtonSelected["heart"] ?? false ? .black : buttonColor)
                 }
             }
 
@@ -121,7 +122,7 @@ struct ChangeAddressesView: View {
                        alignment: .center)
                 .background(Color.white)
                 .cornerRadius(10)
-                .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
+                .font(.custom(font, size: UIScreen.main.bounds.height / 35))
                 .foregroundColor(.gray)
                 .shadow(radius: 10)
 
@@ -138,7 +139,7 @@ struct ChangeAddressesView: View {
                 }
             }) {
                 Text("Save changes")
-                    .font(.custom("DM Sans", size: UIScreen.main.bounds.height / 35))
+                    .font(.custom(font, size: UIScreen.main.bounds.height / 35))
                     .padding()
                     .foregroundColor(.black)
                     .background(buttonColor)
