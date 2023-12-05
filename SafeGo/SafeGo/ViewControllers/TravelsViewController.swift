@@ -35,16 +35,16 @@ class TravelsViewController: ObservableObject
                         for document in querySnapshot?.documents ?? []
                         {
                             let data = document.data()
-                            if let Address = data["Address"] as? String {
+                            if let travelAddress = data["Address"] as? String {
                                 switch index {
                                 case 1:
-                                    self.travel1 = Address
+                                    self.travel1 = travelAddress
                                 case 2:
-                                    self.travel2 = Address
+                                    self.travel2 = travelAddress
                                 case 3:
-                                    self.travel3 = Address
+                                    self.travel3 = travelAddress
                                 case 4:
-                                    self.travel4 = Address
+                                    self.travel4 = travelAddress
                                 default:
                                     break
                                 }
@@ -55,8 +55,6 @@ class TravelsViewController: ObservableObject
             }
         }
     }
-
-    init () {}
     
     func logOut() {
         do {

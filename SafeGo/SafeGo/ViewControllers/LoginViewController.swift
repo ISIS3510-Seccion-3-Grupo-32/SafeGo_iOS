@@ -15,9 +15,6 @@ class LoginViewController: ObservableObject {
     @Published var showAlert = false
     @Published var disablebutton = false
     
-    init() {
-    }
-    
     func login() {
         self.disablebutton = true
         guard validation() else {
