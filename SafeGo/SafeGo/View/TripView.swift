@@ -9,6 +9,8 @@ import SwiftUI
 
 struct TripView: View 
 {
+    @StateObject private var connectivityViewModel = ConnectivityViewModel()
+    @StateObject var connectivityViewController = ConnectivityViewController()
     let address: String?
     let icon: String
 
@@ -17,46 +19,32 @@ struct TripView: View
             VStack() {
                 HStack() {
                     NavigationLink(destination: HomeView()
-                        .navigationBarBackButtonHidden(true))
-                    {
+                        .navigationBarBackButtonHidden(true)) {
                         Image(systemName: "house.fill")
                             .foregroundColor(.black)
                             .font(.system(size: 40))
                     }
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    Spacer()
+
                     Spacer()
                     NavigationLink(destination: UserComplaintsView()
-                        .navigationBarBackButtonHidden(true))
-                    {
+                        .navigationBarBackButtonHidden(true)) {
                         Image(systemName: "line.horizontal.3")
                             .foregroundColor(.black)
                             .font(.system(size: 40))
                     }
                 }
                 .frame(width: UIScreen.main.bounds.width / 1.2)
-
                 Spacer()
-                Spacer()
-                Spacer()
-
-                VStack
-                {
+                VStack {
                     Spacer()
                     Spacer()
-                    HStack
-                    {
+                    HStack {
                         Image(systemName: "clock")
                             .font(.system(size: 24))
                         Text("You will get there at")
                             .font(.system(size: 20))
                             .foregroundColor(.black)
                     }
-                    
                     Spacer()
 
                     if let address = address {
@@ -74,51 +62,14 @@ struct TripView: View
                             .bold()
                     }
                 }
-
-                Spacer()
                 Spacer()
                 Spacer()
 
-                HStack
-                {
+                HStack {
                     ButtonFactory.createButton(title: "Go") {
-                        // Handle the action when the "Go" button is pressed
                     }
                 }
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
             }
-            
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(hex: 0x96CEB4))
         }

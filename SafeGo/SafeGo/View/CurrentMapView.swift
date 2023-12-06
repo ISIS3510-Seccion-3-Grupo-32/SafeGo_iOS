@@ -11,6 +11,7 @@ import MapKit
 
 struct CurrentMapView: View {
     @State private var cameraPosition: MapCameraPosition = .region(.userRegion)
+    
     var body: some View {
         HStack {
             Map(position: $cameraPosition){
