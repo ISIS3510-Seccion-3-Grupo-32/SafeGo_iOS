@@ -33,6 +33,8 @@
 		30DF54732ABE912E00C03732 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF54722ABE912E00C03732 /* HomeView.swift */; };
 		30DF54752ABE926000C03732 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF54742ABE926000C03732 /* HomeViewController.swift */; };
 		5326326E2ABED9E800F96002 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5326326D2ABED9E800F96002 /* MapViewController.swift */; };
+		E013743F2B20D741004C8BDE /* LRUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E013743E2B20D741004C8BDE /* LRUCache.swift */; };
+		E01374412B20DAFF004C8BDE /* ElemenentsCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01374402B20DAFF004C8BDE /* ElemenentsCache.swift */; };
 		E02E22062B003A9A0042757D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E22052B003A9A0042757D /* Location.swift */; };
 		E02E220A2B03B6AB0042757D /* LocationRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E22092B03B6AB0042757D /* LocationRequestView.swift */; };
 		E02FBEE32B192E8A0007FCB1 /* UserForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FBEE22B192E8A0007FCB1 /* UserForm.swift */; };
@@ -108,6 +110,8 @@
 		30DF54722ABE912E00C03732 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		30DF54742ABE926000C03732 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5326326D2ABED9E800F96002 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		E013743E2B20D741004C8BDE /* LRUCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRUCache.swift; sourceTree = "<group>"; };
+		E01374402B20DAFF004C8BDE /* ElemenentsCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElemenentsCache.swift; sourceTree = "<group>"; };
 		E02E22052B003A9A0042757D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		E02E22092B03B6AB0042757D /* LocationRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRequestView.swift; sourceTree = "<group>"; };
 		E02FBEE22B192E8A0007FCB1 /* UserForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserForm.swift; sourceTree = "<group>"; };
@@ -207,6 +211,8 @@
 				0ECD92072AF8111C00013F3A /* ServiceAdapter.swift */,
 				E02FBEE42B1930660007FCB1 /* UserPreferences.swift */,
 				E05291632B1E28EC007377B9 /* ServerManager.swift */,
+				E013743E2B20D741004C8BDE /* LRUCache.swift */,
+				E01374402B20DAFF004C8BDE /* ElemenentsCache.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -416,6 +422,8 @@
 				E05291642B1E28EC007377B9 /* ServerManager.swift in Sources */,
 				0ECD92142AF95B6700013F3A /* changeAddressesViewController.swift in Sources */,
 				0E57554F2ADA2437009433B6 /* SafeGoView.swift in Sources */,
+				E013743F2B20D741004C8BDE /* LRUCache.swift in Sources */,
+				E01374412B20DAFF004C8BDE /* ElemenentsCache.swift in Sources */,
 				E02FBEE72B1930840007FCB1 /* UserFormViewControler.swift in Sources */,
 				0EB0875C2AF0641500496E31 /* ReportBugView.swift in Sources */,
 				E0FD2D4C2ABA6BF60007A195 /* MainView.swift in Sources */,
