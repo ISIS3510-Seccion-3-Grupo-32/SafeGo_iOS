@@ -34,8 +34,10 @@ class MainViewController: ObservableObject {
     }
     
     func calculateIfIsTime() {
-        DispatchQueue.main.async {
-            self.showForms = self.userModel.calculateMOnths()
+        userModel.calculateMOnths { result in
+            DispatchQueue.main.async {
+                self.showForms = result
+            }
         }
     }
 }
