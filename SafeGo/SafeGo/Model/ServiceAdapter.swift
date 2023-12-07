@@ -35,28 +35,52 @@ class ServiceAdapter: ObservableObject
                 }
             }
         }
-    
+
     func uploadUserToCloud(user: User, completion: @escaping (Result<Void, Error>) -> Void) {
-        db.collection(collectionReferenceUser).document(user.id).setData(user.asDictionary()) { error in
-            if let error = error {
-                completion(.failure(error))
-            } else {
-                completion(.success(()))
+        // Crear una cola de despacho global para realizar operaciones en segundo plano
+        let queue = DispatchQueue.global(qos: .background)
+
+        // Ejecutar la operación de carga en segundo plano
+        queue.async {
+            self.db.collection(self.collectionReferenceUser).document(user.id).setData(user.asDictionary()) { error in
+                if let error = error {
+                    // Si hay un error, llamar al bloque de finalización en el hilo principal
+                    DispatchQueue.main.async {
+                        completion(.failure(error))
+                    }
+                } else {
+                    // Si la operación es exitosa, llamar al bloque de finalización en el hilo principal
+                    DispatchQueue.main.async {
+                        completion(.success(()))
+                    }
+                }
             }
         }
     }
 
-    func uploadToCloudBugs(description: String, completion: @escaping (Result<Void, Error>) -> Void) {
-        
-        let data = ["description": description]
 
-        db.collection(collectionReferenceBugs).addDocument(data: data) { error in
-            if let error = error {
-                completion(.failure(error))
-            } else {
-                completion(.success(()))
+    func uploadToCloudBugs(description: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        // Crear un DispatchWorkItem para realizar la carga en segundo plano
+        let workItem = DispatchWorkItem {
+            // Realizar la carga de información de errores en la nube
+            let data = ["description": description]
+            self.db.collection(self.collectionReferenceBugs).addDocument(data: data) { error in
+                if let error = error {
+                    // Si hay un error, llamar al bloque de finalización en el hilo principal
+                    DispatchQueue.main.async {
+                        completion(.failure(error))
+                    }
+                } else {
+                    // Si la operación es exitosa, llamar al bloque de finalización en el hilo principal
+                    DispatchQueue.main.async {
+                        completion(.success(()))
+                    }
+                }
             }
         }
+
+        // Ejecutar el DispatchWorkItem en una cola global en segundo plano
+        DispatchQueue.global(qos: .background).async(execute: workItem)
     }
     
     
@@ -124,7 +148,7 @@ class ServiceAdapter: ObservableObject
     func getTheClosestReport(latitude: Double, longitude: Double, completion: @escaping (Float?, Error?) -> Void) {
         // Set up the URL components
         var urlComponents = URLComponents()
-        urlComponents.scheme = "http" // Use http instead of https
+        urlComponents.scheme = "http"
         urlComponents.host = serverAddress
         urlComponents.port = 8080
         urlComponents.path = "/analytics/closest/\(latitude)/\(longitude)"
@@ -136,28 +160,44 @@ class ServiceAdapter: ObservableObject
             return
         }
 
+        // Perform the network request asynchronously
         URLSession.shared.dataTask(with: url) { (data, response, error) in
+            // Handle network errors
             if let error = error {
                 print("Error: \(error)")
-                completion(nil, error)
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
                 return
             }
 
+            // Ensure data is received
             guard let data = data else {
                 print("No data received")
-                completion(nil, YourError.noDataReceived)
+                DispatchQueue.main.async {
+                    completion(nil, YourError.noDataReceived)
+                }
                 return
             }
 
+            // Decode the data
             do {
                 let decoder = JSONDecoder()
                 let result = try decoder.decode(Float.self, from: data)
-                let roundedResult = round(result * 100) / 100 // Round to two decimal places
+                let roundedResult = round(result * 100) / 100
                 print("Received data: \(roundedResult)")
-                completion(roundedResult, nil)
+
+                // Call the completion handler on the main thread
+                DispatchQueue.main.async {
+                    completion(roundedResult, nil)
+                }
             } catch {
                 print("Error decoding data: \(error)")
-                completion(nil, YourError.decodingError)
+
+                // Call the completion handler on the main thread
+                DispatchQueue.main.async {
+                    completion(nil, YourError.decodingError)
+                }
             }
         }.resume()
     }

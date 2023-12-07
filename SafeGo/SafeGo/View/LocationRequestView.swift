@@ -47,6 +47,4 @@ struct LocationRequestView_Previews: PreviewProvider {
         LocationRequestView()
     }
 }
-#endif
-
-
+#endif	

@@ -28,18 +28,25 @@ class UserModel {
         return age
     }
     
-    func setTimeStamp() {
-        let timestamp = Date().timeIntervalSince1970
-        UserDefaults.standard.set(timestamp, forKey: "LastFormShown")
-    }
+    let queue = OperationQueue()
     
-    func calculateMOnths() -> Bool{
-        let timestamp = Date().timeIntervalSince1970
-        let lastTime = UserDefaults.standard.integer(forKey: "LastFormShown")
-        
-        if (Int(timestamp) - lastTime >= 5259600 ) {
-            return Bool.random()
+    func setTimeStamp() {
+        queue.addOperation {
+            let timestamp = Date().timeIntervalSince1970
+            UserDefaults.standard.set(timestamp, forKey: "LastFormShown")
         }
-        return false
+    }
+        
+    func calculateMOnths(completion: @escaping (Bool) -> Void) {
+        DispatchQueue.global(qos: .background).async {
+            let timestamp = Date().timeIntervalSince1970
+            let lastTime = UserDefaults.standard.integer(forKey: "LastFormShown")
+            
+            let result = (Int(timestamp) - lastTime >= 5259600)
+            
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
     }
 }
