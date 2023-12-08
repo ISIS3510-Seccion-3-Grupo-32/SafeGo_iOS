@@ -24,6 +24,9 @@ class ServiceAdapter: ObservableObject {
     private let collectionReferenceCrimes = "crimeReports"
     private let collectionReferenceUser = "users"
     let serverAddress = ServerManager.shared.serverAddresses["ServerAddress"]
+    
+    // UserDefaults key for user data
+    private let userDefaultsKey = "userData"
 
     func uploadToCloudSuggestions(description: String, completion: @escaping (Result<Void, Error>) -> Void) {
         let data = ["description": description]
@@ -56,16 +59,21 @@ class ServiceAdapter: ObservableObject {
     func uploadUserToCloud(user: User, completion: @escaping (Result<Void, Error>) -> Void) {
         let queue = DispatchQueue.global(qos: .background)
 
-        // Ejecutar la operación de carga en segundo plano
+        // Execute the upload operation in the background
         queue.async {
+            self.saveUserDataToUserDefaults(user: user)
+            self.saveUserDataToFileSystem(user: user)
+            SQLiteManager.shared.insertUser(user: user)
+
+            // Upload user data to Firestore
             self.db.collection(self.collectionReferenceUser).document(user.id).setData(user.asDictionary()) { error in
                 if let error = error {
-                    // Si hay un error, llamar al bloque de finalización en el hilo principal
+                    // If there's an error, call the completion block on the main thread
                     DispatchQueue.main.async {
                         completion(.failure(error))
                     }
                 } else {
-                    // Si la operación es exitosa, llamar al bloque de finalización en el hilo principal
+                    // If the operation is successful, call the completion block on the main thread
                     DispatchQueue.main.async {
                         completion(.success(()))
                     }
@@ -75,28 +83,42 @@ class ServiceAdapter: ObservableObject {
     }
 
     func uploadToCloudBugs(description: String, completion: @escaping (Result<Void, Error>) -> Void) {
-        // Intentar recuperar datos de la caché
+        // Attempt to retrieve data from the cache
         var usedCachedData = false
 
         if let _ = self.dataCache.retrieveObject(at: "bugsKey") {
-            // Notificar el éxito utilizando los datos de la caché
+            // Notify success using cached data
             usedCachedData = true
             DispatchQueue.main.async {
                 completion(.success(()))
             }
         } else {
-            // Si no hay datos en caché, realizar la carga en la nube
+            // If no cached data, attempt to upload the data to the cloud
             let data = ["description": description]
+            
+            SQLiteManager.shared.insertBug(description: description)
+            
             self.db.collection(self.collectionReferenceBugs).addDocument(data: data) { [weak self] error in
                 if let error = error {
-                    // En caso de error, notificar el error original
-                    DispatchQueue.main.async {
-                        completion(.failure(error))
+                    // In case of an error, fall back to the cached data (if available)
+                    if let _ = self?.dataCache.retrieveObject(at: "bugsKey"), !usedCachedData {
+                        // Notify success using cached data
+                        DispatchQueue.main.async {
+                            completion(.success(()))
+                        }
+                    } else {
+                        // Notify the original error
+                        DispatchQueue.main.async {
+                            completion(.failure(error))
+                        }
                     }
                 } else {
-                    // Si la carga en la nube es exitosa, actualizar la caché en segundo plano
+                    // If the upload to the cloud is successful, update the cache in the background
                     if !usedCachedData {
                         self?.updateCacheInBackground(key: "bugsKey", data: data)
+
+                        // Save data to File System
+                        self?.saveBugsDataToFileSystem(data: data)
                     }
                     DispatchQueue.main.async {
                         completion(.success(()))
@@ -192,8 +214,6 @@ class ServiceAdapter: ObservableObject {
             }
         }
     }
-
-
 
     func connectGCPClassifyBugs(text: String) {
     
@@ -303,5 +323,30 @@ class ServiceAdapter: ObservableObject {
             self.dataCache.setObject(for: key, value: updatedData)
         }
     }
+    
+    private func saveUserDataToFileSystem(user: User) {
+        do {
+            let userData = try JSONEncoder().encode(user)
+            let filePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("userData.json")
+            try userData.write(to: filePath, options: .atomic)
+        } catch {
+            print("Error saving user data to File System: \(error)")
+        }
+    }
+    
+    private func saveUserDataToUserDefaults(user: User) {
+        let userData = try? JSONEncoder().encode(user)
+        UserDefaults.standard.set(userData, forKey: userDefaultsKey)
+    }
 
+    private func saveBugsDataToFileSystem(data: [String: Any]) {
+        do {
+            let bugsData = try JSONSerialization.data(withJSONObject: data, options: [])
+            let filePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("bugsData.json")
+            try bugsData.write(to: filePath, options: .atomic)
+        } catch {
+            print("Error saving bug data to File System: \(error)")
+        }
+    }
 }
+

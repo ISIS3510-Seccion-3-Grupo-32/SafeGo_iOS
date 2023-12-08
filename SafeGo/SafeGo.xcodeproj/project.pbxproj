@@ -46,6 +46,9 @@
 		E02FBEE72B1930840007FCB1 /* UserFormViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FBEE62B1930840007FCB1 /* UserFormViewControler.swift */; };
 		E05291642B1E28EC007377B9 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05291632B1E28EC007377B9 /* ServerManager.swift */; };
 		E062CEBE2B23B17300D4D1F3 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = E062CEBD2B23B17300D4D1F3 /* KeychainAccess */; };
+		E062CEC12B23C35500D4D1F3 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = E062CEC02B23C35500D4D1F3 /* SQLite */; };
+		E062CEC32B23C3FE00D4D1F3 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = E062CEC22B23C3FE00D4D1F3 /* KeychainAccess */; };
+		E062CEC52B23C60100D4D1F3 /* SQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E062CEC42B23C60100D4D1F3 /* SQLiteManager.swift */; };
 		E0829F072ACAFC2900D0FA43 /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0829F062ACAFC2900D0FA43 /* UserState.swift */; };
 		E0829F0A2ACB04F200D0FA43 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E0829F092ACB04F200D0FA43 /* FirebaseAnalytics */; };
 		E0829F0C2ACB04F200D0FA43 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = E0829F0B2ACB04F200D0FA43 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -128,6 +131,7 @@
 		E02FBEE62B1930840007FCB1 /* UserFormViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFormViewControler.swift; sourceTree = "<group>"; };
 		E04FF65B2ACA5F4F002B0014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E05291632B1E28EC007377B9 /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
+		E062CEC42B23C60100D4D1F3 /* SQLiteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteManager.swift; sourceTree = "<group>"; };
 		E0829F062ACAFC2900D0FA43 /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
 		E0829F3F2ACB063000D0FA43 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E0829F412ACB0A5600D0FA43 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E062CEC12B23C35500D4D1F3 /* SQLite in Frameworks */,
 				E0829F1C2ACB04F200D0FA43 /* FirebaseDatabase in Frameworks */,
 				E0829F2A2ACB04F200D0FA43 /* FirebaseFunctionsCombine-Community in Frameworks */,
 				E0829F222ACB04F200D0FA43 /* FirebaseFirestore in Frameworks */,
@@ -174,6 +179,7 @@
 				E0829F182ACB04F200D0FA43 /* FirebaseAuthCombine-Community in Frameworks */,
 				E0829F362ACB04F200D0FA43 /* FirebasePerformance in Frameworks */,
 				E0829F2E2ACB04F200D0FA43 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
+				E062CEC32B23C3FE00D4D1F3 /* KeychainAccess in Frameworks */,
 				E0829F3C2ACB04F200D0FA43 /* FirebaseStorage in Frameworks */,
 				E0829F202ACB04F200D0FA43 /* FirebaseDynamicLinks in Frameworks */,
 				E0829F242ACB04F200D0FA43 /* FirebaseFirestoreCombine-Community in Frameworks */,
@@ -232,6 +238,7 @@
 				E05291632B1E28EC007377B9 /* ServerManager.swift */,
 				E013743E2B20D741004C8BDE /* LRUCache.swift */,
 				E01374402B20DAFF004C8BDE /* ElemenentsCache.swift */,
+				E062CEC42B23C60100D4D1F3 /* SQLiteManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -362,6 +369,8 @@
 				E0829F3D2ACB04F200D0FA43 /* FirebaseStorageCombine-Community */,
 				0E5755512AE088FC009433B6 /* PythonKit */,
 				E062CEBD2B23B17300D4D1F3 /* KeychainAccess */,
+				E062CEC02B23C35500D4D1F3 /* SQLite */,
+				E062CEC22B23C3FE00D4D1F3 /* KeychainAccess */,
 			);
 			productName = SafeGo;
 			productReference = E0FD2D462ABA6BF60007A195 /* SafeGo.app */;
@@ -395,6 +404,7 @@
 				E0829F082ACB04F200D0FA43 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				0E5755502AE088FC009433B6 /* XCRemoteSwiftPackageReference "PythonKit" */,
 				E062CEBC2B23B17300D4D1F3 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				E062CEBF2B23C35500D4D1F3 /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 			);
 			productRefGroup = E0FD2D472ABA6BF60007A195 /* Products */;
 			projectDirPath = "";
@@ -451,6 +461,7 @@
 				0ECD92142AF95B6700013F3A /* changeAddressesViewController.swift in Sources */,
 				0E57554F2ADA2437009433B6 /* SafeGoView.swift in Sources */,
 				E013743F2B20D741004C8BDE /* LRUCache.swift in Sources */,
+				E062CEC52B23C60100D4D1F3 /* SQLiteManager.swift in Sources */,
 				E01374412B20DAFF004C8BDE /* ElemenentsCache.swift in Sources */,
 				E02FBEE72B1930840007FCB1 /* UserFormViewControler.swift in Sources */,
 				0EB0875C2AF0641500496E31 /* ReportBugView.swift in Sources */,
@@ -708,6 +719,14 @@
 				kind = branch;
 			};
 		};
+		E062CEBF2B23C35500D4D1F3 /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.14.1;
+			};
+		};
 		E0829F082ACB04F200D0FA43 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -725,6 +744,16 @@
 			productName = PythonKit;
 		};
 		E062CEBD2B23B17300D4D1F3 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E062CEBC2B23B17300D4D1F3 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+		E062CEC02B23C35500D4D1F3 /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E062CEBF2B23C35500D4D1F3 /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
+		};
+		E062CEC22B23C3FE00D4D1F3 /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E062CEBC2B23B17300D4D1F3 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
