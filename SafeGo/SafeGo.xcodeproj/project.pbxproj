@@ -45,6 +45,7 @@
 		E02FBEE52B1930660007FCB1 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FBEE42B1930660007FCB1 /* UserPreferences.swift */; };
 		E02FBEE72B1930840007FCB1 /* UserFormViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FBEE62B1930840007FCB1 /* UserFormViewControler.swift */; };
 		E05291642B1E28EC007377B9 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05291632B1E28EC007377B9 /* ServerManager.swift */; };
+		E062CEBE2B23B17300D4D1F3 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = E062CEBD2B23B17300D4D1F3 /* KeychainAccess */; };
 		E0829F072ACAFC2900D0FA43 /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0829F062ACAFC2900D0FA43 /* UserState.swift */; };
 		E0829F0A2ACB04F200D0FA43 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E0829F092ACB04F200D0FA43 /* FirebaseAnalytics */; };
 		E0829F0C2ACB04F200D0FA43 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = E0829F0B2ACB04F200D0FA43 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -156,6 +157,7 @@
 				E0829F0A2ACB04F200D0FA43 /* FirebaseAnalytics in Frameworks */,
 				E0829F0C2ACB04F200D0FA43 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				E0829F322ACB04F200D0FA43 /* FirebaseMLModelDownloader in Frameworks */,
+				E062CEBE2B23B17300D4D1F3 /* KeychainAccess in Frameworks */,
 				E0829F262ACB04F200D0FA43 /* FirebaseFirestoreSwift in Frameworks */,
 				E0829F122ACB04F200D0FA43 /* FirebaseAppCheck in Frameworks */,
 				E0829F102ACB04F200D0FA43 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
@@ -359,6 +361,7 @@
 				E0829F3B2ACB04F200D0FA43 /* FirebaseStorage */,
 				E0829F3D2ACB04F200D0FA43 /* FirebaseStorageCombine-Community */,
 				0E5755512AE088FC009433B6 /* PythonKit */,
+				E062CEBD2B23B17300D4D1F3 /* KeychainAccess */,
 			);
 			productName = SafeGo;
 			productReference = E0FD2D462ABA6BF60007A195 /* SafeGo.app */;
@@ -391,6 +394,7 @@
 			packageReferences = (
 				E0829F082ACB04F200D0FA43 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				0E5755502AE088FC009433B6 /* XCRemoteSwiftPackageReference "PythonKit" */,
+				E062CEBC2B23B17300D4D1F3 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = E0FD2D472ABA6BF60007A195 /* Products */;
 			projectDirPath = "";
@@ -696,6 +700,14 @@
 				kind = branch;
 			};
 		};
+		E062CEBC2B23B17300D4D1F3 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		E0829F082ACB04F200D0FA43 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -711,6 +723,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0E5755502AE088FC009433B6 /* XCRemoteSwiftPackageReference "PythonKit" */;
 			productName = PythonKit;
+		};
+		E062CEBD2B23B17300D4D1F3 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E062CEBC2B23B17300D4D1F3 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
 		};
 		E0829F092ACB04F200D0FA43 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

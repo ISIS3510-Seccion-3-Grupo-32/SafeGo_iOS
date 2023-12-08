@@ -19,22 +19,11 @@ struct NoConnectionView: View {
                 .font(.headline)
                 .foregroundColor(.red)
 
-            Text("Please check your connection and try again.")
+            Text("Please check your connection.")
                 .font(.subheadline)
                 .foregroundColor(.gray)
                 .multilineTextAlignment(.center)
                 .padding()
-
-            // You can add a button to try the connection again
-            Button(action: {
-                // Add the logic to try the connection again
-            }) {
-                Text("Try Again")
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(10)
-            }
         }
         .padding()
     }
