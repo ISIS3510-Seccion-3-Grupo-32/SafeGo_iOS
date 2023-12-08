@@ -28,12 +28,21 @@ class ServiceAdapter: ObservableObject {
     func uploadToCloudSuggestions(description: String, completion: @escaping (Result<Void, Error>) -> Void) {
         let data = ["description": description]
 
+        var usedCachedData = false
+
         db.collection(collectionReferenceSuggestions).addDocument(data: data) { [weak self] error in
             if let error = error {
-                // If there's an error, fall back to the cached data (if available)
-                if let cachedData = self?.dataCache.retrieveObject(at: "suggestionsKey") {
+                // Check if there's cached data available
+                if let _ = self?.dataCache.retrieveObject(at: "suggestionsKey") {
+                    // Use the fact that cached data exists as a flag
+                    usedCachedData = true
+                }
+                
+                // If there's an error and cached data was used, consider it a success
+                if usedCachedData {
                     completion(.success(()))
                 } else {
+                    // If there's no cached data or cached data wasn't used, report the original error
                     completion(.failure(error))
                 }
             } else {
@@ -67,8 +76,11 @@ class ServiceAdapter: ObservableObject {
 
     func uploadToCloudBugs(description: String, completion: @escaping (Result<Void, Error>) -> Void) {
         // Intentar recuperar datos de la caché
-        if let cachedData = self.dataCache.retrieveObject(at: "bugsKey") {
+        var usedCachedData = false
+
+        if let _ = self.dataCache.retrieveObject(at: "bugsKey") {
             // Notificar el éxito utilizando los datos de la caché
+            usedCachedData = true
             DispatchQueue.main.async {
                 completion(.success(()))
             }
@@ -83,7 +95,9 @@ class ServiceAdapter: ObservableObject {
                     }
                 } else {
                     // Si la carga en la nube es exitosa, actualizar la caché en segundo plano
-                    self?.updateCacheInBackground(key: "bugsKey", data: data)
+                    if !usedCachedData {
+                        self?.updateCacheInBackground(key: "bugsKey", data: data)
+                    }
                     DispatchQueue.main.async {
                         completion(.success(()))
                     }
@@ -94,8 +108,11 @@ class ServiceAdapter: ObservableObject {
     
     func uploadToCloudCrimes(description: String, completion: @escaping (Result<Void, Error>) -> Void) {
         // Attempt to retrieve data from the cache
-        if let cachedData = self.dataCache.retrieveObject(at: "crimesKey") {
+        var usedCachedData = false
+
+        if let _ = self.dataCache.retrieveObject(at: "crimesKey") {
             // Notify success using cached data
+            usedCachedData = true
             DispatchQueue.main.async {
                 completion(.success(()))
             }
@@ -105,7 +122,7 @@ class ServiceAdapter: ObservableObject {
             self.db.collection(self.collectionReferenceCrimes).addDocument(data: data) { [weak self] error in
                 if let error = error {
                     // If there's an error, fall back to the cached data (if available)
-                    if let cachedData = self?.dataCache.retrieveObject(at: "crimesKey") {
+                    if let _ = self?.dataCache.retrieveObject(at: "crimesKey"), !usedCachedData {
                         // Notify success using cached data
                         DispatchQueue.main.async {
                             completion(.success(()))
@@ -118,7 +135,9 @@ class ServiceAdapter: ObservableObject {
                     }
                 } else {
                     // If the upload is successful, update the cache in the background
-                    self?.updateCacheInBackground(key: "crimesKey", data: data)
+                    if !usedCachedData {
+                        self?.updateCacheInBackground(key: "crimesKey", data: data)
+                    }
                     DispatchQueue.main.async {
                         completion(.success(()))
                     }
@@ -126,11 +145,15 @@ class ServiceAdapter: ObservableObject {
             }
         }
     }
+
     
     func uploadToAnalyticsForms(jsonString: String, completion: @escaping (Result<Void, Error>) -> Void) {
         // Attempt to retrieve data from the cache
-        if let cachedData = self.dataCache.retrieveObject(at: "analyticsFormsKey") {
+        var usedCachedData = false
+
+        if let _ = self.dataCache.retrieveObject(at: "analyticsFormsKey") {
             // Notify success using cached data
+            usedCachedData = true
             DispatchQueue.main.async {
                 completion(.success(()))
             }
@@ -153,7 +176,7 @@ class ServiceAdapter: ObservableObject {
                         DispatchQueue.global().async {
                             // Simulate updating the cache with the newly uploaded data
                             // Replace this with your actual cache update logic
-                            if let data = jsonString.data(using: .utf8) {
+                            if let data = jsonString.data(using: .utf8), !usedCachedData {
                                 self?.dataCache.setObject(for: "analyticsFormsKey", value: data)
                             }
                         }
@@ -169,6 +192,7 @@ class ServiceAdapter: ObservableObject {
             }
         }
     }
+
 
 
     func connectGCPClassifyBugs(text: String) {
