@@ -8,6 +8,7 @@
 import FirebaseFirestore
 import FirebaseAuth
 import Foundation
+import SystemConfiguration
 
 class RegisterViewController: ObservableObject {
     @Published var name = ""
@@ -108,5 +109,4 @@ class RegisterViewController: ObservableObject {
         alertMessage = message
         showAlert = true
     }
-
 }

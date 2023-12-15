@@ -23,7 +23,7 @@ struct MainView: View {
                     SafeGoView()
                         .onAppear {
                             // Shows the SafeGoView for 7 seconds and then shows either login view or map view depending if a person is already logged in.
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                                 self.showSafeGoView = false
                             }
                         }
