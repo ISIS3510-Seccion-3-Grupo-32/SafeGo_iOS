@@ -8,23 +8,35 @@
 import SwiftUI
 
 struct LocationRequestView: View {
+    @StateObject private var connectivityViewModel = ConnectivityViewModel()
+    @StateObject var connectivityViewController = ConnectivityViewController()
+    
     var body: some View {
-        Text("Request Location From User")
-        VStack {
-            Button {
-                LocationModel.shared.requestLocation()
-            } label: {
-                Text("Allow Location")
+        Group {
+            if connectivityViewModel.isConnected {
+                VStack {
+                    Text("Request Location From User")
+                    
+                    Button(action: {
+                        LocationModel.shared.requestLocation()
+                    }) {
+                        Text("Allow Location")
+                            .padding()
+                            .font(.headline)
+                            .foregroundColor(.white)
+                    }
+                    .frame(width: UIScreen.main.bounds.width)
+                    .padding(.horizontal, -32)
+                    .background(Color(.systemBlue))
+                    .clipShape(Capsule())
                     .padding()
-                    .font(.headline)
-                    .foregroundColor(.white)
+                }
+            } else {
+                NoConnectionView()
             }
-            .frame(width: UIScreen.main.bounds.width)
-            .padding(.horizontal, -32)
-            .background(Color(.systemBlue))
-            .clipShape(Capsule())
-            .padding()
-            
+        }
+        .onAppear {
+            connectivityViewModel.isConnected = connectivityViewController.isConnectedToInternet()
         }
     }
 }
@@ -35,5 +47,4 @@ struct LocationRequestView_Previews: PreviewProvider {
         LocationRequestView()
     }
 }
-#endif
-
+#endif	

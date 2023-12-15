@@ -8,6 +8,7 @@
 import FirebaseFirestore
 import FirebaseAuth
 import Foundation
+import SystemConfiguration
 
 class RegisterViewController: ObservableObject {
     @Published var name = ""
@@ -16,6 +17,8 @@ class RegisterViewController: ObservableObject {
     @Published var dateOfBirth = Date()
     @Published var alertMessage: String = ""
     @Published var showAlert = false
+    @Published var isRegistering = false
+    @Published var disablebutton = false
     let user = UserModel()
     let serviceAdapter: ServiceAdapter
     
@@ -24,7 +27,9 @@ class RegisterViewController: ObservableObject {
     }
 
     func register(){
+        self.disablebutton = true
         guard validation() else {
+            self.disablebutton = false
             return
         }
         
@@ -33,6 +38,11 @@ class RegisterViewController: ObservableObject {
                 return
             }
             self?.insertUserInfo(id: userid)
+            
+            DispatchQueue.main.async {
+                self?.showAlert = true
+                self?.user.setTimeStamp()
+            }
         }
     }
     
@@ -84,6 +94,7 @@ class RegisterViewController: ObservableObject {
             return false
         }
         
+        
         guard user.calculateAge(from: dateOfBirth) <= 120 else {
             DispatchQueue.main.async {
                 self.displayMessage("please isnert a valid date")
@@ -98,5 +109,4 @@ class RegisterViewController: ObservableObject {
         alertMessage = message
         showAlert = true
     }
-
 }

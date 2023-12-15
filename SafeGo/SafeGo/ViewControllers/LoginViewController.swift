@@ -13,12 +13,12 @@ class LoginViewController: ObservableObject {
     @Published var password = ""
     @Published var validationError: String = ""
     @Published var showAlert = false
-    
-    init() {
-    }
+    @Published var disablebutton = false
     
     func login() {
+        self.disablebutton = true
         guard validation() else {
+            self.disablebutton = false
             return
         }
         
